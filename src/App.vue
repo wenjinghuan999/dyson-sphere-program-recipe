@@ -1,20 +1,68 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+    <div class="alert alert-danger fixed-top" role="alert">
+      This site is under construction, results may be invalid!
+    </div>
+    <b-container class="p-0 shadow">
+      <b-container class="pt-2 border bg-primary text-white text-left">
+        <h3>1. Select Products</h3>
+      </b-container>
+      <b-container class="border">
+        <b-container class="m-3">
+          <ProductPanel v-model="products"/>
+        </b-container>
+      </b-container>
+      <b-container class="pt-2 border bg-primary text-white text-left">
+        <h5>Summary</h5>
+      </b-container>
+      <b-container class="d-flex flex-wrap justify-content-center border">
+        <ProductAndAmount v-for="product in products" :key="product.item.id" :product="product" class="mt-2 mb-2 mr-1" />
+      </b-container>
+    </b-container>
+    <b-container class="p-0 mt-3 shadow">
+      <b-container class="pt-2 border bg-primary text-white text-left">
+        <h3>2. View Pipeline</h3>
+      </b-container>
+      <b-container class="border">
+        <b-container class="m-3">
+          <b-tabs content-class="mt-3">
+            <b-tab title="Graph" active><p>I'm the first tab</p></b-tab>
+            <b-tab title="Details"><p>I'm the second tab</p></b-tab>
+            <b-tab title="Summary"><p>I'm a disabled tab!</p></b-tab>
+          </b-tabs>
+        </b-container>
+      </b-container>
+    </b-container>
+    <div class="mt-3"> {{ productSummary }} </div>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import HelloWorld from './components/HelloWorld.vue'
+import ProductPanel from './components/ProductPanel.vue'
+import ProductAndAmount from './components/ProductAndAmount.vue'
+import Mixins from './common/mixin'
 
 @Component({
   components: {
-    HelloWorld
+    ProductPanel,
+    ProductAndAmount
   }
 })
-export default class App extends Vue {}
+export default class App extends Vue {
+  private products: Array<typeof Mixins.noneProductAndAmount> = [];
+
+  get productSummary () {
+    let result = ''
+    this.products.forEach(element => {
+      result += element.item.name + '[' + element.amount + '] '
+    })
+    if (result === '') {
+      return 'Nothing'
+    }
+    return result
+  }
+}
 </script>
 
 <style>
