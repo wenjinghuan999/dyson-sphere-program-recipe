@@ -1,0 +1,23 @@
+name: Pages
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [10.x, 12.x, 14.x, 15.x]
+
+    steps:
+    - name: Vue to Github Pages
+      uses: xRealNeon/VuePagesAction@1.0.0
+      with:
+        username: wenjinghuan999
+        reponame: dyson-sphere-program-recipe
+        token: 1c9bd05396e5a169067dc3073da5b624cc19c5c5
