@@ -17,4 +17,4 @@ jobs:
         username: wenjinghuan999
         reponame: dyson-sphere-program-recipe
         token: ${{ secrets.GITHUB_TOKEN }}
-        cname: github-io.wenjinghuan.cn
+        cname: dsp-recipe.wenjinghuan.cn
