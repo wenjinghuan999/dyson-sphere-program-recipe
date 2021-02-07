@@ -1,0 +1,26 @@
+from convert_yaml_common import convert_items
+import yaml
+
+yaml.BaseLoader.add_path_resolver(u'!!int', ['MonoBehaviour', 'dataArray', None, 'ID'], str)
+yaml.BaseLoader.add_path_resolver(u'!!int', ['MonoBehaviour', 'dataArray', None, 'Type'], str)
+yaml.BaseLoader.add_path_resolver(u'!!int', ['MonoBehaviour', 'dataArray', None, 'StackSize'], str)
+yaml.BaseLoader.add_path_resolver(u'!!bool', ['MonoBehaviour', 'dataArray', None, 'IsFluid'], str)
+yaml.BaseLoader.add_path_resolver(u'!!bool', ['MonoBehaviour', 'dataArray', None, 'IsEntity'], str)
+yaml.BaseLoader.add_path_resolver(u'!!bool', ['MonoBehaviour', 'dataArray', None, 'CanBuild'], str)
+yaml.BaseLoader.add_path_resolver(u'!!bool', ['MonoBehaviour', 'dataArray', None, 'BuildInGas'], str)
+yaml.BaseLoader.add_path_resolver(u'!!int', ['MonoBehaviour', 'dataArray', None, 'ModelIndex'], str)
+yaml.BaseLoader.add_path_resolver(u'!!int', ['MonoBehaviour', 'dataArray', None, 'ModelCount'], str)
+yaml.BaseLoader.add_path_resolver(u'!!int', ['MonoBehaviour', 'dataArray', None, 'HpMax'], str)
+yaml.BaseLoader.add_path_resolver(u'!!int', ['MonoBehaviour', 'dataArray', None, 'Ability'], str)
+yaml.BaseLoader.add_path_resolver(u'!!int', ['MonoBehaviour', 'dataArray', None, 'HeatValue'], str)
+yaml.BaseLoader.add_path_resolver(u'!!int', ['MonoBehaviour', 'dataArray', None, 'Potential'], str)
+yaml.BaseLoader.add_path_resolver(u'!!float', ['MonoBehaviour', 'dataArray', None, 'ReactorInc'], str)
+yaml.BaseLoader.add_path_resolver(u'!!int', ['MonoBehaviour', 'dataArray', None, 'FuelType'], str)
+yaml.BaseLoader.add_path_resolver(u'!!int', ['MonoBehaviour', 'dataArray', None, 'BuildIndex'], str)
+yaml.BaseLoader.add_path_resolver(u'!!int', ['MonoBehaviour', 'dataArray', None, 'BuildMode'], str)
+yaml.BaseLoader.add_path_resolver(u'!!int', ['MonoBehaviour', 'dataArray', None, 'GridIndex'], str)
+yaml.BaseLoader.add_path_resolver(u'!!int', ['MonoBehaviour', 'dataArray', None, 'UnlockKey'], str)
+yaml.BaseLoader.add_path_resolver(u'!!int', ['MonoBehaviour', 'dataArray', None, 'PreTechOverride'], str)
+yaml.BaseLoader.add_path_resolver(u'!intlist', ['MonoBehaviour', 'dataArray', None, 'DescFields'], str)
+
+convert_items(r'../disassembly/prototypes/ItemProtoSet.asset', r'../src/assets/prototypes/items.json')

@@ -13,15 +13,13 @@
           <b-container class="d-flex align-items-center m-0 p-0">
             <div class="d-flex float-left align-items-center p-0">
               <b-img
-                v-bind:src="selectedItem.id >= 0
-                  ? require('../assets/icons/' + selectedItem.icon)
-                  : require('../assets/icons/Placeholder.png')"
+                v-bind:src="require('../assets/' + selectedItem.icon + '.png')"
                 style="width: 32px !important; height: 32px !important"
               />
             </div>
             <b-container class="d-md-flex d-none justify-content-center align-items-center border-left border-primary ml-1">
               <span class="button-span">
-                {{ selectedItem.id >= 0 ? selectedItem.name : defaultMessage }}
+                {{ selectedItem.isValid ? selectedItem.name : defaultMessage }}
               </span>
             </b-container>
           </b-container>
@@ -47,15 +45,15 @@
         :arrowPosition="popperProps.arrowPosition"
     >
       <div>
-          <div v-for="rowstart in Array.from({length: 8}, (x, i) => i * 12)" :key="rowstart" class="d-flex bd-highlight">
+          <div v-for="(panelRow, rowIdx) in panel" :key="'row' + rowIdx" class="d-flex bd-highlight">
               <div
-                v-for="item in recipeTable.AllItems.slice(rowstart, rowstart + 12)"
-                :key="item.id"
-                v-on:click="onClick(item)"
+                v-for="(product, colIdx) in panelRow"
+                :key="'row' + rowIdx + 'col' + colIdx"
+                v-on:click="onClick(product)"
                 class="p-2 bd-highlight border border-dark bg-secondary"
               >
                 <img
-                  v-bind:src="require('../assets/icons/' + item.icon)"
+                  v-bind:src="require('../assets/' + product.icon + '.png')"
                   style="width: 32px !important; height: 32px !important"
                 />
               </div>
@@ -69,7 +67,8 @@
 import { Component, Prop, Watch, VModel, Vue, Emit } from 'vue-property-decorator'
 import Mixins from '../common/mixin'
 import VuePopper from '@livelybone/vue-popper'
-import { RecipeTable } from '../common/recipe'
+import { DataLoader } from '../common/dataloader'
+import { Product } from '../common/product'
 import '@livelybone/vue-popper/lib/css/index.css'
 
 @Component({
@@ -81,16 +80,45 @@ import '@livelybone/vue-popper/lib/css/index.css'
 export default class ProductPicker extends Vue {
   @Prop() private defaultMessage!: string;
   @Prop() private showPicker = false;
-  @VModel() private selectedItemAndAmount?: typeof Mixins.noneProductAndAmount;
+  @VModel() private selectedProduct?: Product;
 
-  private readonly recipeTable = RecipeTable.getInstance();
-  private selectedItem = Mixins.noneProduct;
+  private readonly dataLoader = DataLoader.getInstance();
+  private selectedItem: Product = Product.Empty;
   private unit = 's';
   private amount = 1;
 
+  private readonly panel: Array<Array<Product>>;
+
+  constructor () {
+    super()
+    this.panel = this.createPanel()
+    console.log(this.panel)
+  }
+
+  createPanel (): Array<Array<Product>> {
+    const panel: Array<Array<Product>> = []
+    for (let i = 11; i <= 17; i++) {
+      const panelRow: Array<Product> = []
+      for (let j = 1; j <= 12; j++) {
+        const gridIndex = i * 100 + j
+        const item = DataLoader.getInstance().AllItems.find((item) => {
+          return item.GridIndex === gridIndex
+        })
+        if (item !== undefined) {
+          panelRow.push(new Product(item))
+        } else {
+          panelRow.push(Product.Empty)
+        }
+      }
+      panel.push(panelRow)
+    }
+
+    return panel
+  }
+
   @Emit('click')
-  onClick (item = Mixins.noneProduct) {
-    if (item.id >= 0 && item.name !== '') {
+  onClick (item = Product.Empty) {
+    if (item.isValid) {
       this.selectedItem = item
     }
   }
@@ -108,10 +136,9 @@ export default class ProductPicker extends Vue {
   @Watch('selectedItem')
   @Watch('amount')
   onChanged () {
-    this.selectedItemAndAmount = {
-      item: this.selectedItem,
-      amount: this.amount / (this.unit === 'min' ? 60 : 1)
-    }
+    const newProduct = Object.create(this.selectedItem) as Product
+    newProduct.amount = this.amount / (this.unit === 'min' ? 60 : 1)
+    this.selectedProduct = newProduct
   }
 }
 </script>

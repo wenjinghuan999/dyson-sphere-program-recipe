@@ -16,7 +16,7 @@
         <h5>Summary</h5>
       </b-container>
       <b-container class="d-flex flex-wrap justify-content-center border">
-        <ProductAndAmount v-for="product in products" :key="product.item.id" :product="product" class="mt-2 mb-2 mr-1" />
+        <ProductAndAmount v-for="product in products" :key="product.item.ID" :product="product" class="mt-2 mb-2 mr-1" />
       </b-container>
     </b-container>
     <b-container class="p-0 mt-3 shadow">
@@ -39,9 +39,9 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import ProductPanel from './components/ProductPanel.vue'
-import ProductAndAmount from './components/ProductAndAmount.vue'
-import Mixins from './common/mixin'
+import ProductPanel from '@/components/ProductPanel.vue'
+import ProductAndAmount from '@/components/ProductAndAmount.vue'
+import { Product } from '@/common/product'
 
 @Component({
   components: {
@@ -50,12 +50,12 @@ import Mixins from './common/mixin'
   }
 })
 export default class App extends Vue {
-  private products: Array<typeof Mixins.noneProductAndAmount> = [];
+  private products: Array<Product> = [];
 
   get productSummary () {
     let result = ''
-    this.products.forEach(element => {
-      result += element.item.name + '[' + element.amount + '] '
+    this.products.forEach(product => {
+      result += product.name + '[' + product.amount + '] '
     })
     if (result === '') {
       return 'Nothing'

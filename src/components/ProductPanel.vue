@@ -3,7 +3,7 @@
     <div v-for="element in selected" :key="element.pickerId">
       <b-container class="d-flex justify-content-center">
         <ProductPicker
-          v-model="element.item"
+          v-model="element.product"
           v-on:click="onItemPickerClicked(element.pickerId)"
           v-on:input="updateProduct()"
           :showPicker="showPickerId == element.pickerId"
@@ -22,6 +22,7 @@
 import { Component, Prop, VModel, Vue, Watch } from 'vue-property-decorator'
 import ProductPicker from './ProductPicker.vue'
 import Mixins from '../common/mixin'
+import { Product } from '../common/product'
 
 @Component({
   mixins: [Mixins],
@@ -31,18 +32,18 @@ import Mixins from '../common/mixin'
 })
 export default class ProductPanel extends Vue {
   @Prop() private title!: string;
-  @VModel() private products!: Array<typeof Mixins.noneProductAndAmount>;
+  @VModel() private products!: Array<Product>;
 
-  static noneElement = { pickerId: 0, item: Mixins.noneProductAndAmount };
+  static NoneElement = { pickerId: 0, product: Product.Empty };
 
-  private selected: Array<typeof ProductPanel.noneElement> = [
-    Object.create(ProductPanel.noneElement)
+  private selected: Array<typeof ProductPanel.NoneElement> = [
+    Object.create(ProductPanel.NoneElement)
   ];
 
   private showPickerId = -1;
 
   findPicker (pickerId: number) {
-    return this.selected.findIndex((value) => { return value.pickerId === pickerId })
+    return this.selected.findIndex((element) => { return element.pickerId === pickerId })
   }
 
   onDeleteButtonClicked (pickerId: number) {
@@ -53,7 +54,7 @@ export default class ProductPanel extends Vue {
   }
 
   onAddButtonClicked () {
-    const newElement = Object.create(ProductPanel.noneElement)
+    const newElement = Object.create(ProductPanel.NoneElement)
     newElement.pickerId = 0
     while (this.findPicker(newElement.pickerId) >= 0) {
       newElement.pickerId++
@@ -73,16 +74,16 @@ export default class ProductPanel extends Vue {
 
   @Watch('selected', { immediate: true, deep: true })
   updateProduct () {
-    const newProducts: Array<typeof Mixins.noneProductAndAmount> = []
-    this.selected.forEach((value) => {
-      if (value.item.item.id >= 0 && value.item.amount > 0) {
-        const idx = newProducts.findIndex((v) => {
-          return v.item.id === value.item.item.id
+    const newProducts: Array<Product> = []
+    this.selected.forEach((element) => {
+      if (element.product.isValid && element.product.amount > 0) {
+        const idx = newProducts.findIndex((product) => {
+          return product.item.ID === element.product.item.ID
         })
         if (idx >= 0) {
-          newProducts[idx].amount += value.item.amount
+          newProducts[idx].amount += element.product.amount
         } else {
-          newProducts.push(Object.create(value.item))
+          newProducts.push(Object.create(element.product))
         }
       }
     })

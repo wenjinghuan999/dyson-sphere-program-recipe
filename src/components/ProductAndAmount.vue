@@ -4,9 +4,7 @@
       <div class="input-group-prepend">
         <div class="input-group-text">
           <b-img
-            v-bind:src="product.item.id >= 0
-              ? require('../assets/icons/' + product.item.icon)
-              : require('../assets/icons/Placeholder.png')"
+            v-bind:src="require('../assets/' + product.icon + '.png')"
             style="width: 32px !important; height: 32px !important"
           />
         </div>
@@ -21,13 +19,14 @@
 </template>
 
 <script lang="ts">
+import { Product } from '@/common/product'
 import { Component, Prop, Vue } from 'vue-property-decorator'
-import Mixins from '../common/mixin'
+import Mixins from '@/common/mixin'
 
 @Component({
   mixins: [Mixins]
 })
 export default class ProductAndAmount extends Vue {
-  @Prop() private readonly product!: typeof Mixins.noneProductAndAmount;
+  @Prop() private readonly product!: typeof Product;
 }
 </script>

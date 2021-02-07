@@ -1,0 +1,3072 @@
+[
+  {
+    "Name": "\u94c1\u5757",
+    "ID": 1,
+    "SID": 1101,
+    "Type": 1,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 60,
+    "Items": [
+      1001
+    ],
+    "ItemCounts": [
+      1
+    ],
+    "Results": [
+      1101
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 1101,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u78c1\u94c1",
+    "ID": 2,
+    "SID": 1201,
+    "Type": 1,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 90,
+    "Items": [
+      1001
+    ],
+    "ItemCounts": [
+      1
+    ],
+    "Results": [
+      1102
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 1201,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u94dc\u5757",
+    "ID": 3,
+    "SID": 1102,
+    "Type": 1,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 60,
+    "Items": [
+      1002
+    ],
+    "ItemCounts": [
+      1
+    ],
+    "Results": [
+      1104
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 1102,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u77f3\u6750",
+    "ID": 4,
+    "SID": 1105,
+    "Type": 1,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 60,
+    "Items": [
+      1005
+    ],
+    "ItemCounts": [
+      1
+    ],
+    "Results": [
+      1108
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 1105,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u9f7f\u8f6e",
+    "ID": 5,
+    "SID": 1401,
+    "Type": 4,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 60,
+    "Items": [
+      1101
+    ],
+    "ItemCounts": [
+      1
+    ],
+    "Results": [
+      1201
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 1401,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u78c1\u7ebf\u5708",
+    "ID": 6,
+    "SID": 1202,
+    "Type": 4,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 60,
+    "Items": [
+      1102,
+      1104
+    ],
+    "ItemCounts": [
+      2,
+      1
+    ],
+    "Results": [
+      1202
+    ],
+    "ResultCounts": [
+      2
+    ],
+    "GridIndex": 1202,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u98ce\u529b\u6da1\u8f6e\u673a",
+    "ID": 7,
+    "SID": 2104,
+    "Type": 4,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 240,
+    "Items": [
+      1101,
+      1201,
+      1202
+    ],
+    "ItemCounts": [
+      6,
+      1,
+      3
+    ],
+    "Results": [
+      2203
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 2104,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u7535\u529b\u611f\u5e94\u5854",
+    "ID": 8,
+    "SID": 2101,
+    "Type": 4,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 60,
+    "Items": [
+      1101,
+      1202
+    ],
+    "ItemCounts": [
+      2,
+      1
+    ],
+    "Results": [
+      2201
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 2101,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u7535\u78c1\u77e9\u9635",
+    "ID": 9,
+    "SID": 1701,
+    "Type": 15,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 180,
+    "Items": [
+      1202,
+      1301
+    ],
+    "ItemCounts": [
+      1,
+      1
+    ],
+    "Results": [
+      6001
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 1701,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u77e9\u9635\u7814\u7a76\u7ad9",
+    "ID": 10,
+    "SID": 2408,
+    "Type": 4,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 180,
+    "Items": [
+      1101,
+      1110,
+      1301,
+      1202
+    ],
+    "ItemCounts": [
+      8,
+      4,
+      4,
+      4
+    ],
+    "Results": [
+      2901
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 2408,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u68f1\u955c",
+    "ID": 11,
+    "SID": 1305,
+    "Type": 4,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 120,
+    "Items": [
+      1110
+    ],
+    "ItemCounts": [
+      3
+    ],
+    "Results": [
+      1111
+    ],
+    "ResultCounts": [
+      2
+    ],
+    "GridIndex": 1305,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u7535\u6d46\u6fc0\u53d1\u5668",
+    "ID": 12,
+    "SID": 1402,
+    "Type": 4,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 120,
+    "Items": [
+      1202,
+      1111
+    ],
+    "ItemCounts": [
+      4,
+      2
+    ],
+    "Results": [
+      1401
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 1501,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u65e0\u7ebf\u8f93\u7535\u5854",
+    "ID": 13,
+    "SID": 2102,
+    "Type": 4,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 180,
+    "Items": [
+      2201,
+      1401
+    ],
+    "ItemCounts": [
+      1,
+      3
+    ],
+    "Results": [
+      2202
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 2102,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u539f\u6cb9\u8403\u53d6\u7ad9",
+    "ID": 14,
+    "SID": 2306,
+    "Type": 4,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 480,
+    "Items": [
+      1103,
+      1108,
+      1301,
+      1401
+    ],
+    "ItemCounts": [
+      12,
+      12,
+      6,
+      4
+    ],
+    "Results": [
+      2307
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 2306,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u539f\u6cb9\u7cbe\u70bc\u5382",
+    "ID": 15,
+    "SID": 2307,
+    "Type": 4,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 360,
+    "Items": [
+      1103,
+      1108,
+      1301,
+      1401
+    ],
+    "ItemCounts": [
+      10,
+      10,
+      6,
+      6
+    ],
+    "Results": [
+      2308
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 2307,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u7b49\u79bb\u5b50\u7cbe\u70bc",
+    "ID": 16,
+    "SID": 1107,
+    "Type": 3,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 240,
+    "Items": [
+      1007
+    ],
+    "ItemCounts": [
+      2
+    ],
+    "Results": [
+      1120,
+      1114
+    ],
+    "ResultCounts": [
+      1,
+      2
+    ],
+    "GridIndex": 1107,
+    "IconPath": "Icons/ItemRecipe/plasma-refining",
+    "Description": "R\u7b49\u79bb\u5b50\u7cbe\u70bc"
+  },
+  {
+    "Name": "\u9ad8\u80fd\u77f3\u58a8",
+    "ID": 17,
+    "SID": 1106,
+    "Type": 1,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 120,
+    "Items": [
+      1006
+    ],
+    "ItemCounts": [
+      2
+    ],
+    "Results": [
+      1109
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 1106,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u80fd\u91cf\u77e9\u9635",
+    "ID": 18,
+    "SID": 1702,
+    "Type": 15,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 360,
+    "Items": [
+      1109,
+      1120
+    ],
+    "ItemCounts": [
+      2,
+      2
+    ],
+    "Results": [
+      6002
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 1702,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u6c22\u71c3\u6599\u68d2",
+    "ID": 19,
+    "SID": 1210,
+    "Type": 4,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 180,
+    "Items": [
+      1106,
+      1120
+    ],
+    "ItemCounts": [
+      1,
+      5
+    ],
+    "Results": [
+      1801
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 1210,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u63a8\u8fdb\u5668",
+    "ID": 20,
+    "SID": 1310,
+    "Type": 4,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 240,
+    "Items": [
+      1103,
+      1104
+    ],
+    "ItemCounts": [
+      2,
+      3
+    ],
+    "Results": [
+      1405
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 1310,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u52a0\u529b\u63a8\u8fdb\u5668",
+    "ID": 21,
+    "SID": 1311,
+    "Type": 4,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 360,
+    "Items": [
+      1107,
+      1204
+    ],
+    "ItemCounts": [
+      5,
+      5
+    ],
+    "Results": [
+      1406
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 1311,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u5316\u5de5\u5382",
+    "ID": 22,
+    "SID": 2407,
+    "Type": 4,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 300,
+    "Items": [
+      1103,
+      1108,
+      1110,
+      1301
+    ],
+    "ItemCounts": [
+      8,
+      8,
+      8,
+      2
+    ],
+    "Results": [
+      2309
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 2407,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u5851\u6599",
+    "ID": 23,
+    "SID": 1108,
+    "Type": 2,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 180,
+    "Items": [
+      1114,
+      1109
+    ],
+    "ItemCounts": [
+      2,
+      1
+    ],
+    "Results": [
+      1115
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 1108,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u786b\u9178",
+    "ID": 24,
+    "SID": 1406,
+    "Type": 2,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 360,
+    "Items": [
+      1114,
+      1005,
+      1000
+    ],
+    "ItemCounts": [
+      6,
+      8,
+      4
+    ],
+    "Results": [
+      1116
+    ],
+    "ResultCounts": [
+      4
+    ],
+    "GridIndex": 1406,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u6709\u673a\u6676\u4f53",
+    "ID": 25,
+    "SID": 1208,
+    "Type": 2,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 360,
+    "Items": [
+      1115,
+      1114,
+      1000
+    ],
+    "ItemCounts": [
+      2,
+      1,
+      1
+    ],
+    "Results": [
+      1117
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 1208,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u949b\u6676\u77f3",
+    "ID": 26,
+    "SID": 1309,
+    "Type": 4,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 240,
+    "Items": [
+      1117,
+      1106
+    ],
+    "ItemCounts": [
+      1,
+      3
+    ],
+    "Results": [
+      1118
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 1309,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u7ed3\u6784\u77e9\u9635",
+    "ID": 27,
+    "SID": 1703,
+    "Type": 15,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 480,
+    "Items": [
+      1112,
+      1118
+    ],
+    "ItemCounts": [
+      1,
+      1
+    ],
+    "Results": [
+      6003
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 1703,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u5361\u897f\u7c73\u5c14\u6676\u4f53",
+    "ID": 28,
+    "SID": 1505,
+    "Type": 4,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 240,
+    "Items": [
+      1118,
+      1123,
+      1120
+    ],
+    "ItemCounts": [
+      1,
+      2,
+      12
+    ],
+    "Results": [
+      1126
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 1505,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u5361\u897f\u7c73\u5c14\u6676\u4f53\uff08\u9ad8\u6548\uff09",
+    "ID": 29,
+    "SID": 1605,
+    "Type": 4,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 240,
+    "Items": [
+      1014,
+      1123,
+      1120
+    ],
+    "ItemCounts": [
+      6,
+      2,
+      12
+    ],
+    "Results": [
+      1126
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 1605,
+    "IconPath": "Icons/ItemRecipe/casimir-crystal-lv2",
+    "Description": "R\u5361\u897f\u7c73\u5c14\u6676\u4f53\uff08\u9ad8\u6548\uff09"
+  },
+  {
+    "Name": "\u949b\u5316\u73bb\u7483",
+    "ID": 30,
+    "SID": 1304,
+    "Type": 4,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 300,
+    "Items": [
+      1110,
+      1106,
+      1000
+    ],
+    "ItemCounts": [
+      2,
+      2,
+      2
+    ],
+    "Results": [
+      1119
+    ],
+    "ResultCounts": [
+      2
+    ],
+    "GridIndex": 1304,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u77f3\u58a8\u70ef",
+    "ID": 31,
+    "SID": 1109,
+    "Type": 2,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 180,
+    "Items": [
+      1109,
+      1116
+    ],
+    "ItemCounts": [
+      3,
+      1
+    ],
+    "Results": [
+      1123
+    ],
+    "ResultCounts": [
+      2
+    ],
+    "GridIndex": 1109,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u77f3\u58a8\u70ef\uff08\u9ad8\u6548\uff09",
+    "ID": 32,
+    "SID": 1209,
+    "Type": 2,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 120,
+    "Items": [
+      1011
+    ],
+    "ItemCounts": [
+      2
+    ],
+    "Results": [
+      1123,
+      1120
+    ],
+    "ResultCounts": [
+      2,
+      1
+    ],
+    "GridIndex": 1209,
+    "IconPath": "Icons/ItemRecipe/graphene-lv2",
+    "Description": "R\u77f3\u58a8\u70ef\uff08\u9ad8\u6548\uff09"
+  },
+  {
+    "Name": "\u78b3\u7eb3\u7c73\u7ba1",
+    "ID": 33,
+    "SID": 1409,
+    "Type": 2,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 240,
+    "Items": [
+      1123,
+      1106
+    ],
+    "ItemCounts": [
+      3,
+      1
+    ],
+    "Results": [
+      1124
+    ],
+    "ResultCounts": [
+      2
+    ],
+    "GridIndex": 1409,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u7845\u77f3",
+    "ID": 34,
+    "SID": 1403,
+    "Type": 1,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 600,
+    "Items": [
+      1005
+    ],
+    "ItemCounts": [
+      10
+    ],
+    "Results": [
+      1003
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 1403,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u78b3\u7eb3\u7c73\u7ba1\uff08\u9ad8\u6548\uff09",
+    "ID": 35,
+    "SID": 1509,
+    "Type": 2,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 240,
+    "Items": [
+      1015
+    ],
+    "ItemCounts": [
+      2
+    ],
+    "Results": [
+      1124
+    ],
+    "ResultCounts": [
+      2
+    ],
+    "GridIndex": 1509,
+    "IconPath": "Icons/ItemRecipe/nanotube-lv2",
+    "Description": "R\u78b3\u7eb3\u7c73\u7ba1\uff08\u9ad8\u6548\uff09"
+  },
+  {
+    "Name": "\u7c92\u5b50\u5bbd\u5e26",
+    "ID": 36,
+    "SID": 1503,
+    "Type": 4,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 480,
+    "Items": [
+      1124,
+      1113,
+      1115
+    ],
+    "ItemCounts": [
+      2,
+      2,
+      1
+    ],
+    "Results": [
+      1402
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 1503,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u6676\u683c\u7845",
+    "ID": 37,
+    "SID": 1203,
+    "Type": 1,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 120,
+    "Items": [
+      1105
+    ],
+    "ItemCounts": [
+      1
+    ],
+    "Results": [
+      1113
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 1203,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u4f4d\u9762\u8fc7\u6ee4\u5668",
+    "ID": 38,
+    "SID": 1408,
+    "Type": 4,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 720,
+    "Items": [
+      1126,
+      1119
+    ],
+    "ItemCounts": [
+      1,
+      2
+    ],
+    "Results": [
+      1304
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 1408,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u5fae\u578b\u7c92\u5b50\u5bf9\u649e\u673a",
+    "ID": 39,
+    "SID": 2210,
+    "Type": 4,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 900,
+    "Items": [
+      1107,
+      1125,
+      1205,
+      1123,
+      1303
+    ],
+    "ItemCounts": [
+      20,
+      20,
+      50,
+      10,
+      8
+    ],
+    "Results": [
+      2310
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 2210,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u91cd\u6c22",
+    "ID": 40,
+    "SID": 1407,
+    "Type": 5,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 300,
+    "Items": [
+      1120
+    ],
+    "ItemCounts": [
+      10
+    ],
+    "Results": [
+      1121
+    ],
+    "ResultCounts": [
+      5
+    ],
+    "GridIndex": 1407,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u6c18\u6838\u71c3\u6599\u68d2",
+    "ID": 41,
+    "SID": 1211,
+    "Type": 4,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 360,
+    "Items": [
+      1107,
+      1121,
+      1205
+    ],
+    "ItemCounts": [
+      1,
+      10,
+      1
+    ],
+    "Results": [
+      1802
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 1211,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u6e6e\u706d\u7ea6\u675f\u7403",
+    "ID": 42,
+    "SID": 1508,
+    "Type": 4,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 1200,
+    "Items": [
+      1206,
+      1303
+    ],
+    "ItemCounts": [
+      1,
+      1
+    ],
+    "Results": [
+      1403
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 1508,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u4eba\u9020\u6052\u661f",
+    "ID": 43,
+    "SID": 2111,
+    "Type": 4,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 1800,
+    "Items": [
+      1107,
+      1125,
+      1403,
+      1305
+    ],
+    "ItemCounts": [
+      20,
+      20,
+      10,
+      10
+    ],
+    "Results": [
+      2210
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 2111,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u53cd\u7269\u8d28\u71c3\u6599\u68d2",
+    "ID": 44,
+    "SID": 1212,
+    "Type": 4,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 720,
+    "Items": [
+      1122,
+      1120,
+      1403,
+      1107
+    ],
+    "ItemCounts": [
+      10,
+      10,
+      1,
+      1
+    ],
+    "Results": [
+      1803
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 1212,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u5236\u9020\u53f0 Mk.I",
+    "ID": 45,
+    "SID": 2401,
+    "Type": 4,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 120,
+    "Items": [
+      1101,
+      1201,
+      1301
+    ],
+    "ItemCounts": [
+      4,
+      8,
+      4
+    ],
+    "Results": [
+      2303
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 2401,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u5236\u9020\u53f0 Mk.II",
+    "ID": 46,
+    "SID": 2402,
+    "Type": 4,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 180,
+    "Items": [
+      2303,
+      1123,
+      1303
+    ],
+    "ItemCounts": [
+      1,
+      8,
+      4
+    ],
+    "Results": [
+      2304
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 2402,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u5236\u9020\u53f0 Mk.III",
+    "ID": 47,
+    "SID": 2403,
+    "Type": 4,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 240,
+    "Items": [
+      2304,
+      1402,
+      1305
+    ],
+    "ItemCounts": [
+      1,
+      8,
+      2
+    ],
+    "Results": [
+      2305
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 2403,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u91c7\u77ff\u673a",
+    "ID": 48,
+    "SID": 2304,
+    "Type": 4,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 180,
+    "Items": [
+      1101,
+      1301,
+      1202,
+      1201
+    ],
+    "ItemCounts": [
+      4,
+      2,
+      2,
+      2
+    ],
+    "Results": [
+      2301
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 2304,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u62bd\u6c34\u7ad9",
+    "ID": 49,
+    "SID": 2305,
+    "Type": 4,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 240,
+    "Items": [
+      1101,
+      1108,
+      1203,
+      1301
+    ],
+    "ItemCounts": [
+      8,
+      4,
+      4,
+      2
+    ],
+    "Results": [
+      2306
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 2305,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u7535\u8def\u677f",
+    "ID": 50,
+    "SID": 1404,
+    "Type": 4,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 60,
+    "Items": [
+      1101,
+      1104
+    ],
+    "ItemCounts": [
+      2,
+      1
+    ],
+    "Results": [
+      1301
+    ],
+    "ResultCounts": [
+      2
+    ],
+    "GridIndex": 1404,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u5904\u7406\u5668",
+    "ID": 51,
+    "SID": 1504,
+    "Type": 4,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 180,
+    "Items": [
+      1301,
+      1302
+    ],
+    "ItemCounts": [
+      2,
+      2
+    ],
+    "Results": [
+      1303
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 1504,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u91cf\u5b50\u82af\u7247",
+    "ID": 52,
+    "SID": 1604,
+    "Type": 4,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 360,
+    "Items": [
+      1303,
+      1304
+    ],
+    "ItemCounts": [
+      2,
+      2
+    ],
+    "Results": [
+      1305
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 1604,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u5fae\u6676\u5143\u4ef6",
+    "ID": 53,
+    "SID": 1603,
+    "Type": 4,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 120,
+    "Items": [
+      1105,
+      1104
+    ],
+    "ItemCounts": [
+      2,
+      1
+    ],
+    "Results": [
+      1302
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 1603,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u6709\u673a\u6676\u4f53\uff08\u539f\u59cb\uff09",
+    "ID": 54,
+    "SID": 1308,
+    "Type": 4,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 360,
+    "Items": [
+      1030,
+      1031,
+      1000
+    ],
+    "ItemCounts": [
+      20,
+      30,
+      10
+    ],
+    "Results": [
+      1117
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 1308,
+    "IconPath": "Icons/ItemRecipe/crystal-rubber-lv0",
+    "Description": "R\u6709\u673a\u6676\u4f53\uff08\u539f\u59cb\uff09"
+  },
+  {
+    "Name": "\u4fe1\u606f\u77e9\u9635",
+    "ID": 55,
+    "SID": 1704,
+    "Type": 15,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 600,
+    "Items": [
+      1303,
+      1402
+    ],
+    "ItemCounts": [
+      2,
+      1
+    ],
+    "Results": [
+      6004
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 1704,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u7535\u5f27\u7194\u7089",
+    "ID": 56,
+    "SID": 2404,
+    "Type": 4,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 180,
+    "Items": [
+      1101,
+      1108,
+      1301,
+      1202
+    ],
+    "ItemCounts": [
+      4,
+      2,
+      4,
+      2
+    ],
+    "Results": [
+      2302
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 2404,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u73bb\u7483",
+    "ID": 57,
+    "SID": 1205,
+    "Type": 1,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 120,
+    "Items": [
+      1005
+    ],
+    "ItemCounts": [
+      2
+    ],
+    "Results": [
+      1110
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 1205,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "X\u5c04\u7ebf\u88c2\u89e3",
+    "ID": 58,
+    "SID": 1207,
+    "Type": 3,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 240,
+    "Items": [
+      1114,
+      1120
+    ],
+    "ItemCounts": [
+      1,
+      2
+    ],
+    "Results": [
+      1120,
+      1109
+    ],
+    "ResultCounts": [
+      3,
+      1
+    ],
+    "GridIndex": 1207,
+    "IconPath": "Icons/ItemRecipe/X-ray",
+    "Description": "RX\u5c04\u7ebf\u88c2\u89e3"
+  },
+  {
+    "Name": "\u9ad8\u7eaf\u7845\u5757",
+    "ID": 59,
+    "SID": 1103,
+    "Type": 1,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 120,
+    "Items": [
+      1003
+    ],
+    "ItemCounts": [
+      2
+    ],
+    "Results": [
+      1105
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 1103,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u91d1\u521a\u77f3",
+    "ID": 60,
+    "SID": 1206,
+    "Type": 1,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 120,
+    "Items": [
+      1109
+    ],
+    "ItemCounts": [
+      1
+    ],
+    "Results": [
+      1112
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 1206,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u91d1\u521a\u77f3\uff08\u9ad8\u6548\uff09",
+    "ID": 61,
+    "SID": 1306,
+    "Type": 1,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 120,
+    "Items": [
+      1012
+    ],
+    "ItemCounts": [
+      1
+    ],
+    "Results": [
+      1112
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 1306,
+    "IconPath": "Icons/ItemRecipe/diamond-lv2",
+    "Description": "R\u91d1\u521a\u77f3\uff08\u9ad8\u6548\uff09"
+  },
+  {
+    "Name": "\u6676\u683c\u7845\uff08\u9ad8\u6548\uff09",
+    "ID": 62,
+    "SID": 1303,
+    "Type": 4,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 240,
+    "Items": [
+      1013
+    ],
+    "ItemCounts": [
+      1
+    ],
+    "Results": [
+      1113
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 1303,
+    "IconPath": "Icons/ItemRecipe/silicium-high-purity-lv2",
+    "Description": "R\u6676\u683c\u7845\uff08\u9ad8\u6548\uff09"
+  },
+  {
+    "Name": "\u94a2\u6750",
+    "ID": 63,
+    "SID": 1301,
+    "Type": 1,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 180,
+    "Items": [
+      1101
+    ],
+    "ItemCounts": [
+      3
+    ],
+    "Results": [
+      1103
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 1301,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u706b\u529b\u53d1\u7535\u5382",
+    "ID": 64,
+    "SID": 2105,
+    "Type": 4,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 300,
+    "Items": [
+      1101,
+      1108,
+      1201,
+      1202
+    ],
+    "ItemCounts": [
+      10,
+      4,
+      4,
+      4
+    ],
+    "Results": [
+      2204
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 2105,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u949b\u5757",
+    "ID": 65,
+    "SID": 1104,
+    "Type": 1,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 120,
+    "Items": [
+      1004
+    ],
+    "ItemCounts": [
+      2
+    ],
+    "Results": [
+      1106
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 1104,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u949b\u5408\u91d1",
+    "ID": 66,
+    "SID": 1204,
+    "Type": 1,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 720,
+    "Items": [
+      1106,
+      1103,
+      1116
+    ],
+    "ItemCounts": [
+      4,
+      4,
+      8
+    ],
+    "Results": [
+      1107
+    ],
+    "ResultCounts": [
+      4
+    ],
+    "GridIndex": 1204,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u592a\u9633\u80fd\u677f",
+    "ID": 67,
+    "SID": 2106,
+    "Type": 4,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 300,
+    "Items": [
+      1104,
+      1105,
+      1301
+    ],
+    "ItemCounts": [
+      6,
+      6,
+      4
+    ],
+    "Results": [
+      2205
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 2106,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u5149\u5b50\u5408\u5e76\u5668",
+    "ID": 68,
+    "SID": 1502,
+    "Type": 4,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 180,
+    "Items": [
+      1111,
+      1301
+    ],
+    "ItemCounts": [
+      2,
+      1
+    ],
+    "Results": [
+      1404
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 1601,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u5149\u5b50\u5408\u5e76\u5668\uff08\u9ad8\u6548\uff09",
+    "ID": 69,
+    "SID": 1602,
+    "Type": 4,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 180,
+    "Items": [
+      1014,
+      1301
+    ],
+    "ItemCounts": [
+      1,
+      1
+    ],
+    "Results": [
+      1404
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 1602,
+    "IconPath": "Icons/ItemRecipe/photo-shifter-lv2",
+    "Description": "R\u5149\u5b50\u5408\u5e76\u5668\uff08\u9ad8\u6548\uff09"
+  },
+  {
+    "Name": "\u592a\u9633\u5e06",
+    "ID": 70,
+    "SID": 1510,
+    "Type": 4,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 240,
+    "Items": [
+      1123,
+      1404
+    ],
+    "ItemCounts": [
+      1,
+      1
+    ],
+    "Results": [
+      1501
+    ],
+    "ResultCounts": [
+      2
+    ],
+    "GridIndex": 1510,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u7535\u78c1\u8f68\u9053\u5f39\u5c04\u5668",
+    "ID": 71,
+    "SID": 2208,
+    "Type": 4,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 360,
+    "Items": [
+      1103,
+      1201,
+      1303,
+      1205
+    ],
+    "ItemCounts": [
+      20,
+      20,
+      5,
+      10
+    ],
+    "Results": [
+      2311
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 2208,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u5c04\u7ebf\u63a5\u6536\u7ad9",
+    "ID": 72,
+    "SID": 2108,
+    "Type": 4,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 480,
+    "Items": [
+      1103,
+      1105,
+      1404,
+      1303,
+      1205
+    ],
+    "ItemCounts": [
+      20,
+      20,
+      10,
+      5,
+      20
+    ],
+    "Results": [
+      2208
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 2108,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u536b\u661f\u914d\u7535\u7ad9",
+    "ID": 73,
+    "SID": 2103,
+    "Type": 4,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 300,
+    "Items": [
+      2202,
+      1205,
+      1125
+    ],
+    "ItemCounts": [
+      1,
+      10,
+      2
+    ],
+    "Results": [
+      2212
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 2103,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u5149\u5b50\u7269\u8d28\u5316",
+    "ID": 74,
+    "SID": 1608,
+    "Type": 5,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 120,
+    "Items": [
+      1208
+    ],
+    "ItemCounts": [
+      2
+    ],
+    "Results": [
+      1122,
+      1120
+    ],
+    "ResultCounts": [
+      2,
+      2
+    ],
+    "GridIndex": 1608,
+    "IconPath": "Icons/ItemRecipe/photon-formula",
+    "Description": "R\u5149\u5b50\u7269\u8d28\u5316"
+  },
+  {
+    "Name": "\u5b87\u5b99\u77e9\u9635",
+    "ID": 75,
+    "SID": 1706,
+    "Type": 15,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 900,
+    "Items": [
+      6001,
+      6002,
+      6003,
+      6004,
+      6005,
+      1122
+    ],
+    "ItemCounts": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "Results": [
+      6006
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 1706,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u84c4\u7535\u5668",
+    "ID": 76,
+    "SID": 2107,
+    "Type": 4,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 300,
+    "Items": [
+      1101,
+      1205,
+      1113
+    ],
+    "ItemCounts": [
+      6,
+      6,
+      4
+    ],
+    "Results": [
+      2206
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 2107,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u80fd\u91cf\u67a2\u7ebd",
+    "ID": 77,
+    "SID": 2110,
+    "Type": 4,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 900,
+    "Items": [
+      1107,
+      1103,
+      1303,
+      1206
+    ],
+    "ItemCounts": [
+      40,
+      40,
+      40,
+      8
+    ],
+    "Results": [
+      2209
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 2110,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u7a7a\u95f4\u7fd8\u66f2\u5668",
+    "ID": 78,
+    "SID": 1507,
+    "Type": 4,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 600,
+    "Items": [
+      1209
+    ],
+    "ItemCounts": [
+      1
+    ],
+    "Results": [
+      1210
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 1507,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u7a7a\u95f4\u7fd8\u66f2\u5668\uff08\u9ad8\u7ea7\uff09",
+    "ID": 79,
+    "SID": 1607,
+    "Type": 4,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 600,
+    "Items": [
+      6005
+    ],
+    "ItemCounts": [
+      1
+    ],
+    "Results": [
+      1210
+    ],
+    "ResultCounts": [
+      8
+    ],
+    "GridIndex": 1607,
+    "IconPath": "Icons/ItemRecipe/space-warper-lv2",
+    "Description": "R\u7a7a\u95f4\u7fd8\u66f2\u5668\uff08\u9ad8\u7ea7\uff09"
+  },
+  {
+    "Name": "\u6846\u67b6\u6750\u6599",
+    "ID": 80,
+    "SID": 1511,
+    "Type": 4,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 360,
+    "Items": [
+      1124,
+      1107,
+      1105
+    ],
+    "ItemCounts": [
+      4,
+      1,
+      1
+    ],
+    "Results": [
+      1125
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 1511,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u6234\u68ee\u7403\u7ec4\u4ef6",
+    "ID": 81,
+    "SID": 1512,
+    "Type": 4,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 480,
+    "Items": [
+      1125,
+      1501,
+      1303
+    ],
+    "ItemCounts": [
+      3,
+      3,
+      3
+    ],
+    "Results": [
+      1502
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 1512,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u5782\u76f4\u53d1\u5c04\u4e95",
+    "ID": 82,
+    "SID": 2308,
+    "Type": 4,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 1800,
+    "Items": [
+      1107,
+      1125,
+      1209,
+      1305
+    ],
+    "ItemCounts": [
+      80,
+      30,
+      20,
+      10
+    ],
+    "Results": [
+      2312
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 2308,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u5c0f\u578b\u8fd0\u8f7d\u706b\u7bad",
+    "ID": 83,
+    "SID": 1412,
+    "Type": 4,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 360,
+    "Items": [
+      1502,
+      1802,
+      1305
+    ],
+    "ItemCounts": [
+      2,
+      2,
+      2
+    ],
+    "Results": [
+      1503
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 1412,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u4f4e\u901f\u4f20\u9001\u5e26",
+    "ID": 84,
+    "SID": 2201,
+    "Type": 4,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 60,
+    "Items": [
+      1101,
+      1201
+    ],
+    "ItemCounts": [
+      2,
+      1
+    ],
+    "Results": [
+      2001
+    ],
+    "ResultCounts": [
+      3
+    ],
+    "GridIndex": 2201,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u4f4e\u901f\u5206\u62e3\u5668",
+    "ID": 85,
+    "SID": 2301,
+    "Type": 4,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 60,
+    "Items": [
+      1101,
+      1301
+    ],
+    "ItemCounts": [
+      1,
+      1
+    ],
+    "Results": [
+      2011
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 2301,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u5c0f\u578b\u50a8\u7269\u4ed3",
+    "ID": 86,
+    "SID": 2205,
+    "Type": 4,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 120,
+    "Items": [
+      1101,
+      1108
+    ],
+    "ItemCounts": [
+      4,
+      4
+    ],
+    "Results": [
+      2101
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 2205,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u56db\u5411\u5206\u6d41\u5668",
+    "ID": 87,
+    "SID": 2204,
+    "Type": 4,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 120,
+    "Items": [
+      1101,
+      1201,
+      1301
+    ],
+    "ItemCounts": [
+      3,
+      2,
+      1
+    ],
+    "Results": [
+      2020
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 2204,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u9ad8\u901f\u5206\u62e3\u5668",
+    "ID": 88,
+    "SID": 2302,
+    "Type": 4,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 60,
+    "Items": [
+      2011,
+      1203
+    ],
+    "ItemCounts": [
+      2,
+      1
+    ],
+    "Results": [
+      2012
+    ],
+    "ResultCounts": [
+      2
+    ],
+    "GridIndex": 2302,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u9ad8\u901f\u4f20\u9001\u5e26",
+    "ID": 89,
+    "SID": 2202,
+    "Type": 4,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 60,
+    "Items": [
+      2001,
+      1204
+    ],
+    "ItemCounts": [
+      3,
+      1
+    ],
+    "Results": [
+      2002
+    ],
+    "ResultCounts": [
+      3
+    ],
+    "GridIndex": 2202,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u6781\u901f\u5206\u62e3\u5668",
+    "ID": 90,
+    "SID": 2303,
+    "Type": 4,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 60,
+    "Items": [
+      2012,
+      1204
+    ],
+    "ItemCounts": [
+      2,
+      1
+    ],
+    "Results": [
+      2013
+    ],
+    "ResultCounts": [
+      2
+    ],
+    "GridIndex": 2303,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u5927\u578b\u50a8\u7269\u4ed3",
+    "ID": 91,
+    "SID": 2206,
+    "Type": 4,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 240,
+    "Items": [
+      1103,
+      1108
+    ],
+    "ItemCounts": [
+      8,
+      8
+    ],
+    "Results": [
+      2102
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 2206,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u6781\u901f\u4f20\u9001\u5e26",
+    "ID": 92,
+    "SID": 2203,
+    "Type": 4,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 60,
+    "Items": [
+      2002,
+      1205,
+      1123
+    ],
+    "ItemCounts": [
+      3,
+      1,
+      1
+    ],
+    "Results": [
+      2003
+    ],
+    "ResultCounts": [
+      3
+    ],
+    "GridIndex": 2203,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u7269\u6d41\u8fd0\u8f93\u7ad9",
+    "ID": 93,
+    "SID": 2209,
+    "Type": 4,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 1200,
+    "Items": [
+      1103,
+      1106,
+      1303,
+      1206
+    ],
+    "ItemCounts": [
+      40,
+      40,
+      40,
+      20
+    ],
+    "Results": [
+      2103
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 2209,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u7269\u6d41\u8fd0\u8f93\u673a",
+    "ID": 94,
+    "SID": 1410,
+    "Type": 4,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 240,
+    "Items": [
+      1101,
+      1303,
+      1405
+    ],
+    "ItemCounts": [
+      5,
+      2,
+      2
+    ],
+    "Results": [
+      5001
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 1410,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u661f\u9645\u7269\u6d41\u8fd0\u8f93\u7ad9",
+    "ID": 95,
+    "SID": 2309,
+    "Type": 4,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 1800,
+    "Items": [
+      2103,
+      1107,
+      1206
+    ],
+    "ItemCounts": [
+      1,
+      40,
+      20
+    ],
+    "Results": [
+      2104
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 2309,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u661f\u9645\u7269\u6d41\u8fd0\u8f93\u8239",
+    "ID": 96,
+    "SID": 1411,
+    "Type": 4,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 360,
+    "Items": [
+      1107,
+      1303,
+      1406
+    ],
+    "ItemCounts": [
+      10,
+      10,
+      2
+    ],
+    "Results": [
+      5002
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 1411,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u7535\u52a8\u673a",
+    "ID": 97,
+    "SID": 1501,
+    "Type": 4,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 120,
+    "Items": [
+      1101,
+      1201,
+      1202
+    ],
+    "ItemCounts": [
+      2,
+      1,
+      1
+    ],
+    "Results": [
+      1203
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 1302,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u7535\u78c1\u6da1\u8f6e",
+    "ID": 98,
+    "SID": 1601,
+    "Type": 4,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 120,
+    "Items": [
+      1203,
+      1202
+    ],
+    "ItemCounts": [
+      2,
+      2
+    ],
+    "Results": [
+      1204
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 1402,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u7c92\u5b50\u5bb9\u5668",
+    "ID": 99,
+    "SID": 1506,
+    "Type": 4,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 240,
+    "Items": [
+      1204,
+      1104,
+      1123
+    ],
+    "ItemCounts": [
+      2,
+      2,
+      2
+    ],
+    "Results": [
+      1206
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 1506,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u7c92\u5b50\u5bb9\u5668\uff08\u9ad8\u6548\uff09",
+    "ID": 100,
+    "SID": 1606,
+    "Type": 4,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 240,
+    "Items": [
+      1016,
+      1104
+    ],
+    "ItemCounts": [
+      10,
+      2
+    ],
+    "Results": [
+      1206
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 1606,
+    "IconPath": "Icons/ItemRecipe/partical-capacitor-lv2",
+    "Description": "R\u7c92\u5b50\u5bb9\u5668\uff08\u9ad8\u6548\uff09"
+  },
+  {
+    "Name": "\u5f15\u529b\u900f\u955c",
+    "ID": 101,
+    "SID": 1405,
+    "Type": 4,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 360,
+    "Items": [
+      1112,
+      1127
+    ],
+    "ItemCounts": [
+      4,
+      1
+    ],
+    "Results": [
+      1209
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 1405,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u5f15\u529b\u77e9\u9635",
+    "ID": 102,
+    "SID": 1705,
+    "Type": 15,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 1440,
+    "Items": [
+      1209,
+      1305
+    ],
+    "ItemCounts": [
+      1,
+      1
+    ],
+    "Results": [
+      6005
+    ],
+    "ResultCounts": [
+      2
+    ],
+    "GridIndex": 1705,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u8d85\u7ea7\u78c1\u573a\u73af",
+    "ID": 103,
+    "SID": 1302,
+    "Type": 4,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 180,
+    "Items": [
+      1204,
+      1102,
+      1109
+    ],
+    "ItemCounts": [
+      2,
+      3,
+      1
+    ],
+    "Results": [
+      1205
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 1502,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u5947\u5f02\u7269\u8d28",
+    "ID": 104,
+    "SID": 1312,
+    "Type": 5,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 480,
+    "Items": [
+      1206,
+      1101,
+      1121
+    ],
+    "ItemCounts": [
+      2,
+      2,
+      10
+    ],
+    "Results": [
+      1127
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 1312,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u52a0\u901f\u5242 Mk.I",
+    "ID": 106,
+    "SID": 1110,
+    "Type": 4,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 120,
+    "Items": [
+      1006
+    ],
+    "ItemCounts": [
+      2
+    ],
+    "Results": [
+      1141
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 1110,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u52a0\u901f\u5242 Mk.II",
+    "ID": 107,
+    "SID": 1111,
+    "Type": 4,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 240,
+    "Items": [
+      1117,
+      1141
+    ],
+    "ItemCounts": [
+      2,
+      1
+    ],
+    "Results": [
+      1142
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 1111,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u52a0\u901f\u5242 Mk.III",
+    "ID": 108,
+    "SID": 1112,
+    "Type": 4,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 480,
+    "Items": [
+      1126,
+      1142
+    ],
+    "ItemCounts": [
+      3,
+      1
+    ],
+    "Results": [
+      1143
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 1112,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u55b7\u6d82\u673a",
+    "ID": 109,
+    "SID": 2405,
+    "Type": 4,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 120,
+    "Items": [
+      1401,
+      1301,
+      1103
+    ],
+    "ItemCounts": [
+      1,
+      4,
+      2
+    ],
+    "Results": [
+      2313
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 2405,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u5206\u998f\u5854",
+    "ID": 110,
+    "SID": 2406,
+    "Type": 4,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 180,
+    "Items": [
+      1103,
+      1108,
+      1110,
+      1303
+    ],
+    "ItemCounts": [
+      8,
+      4,
+      4,
+      1
+    ],
+    "Results": [
+      2314
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 2406,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u8f68\u9053\u91c7\u96c6\u5668",
+    "ID": 111,
+    "SID": 2409,
+    "Type": 4,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 1800,
+    "Items": [
+      2104,
+      1205,
+      1406,
+      2207
+    ],
+    "ItemCounts": [
+      1,
+      50,
+      20,
+      20
+    ],
+    "Results": [
+      2105
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 2409,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u5730\u57fa",
+    "ID": 112,
+    "SID": 1712,
+    "Type": 4,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 60,
+    "Items": [
+      1108,
+      1103
+    ],
+    "ItemCounts": [
+      3,
+      1
+    ],
+    "Results": [
+      1131
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 1712,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u5fae\u578b\u805a\u53d8\u53d1\u7535\u7ad9",
+    "ID": 113,
+    "SID": 2109,
+    "Type": 4,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 600,
+    "Items": [
+      1107,
+      1205,
+      1124,
+      1303
+    ],
+    "ItemCounts": [
+      12,
+      10,
+      8,
+      4
+    ],
+    "Results": [
+      2211
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 2109,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u50a8\u6db2\u7f50",
+    "ID": 114,
+    "SID": 2207,
+    "Type": 4,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 120,
+    "Items": [
+      1101,
+      1108,
+      1110
+    ],
+    "ItemCounts": [
+      8,
+      4,
+      4
+    ],
+    "Results": [
+      2106
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 2207,
+    "IconPath": "",
+    "Description": ""
+  },
+  {
+    "Name": "\u91cd\u6c22\u5206\u998f",
+    "ID": 115,
+    "SID": 1307,
+    "Type": 8,
+    "Handcraft": true,
+    "Explicit": true,
+    "TimeSpend": 1,
+    "Items": [
+      1120
+    ],
+    "ItemCounts": [
+      100
+    ],
+    "Results": [
+      1121
+    ],
+    "ResultCounts": [
+      1
+    ],
+    "GridIndex": 1307,
+    "IconPath": "Icons/ItemRecipe/deuterium-formula",
+    "Description": "R\u91cd\u6c22\u5206\u998f"
+  }
+]

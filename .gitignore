@@ -1,7 +1,8 @@
 .DS_Store
 node_modules
 /dist
-
+/disassembly/*/
+__pycache__
 
 # local env files
 .env.local
