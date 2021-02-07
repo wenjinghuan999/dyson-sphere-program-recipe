@@ -19,7 +19,7 @@
                 style="width: 32px !important; height: 32px !important"
               />
             </div>
-            <b-container class="d-flex justify-content-center align-items-center border-left border-primary ml-1 d-xs-none">
+            <b-container class="d-md-flex d-none justify-content-center align-items-center border-left border-primary ml-1">
               <span class="button-span">
                 {{ selectedItem.id >= 0 ? selectedItem.name : defaultMessage }}
               </span>
