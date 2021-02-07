@@ -20,4 +20,10 @@ export default class Mixins extends Vue {
     's',
     'min'
   ]
+
+  localeOptions = [
+    'ZHCN',
+    'ENUS',
+    'FRFR'
+  ]
 }

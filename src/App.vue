@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <b-alert show variant="danger" dismissible class="fixed-top">
+    <Navbar title="Dyson Sphere Program Recipe" />
+    <b-alert show variant="danger" dismissible>
       This site is under construction. Results may be invalid!
     </b-alert>
     <b-container class="p-0 shadow">
@@ -39,12 +40,14 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
+import Navbar from '@/components/Navbar.vue'
 import ProductPanel from '@/components/ProductPanel.vue'
 import ProductAndAmount from '@/components/ProductAndAmount.vue'
 import { Product } from '@/common/product'
 
 @Component({
   components: {
+    Navbar,
     ProductPanel,
     ProductAndAmount
   }
