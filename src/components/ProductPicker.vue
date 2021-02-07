@@ -1,22 +1,35 @@
 <template>
   <div class="product-picker">
     <b-button-toolbar>
-      <b-button-group>
-        <div class="input-group-text">
-          <b-img
-            v-bind:src="selectedItem.id >= 0
-              ? require('../assets/icons/' + selectedItem.icon)
-              : require('../assets/icons/Placeholder.png')"
-            style="width: 32px !important; height: 32px !important"
-          />
-        </div>
-        <b-button variant="outline-primary" v-on:click="onClick()" ref="button" class="btn-block button-span mr-1">
-          <span>
-            {{ selectedItem.id >= 0 ? selectedItem.name : defaultMessage }}
-          </span>
+      <b-input-group>
+        <b-button-group>
+        <b-button
+          variant="outline-primary"
+          v-on:click="onClick()"
+          class="btn-block p-1"
+          ref="button"
+          style="border-top-right-radius: 0; border-bottom-right-radius: 0"
+        >
+          <b-container class="d-flex align-items-center m-0 p-0">
+            <div class="d-flex float-left align-items-center p-0">
+              <b-img
+                v-bind:src="selectedItem.id >= 0
+                  ? require('../assets/icons/' + selectedItem.icon)
+                  : require('../assets/icons/Placeholder.png')"
+                style="width: 32px !important; height: 32px !important"
+              />
+            </div>
+            <b-container class="d-flex justify-content-center align-items-center border-left border-primary ml-1 d-xs-none">
+              <span class="button-span">
+                {{ selectedItem.id >= 0 ? selectedItem.name : defaultMessage }}
+              </span>
+            </b-container>
+          </b-container>
         </b-button>
-      </b-button-group>
-      <b-input-group prepend="@">
+        </b-button-group>
+        <div class="input-group-append input-group-prepend">
+          <div class="input-group-text">@</div>
+        </div>
         <b-form-input v-model="amount" type="number" value="1" min="0" style="max-width: 4.5rem" />
         <div class="input-group-append input-group-prepend">
           <div class="input-group-text">/</div>
@@ -82,13 +95,22 @@ export default class ProductPicker extends Vue {
     }
   }
 
-  @Watch('selectedItem')
   @Watch('unit')
+  onUnitChange () {
+    if (this.unit === 'min') {
+      this.amount *= 60
+    } else {
+      this.amount /= 60
+    }
+    this.onChanged()
+  }
+
+  @Watch('selectedItem')
   @Watch('amount')
   onChanged () {
     this.selectedItemAndAmount = {
       item: this.selectedItem,
-      amount: this.amount * (this.unit === 'min' ? 60 : 1)
+      amount: this.amount / (this.unit === 'min' ? 60 : 1)
     }
   }
 }
@@ -96,7 +118,7 @@ export default class ProductPicker extends Vue {
 
 <style scoped>
   .button-span {
-    width: 18rem !important;
+    width: 16rem !important;
   }
   .form-control {
     height: inherit;

@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <div class="alert alert-danger fixed-top" role="alert">
-      This site is under construction, results may be invalid!
-    </div>
+    <b-alert show variant="danger" dismissible class="fixed-top">
+      This site is under construction. Results may be invalid!
+    </b-alert>
     <b-container class="p-0 shadow">
       <b-container class="pt-2 border bg-primary text-white text-left">
         <h3>1. Select Products</h3>
