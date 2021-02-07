@@ -83,7 +83,7 @@ export default class ProductPanel extends Vue {
         if (idx >= 0) {
           newProducts[idx].amount += element.product.amount
         } else {
-          newProducts.push(Object.create(element.product))
+          newProducts.push(new Product(element.product.item, element.product.amount))
         }
       }
     })
