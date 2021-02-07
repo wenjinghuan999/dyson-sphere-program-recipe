@@ -1,4 +1,4 @@
-import { Item, Recipe, DataLoader } from './dataloader'
+import { Item, tr } from './dataloader'
 
 class Product {
   item: Item;
@@ -23,7 +23,7 @@ class Product {
   }
 
   get name (): string {
-    return this.isValid ? this.item.Name : ''
+    return this.isValid ? tr(this.item.Name) : ''
   }
 }
 
