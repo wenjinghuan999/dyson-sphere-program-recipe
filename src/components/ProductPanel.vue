@@ -7,7 +7,7 @@
           v-on:click="onItemPickerClicked(element.pickerId)"
           v-on:input="updateProduct()"
           :showPicker="showPickerId == element.pickerId"
-          default-message="Select Item"
+          :default-message="tr('Select Item')"
         />
         <b-button v-bind:disabled="selected.length <= 1" v-on:click="onDeleteButtonClicked(element.pickerId)" variant="link"><b-icon-dash-circle /></b-button>
       </b-container>
@@ -20,9 +20,10 @@
 
 <script lang="ts">
 import { Component, Prop, VModel, Vue, Watch } from 'vue-property-decorator'
-import ProductPicker from './ProductPicker.vue'
-import Mixins from '../common/mixin'
-import { Product } from '../common/product'
+import ProductPicker from '@/components/ProductPicker.vue'
+import Mixins from '@/common/mixin'
+import { Product } from '@/common/product'
+import { tr } from '@/common/dataloader'
 
 @Component({
   mixins: [Mixins],
@@ -33,6 +34,7 @@ import { Product } from '../common/product'
 export default class ProductPanel extends Vue {
   @Prop() private title!: string;
   @VModel() private products!: Array<Product>;
+  private tr = tr
 
   static NoneElement = { pickerId: 0, product: Product.Empty };
 

@@ -1,6 +1,7 @@
 <template>
-  <b-navbar class="fixed-top" toggleable="lg" type="dark" variant="dark">
-    <b-container>
+  <b-container fluid class="fixed-top m-0 p-0" >
+    <b-navbar toggleable="lg" type="dark" variant="dark">
+      <b-container>
         <b-navbar-brand href="#">
           <img src="../assets/Icons/DSPGAME.png">
           <span> {{ title }} </span>
@@ -11,7 +12,7 @@
         <b-navbar-nav class="ml-auto">
           <b-nav-item-dropdown right>
             <!-- Using 'button-content' slot -->
-            <template slot="button-content"><b-icon-globe /> {{ this.getLocaleName(this.currentLocale) }} </template>
+            <template slot="button-content"><b-icon-globe /></template>
             <b-dropdown-item v-for="locale in localeOptions" :key="locale" v-on:click="onSelectLocale(locale)">
               {{ getLocaleName(locale) }}
             </b-dropdown-item>
@@ -19,7 +20,11 @@
         </b-navbar-nav>
         </b-collapse>
       </b-container>
-  </b-navbar>
+    </b-navbar>
+    <b-alert show variant="danger" dismissible>
+      This site is under construction. Results may be invalid!
+    </b-alert>
+  </b-container>
 </template>
 
 <script lang="ts">
@@ -32,6 +37,14 @@ import Mixins from '@/common/mixin'
 })
 export default class Navbar extends Vue {
   @Prop() private readonly title!: string;
+  private currentLocale: string;
+
+  constructor () {
+    super()
+    this.currentLocale = Vue.$cookies.get('locale')
+    this.currentLocale = this.currentLocale ? this.currentLocale : 'ZHCN'
+    DataLoader.getInstance().locale = this.currentLocale
+  }
 
   private static readonly LocaleNames: Record<string, string> = {
     ZHCN: '中文', ENUS: 'English', FRFR: 'Français'
@@ -44,10 +57,6 @@ export default class Navbar extends Vue {
 
   get localeName (): string {
     return this.getLocaleName(this.currentLocale)
-  }
-
-  get currentLocale (): string {
-    return DataLoader.getInstance().locale
   }
 
   getLocaleName (locale: string): string {

@@ -1,0 +1,44 @@
+[
+  {
+    "Name": "Select Products",
+    "ID": 1,
+    "ZHCN": "\u9009\u62e9\u4ea7\u7269",
+    "ENUS": "Select Products",
+    "FRFR": "S\u00e9lectionnez des Produits"
+  },
+  {
+    "Name": "Select Item",
+    "ID": 2,
+    "ZHCN": "\u9009\u62e9\u7269\u54c1",
+    "ENUS": "Select Item",
+    "FRFR": "S\u00e9lectionnez l'\u00c9l\u00e9ment"
+  },
+  {
+    "Name": "Summary",
+    "ID": 3,
+    "ZHCN": "\u603b\u8ba1",
+    "ENUS": "Summary",
+    "FRFR": "Sommaire"
+  },
+  {
+    "Name": "View Pipeline",
+    "ID": 4,
+    "ZHCN": "\u6d41\u6c34\u7ebf",
+    "ENUS": "View Pipeline",
+    "FRFR": "Afficher le Pipeline"
+  },
+  {
+    "Name": "Graph",
+    "ID": 5,
+    "ZHCN": "\u56fe\u8868",
+    "ENUS": "Graph",
+    "FRFR": "Graphique"
+  },
+  {
+    "Name": "Details",
+    "ID": 6,
+    "ZHCN": "\u7ec6\u8282",
+    "ENUS": "Details",
+    "FRFR": "D\u00e9tails"
+  }
+]

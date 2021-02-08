@@ -13,9 +13,13 @@
           <b-container class="d-flex align-items-center m-0 p-0">
             <div class="d-flex float-left align-items-center p-0">
               <b-img
-                v-bind:src="require('../assets/' + selectedItem.icon + '.png')"
+                v-if="selectedItem.isValid"
+                :src="require('../assets/' + selectedItem.icon + '.png')"
                 style="width: 32px !important; height: 32px !important"
               />
+              <b-container v-else class="d-flex justify-content-center align-items-center m-0 p-0" style="width: 32px !important; height: 32px !important">
+                <b-icon-question-square />
+              </b-container>
             </div>
             <b-container class="d-md-flex d-none justify-content-center align-items-center border-left border-primary ml-1">
               <span class="button-span">

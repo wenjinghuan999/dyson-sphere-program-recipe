@@ -1,6 +1,7 @@
 import itemsJson from '../assets/prototypes/items.json'
 import recipesJson from '../assets/prototypes/recipes.json'
 import stringsJson from '../assets/prototypes/strings.json'
+import uiStringsJson from '../assets/ui-strings.json'
 
 class Item {
   readonly Name: string = 'None';
@@ -45,6 +46,11 @@ class DataLoader {
       ZHCN: {}, ENUS: {}, FRFR: {}
     }
     stringsJson.forEach((entry) => {
+      map.ZHCN[entry.Name] = entry.ZHCN
+      map.ENUS[entry.Name] = entry.ENUS
+      map.FRFR[entry.Name] = entry.FRFR
+    })
+    uiStringsJson.forEach((entry) => {
       map.ZHCN[entry.Name] = entry.ZHCN
       map.ENUS[entry.Name] = entry.ENUS
       map.FRFR[entry.Name] = entry.FRFR
