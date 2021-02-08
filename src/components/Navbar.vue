@@ -1,5 +1,5 @@
 <template>
-  <b-container fluid class="fixed-top m-0 p-0" >
+  <b-container fluid class="m-0 p-0" >
     <b-navbar toggleable="lg" type="dark" variant="dark">
       <b-container>
         <b-navbar-brand href="#">
