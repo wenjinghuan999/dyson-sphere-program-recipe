@@ -11,7 +11,7 @@
         <b-navbar-nav class="ml-auto">
           <b-nav-item-dropdown right>
             <!-- Using 'button-content' slot -->
-            <template slot="button-content"><b-icon-globe /> {{ localeName }} </template>
+            <template slot="button-content"><b-icon-globe /> {{ this.getLocaleName(this.currentLocale) }} </template>
             <b-dropdown-item v-for="locale in localeOptions" :key="locale" v-on:click="onSelectLocale(locale)">
               {{ getLocaleName(locale) }}
             </b-dropdown-item>
@@ -39,6 +39,7 @@ export default class Navbar extends Vue {
 
   onSelectLocale (locale: string) {
     DataLoader.getInstance().locale = locale
+    Vue.$cookies.set('locale', locale)
   }
 
   get localeName (): string {
