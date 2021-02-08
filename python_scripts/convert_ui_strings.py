@@ -6,7 +6,7 @@ from typing import List, Dict, Union
 def convert_ui_string(src: str, out_config: str):
   result: List[Dict[str, Union[str, int]]] = []
   with open(src, 'r', encoding='utf-8') as f:
-    reader = csv.reader(f, delimiter=',')
+    reader = csv.reader(f, delimiter='|')
     for row in reader:
       entry = {
         'Name': row[0],

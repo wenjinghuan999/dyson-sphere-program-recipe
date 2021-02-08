@@ -22,14 +22,14 @@
       </b-container>
     </b-navbar>
     <b-alert show variant="danger" dismissible>
-      This site is under construction. Results may be invalid!
+      {{ tr('This site is under construction. Results may be invalid!') }}
     </b-alert>
   </b-container>
 </template>
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator'
-import { DataLoader } from '../common/dataloader'
+import { DataLoader, tr } from '../common/dataloader'
 import Mixins from '@/common/mixin'
 
 @Component({
@@ -38,6 +38,7 @@ import Mixins from '@/common/mixin'
 export default class Navbar extends Vue {
   @Prop() private readonly title!: string;
   private currentLocale: string;
+  private tr = tr;
 
   constructor () {
     super()

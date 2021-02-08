@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <Navbar title="Dyson Sphere Program Recipe" />
-    <b-container class="p-0 shadow">
+    <Navbar :title="tr('Dyson Sphere Program Recipe')" />
+    <b-container class="p-0 pt-2 shadow">
       <b-container class="pt-2 border bg-primary text-white text-left">
         <h3>1. {{ tr('Select Products') }}</h3>
       </b-container>

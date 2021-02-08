@@ -34,7 +34,7 @@ import { tr } from '@/common/dataloader'
 export default class ProductPanel extends Vue {
   @Prop() private title!: string;
   @VModel() private products!: Array<Product>;
-  private tr = tr
+  private tr = tr;
 
   static NoneElement = { pickerId: 0, product: Product.Empty };
 
