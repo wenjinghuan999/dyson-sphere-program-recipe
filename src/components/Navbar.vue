@@ -38,7 +38,7 @@ import Mixins from '@/common/mixin'
 export default class Navbar extends Vue {
   @Prop() private readonly title!: string;
   private currentLocale: string;
-  private tr = tr;
+  private readonly tr = tr;
 
   constructor () {
     super()

@@ -1,34 +1,8 @@
-import itemsJson from '../assets/prototypes/items.json'
-import recipesJson from '../assets/prototypes/recipes.json'
-import stringsJson from '../assets/prototypes/strings.json'
-import uiStringsJson from '../assets/ui-strings.json'
-
-class Item {
-  readonly Name: string = 'None';
-  readonly ID: number = 0;
-  readonly MiningFrom: string = '';
-  readonly IconPath: string = 'Icons/placeholder';
-  readonly GridIndex: number = 0;
-  readonly Description: string = '';
-
-  static readonly Empty = new Item()
-}
-
-class Recipe {
-  readonly Name: string = 'None';
-  readonly ID: number = 0;
-  readonly SID: number = 0;
-  readonly TimeSpend: number = 0;
-  readonly Items: Array<number> = [];
-  readonly ItemCounts: Array<number> = [];
-  readonly Results: Array<number> = [];
-  readonly ResultCounts: Array<number> = [];
-  readonly GridIndex: number = 0;
-  readonly IconPath: string = 'Icons/placeholder';
-  readonly Description: string = '';
-
-  static readonly Empty = new Recipe()
-}
+import itemsJson from '@/assets/prototypes/items.json'
+import recipesJson from '@/assets/prototypes/recipes.json'
+import stringsJson from '@/assets/prototypes/strings.json'
+import uiStringsJson from '@/assets/ui-strings.json'
+import { Item, Recipe } from '@/common/product'
 
 class DataLoader {
   private static instance: DataLoader;
@@ -95,5 +69,5 @@ function tr (s: string): string {
 }
 
 export {
-  Item, Recipe, DataLoader, tr
+  DataLoader, tr
 }

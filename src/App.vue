@@ -52,7 +52,7 @@ import { tr } from '@/common/dataloader'
 })
 export default class App extends Vue {
   private products: Array<Product> = [];
-  private tr = tr;
+  private readonly tr = tr;
 
   get productSummary () {
     let result = ''

@@ -23,7 +23,7 @@
             </div>
             <b-container class="d-md-flex d-none justify-content-center align-items-center border-left border-primary ml-1">
               <span class="button-span">
-                {{ selectedItem.isValid ? selectedItem.name : defaultMessage }}
+                {{ selectedItem.isValid ? tr(selectedItem.name) : defaultMessage }}
               </span>
             </b-container>
           </b-container>
@@ -71,7 +71,7 @@
 import { Component, Prop, Watch, VModel, Vue, Emit } from 'vue-property-decorator'
 import Mixins from '../common/mixin'
 import VuePopper from '@livelybone/vue-popper'
-import { DataLoader } from '../common/dataloader'
+import { DataLoader, tr } from '../common/dataloader'
 import { Product } from '../common/product'
 import '@livelybone/vue-popper/lib/css/index.css'
 
@@ -85,6 +85,7 @@ export default class ProductPicker extends Vue {
   @Prop() private defaultMessage!: string;
   @Prop() private showPicker = false;
   @VModel() private selectedProduct?: Product;
+  private readonly tr = tr;
 
   private readonly dataLoader = DataLoader.getInstance();
   private selectedItem: Product = Product.Empty;
@@ -102,6 +103,21 @@ export default class ProductPicker extends Vue {
   private static createPanel (): Array<Array<Product>> {
     const panel: Array<Array<Product>> = []
     for (let i = 11; i <= 17; i++) {
+      const panelRow: Array<Product> = []
+      for (let j = 1; j <= 12; j++) {
+        const gridIndex = i * 100 + j
+        const item = DataLoader.getInstance().AllItems.find((item) => {
+          return item.GridIndex === gridIndex
+        })
+        if (item !== undefined) {
+          panelRow.push(new Product(item))
+        } else {
+          panelRow.push(Product.Empty)
+        }
+      }
+      panel.push(panelRow)
+    }
+    for (let i = 21; i <= 24; i++) {
       const panelRow: Array<Product> = []
       for (let j = 1; j <= 12; j++) {
         const gridIndex = i * 100 + j
