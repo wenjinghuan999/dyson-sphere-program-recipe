@@ -114,6 +114,7 @@ class PlannerNode {
 
 class Planner {
   targets: Array<Product>;
+  nodes: Array<PlannerNode>;
   root: PlannerNode;
 
   products: Array<Product> = [];
@@ -122,6 +123,7 @@ class Planner {
   constructor (targets: Array<Product>) {
     this.targets = targets
     this.root = new PlannerNode(null, -1, targets)
+    this.nodes = []
 
     let remaining = Product.SimplifyProducts(targets)
     let inputs: Array<Product> = []
@@ -148,7 +150,7 @@ class Planner {
           inputs = Product.SimplifyProducts(inputs)
         } else {
           const node = new PlannerNode(recipes[0], -1, [product])
-          this.root.addChild(node)
+          this.nodes.push(node)
           node.products.forEach((product) => {
             remaining.push(new Product(product.item, -product.amount))
           })

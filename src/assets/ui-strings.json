@@ -54,5 +54,40 @@
     "ZHCN": "\u672c\u7f51\u7ad9\u6b63\u5728\u5efa\u8bbe\u4e2d\u3002\u7ed3\u679c\u53ef\u80fd\u4e0d\u51c6\u786e\uff01",
     "ENUS": "This site is under construction. Results may be invalid!",
     "FRFR": "Ce site est en construction. Les r\u00e9sultats peuvent \u00eatre invalides!"
+  },
+  {
+    "Name": "Recipe",
+    "ID": 9,
+    "ZHCN": "\u914d\u65b9",
+    "ENUS": "Recipe",
+    "FRFR": "Planning"
+  },
+  {
+    "Name": "Amount",
+    "ID": 10,
+    "ZHCN": "\u6570\u91cf",
+    "ENUS": "Amount",
+    "FRFR": "Montant"
+  },
+  {
+    "Name": "Requirements",
+    "ID": 11,
+    "ZHCN": "\u9700\u6c42",
+    "ENUS": "Requirements",
+    "FRFR": "Exigences"
+  },
+  {
+    "Name": "Products",
+    "ID": 12,
+    "ZHCN": "\u4ea7\u7269",
+    "ENUS": "Products",
+    "FRFR": "Des produits"
+  },
+  {
+    "Name": "Inputs",
+    "ID": 13,
+    "ZHCN": "\u8f93\u5165",
+    "ENUS": "Inputs",
+    "FRFR": "Contributions"
   }
 ]

@@ -1,5 +1,6 @@
 <template>
-  <div class="product-and-amount">
+  <b-container class="product-and-amount">
+    <b-row>
     <b-input-group>
       <div class="input-group-prepend">
         <div class="input-group-text">
@@ -15,7 +16,8 @@
         </div>
       </div>
     </b-input-group>
-  </div>
+    </b-row>
+  </b-container>
 </template>
 
 <script lang="ts">

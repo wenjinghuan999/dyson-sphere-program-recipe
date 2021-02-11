@@ -25,7 +25,9 @@
         <b-container class="m-3">
           <b-tabs content-class="mt-3">
             <b-tab :title="tr('Graph')" active><p>I'm the first tab</p></b-tab>
-            <b-tab :title="tr('Details')"><p>I'm the second tab</p></b-tab>
+            <b-tab :title="tr('Details')">
+              <DetailPanel :planner="planner"/>
+            </b-tab>
             <b-tab :title="tr('Summary')"><p>I'm a disabled tab!</p></b-tab>
           </b-tabs>
         </b-container>
@@ -36,10 +38,11 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Watch, Vue } from 'vue-property-decorator'
 import Navbar from '@/components/Navbar.vue'
 import ProductPanel from '@/components/ProductPanel.vue'
 import ProductAndAmount from '@/components/ProductAndAmount.vue'
+import DetailPanel from '@/components/DetailPanel.vue'
 import { Product } from '@/common/product'
 import { tr } from '@/common/dataloader'
 // TODO: remove following imports
@@ -49,12 +52,19 @@ import { Planner } from '@/common/planner'
   components: {
     Navbar,
     ProductPanel,
-    ProductAndAmount
+    ProductAndAmount,
+    DetailPanel
   }
 })
 export default class App extends Vue {
   private products: Array<Product> = [];
   private readonly tr = tr;
+  private planner: Planner = new Planner([]);
+
+  @Watch('products')
+  onProductsChanged () {
+    this.planner = new Planner(this.products)
+  }
 
   get productSummary () {
     const planner = new Planner(this.products)
