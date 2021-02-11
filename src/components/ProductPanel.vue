@@ -38,11 +38,17 @@ export default class ProductPanel extends Vue {
 
   static NoneElement = { pickerId: 0, product: Product.Empty };
 
-  private selected: Array<typeof ProductPanel.NoneElement> = [
-    Object.create(ProductPanel.NoneElement)
-  ];
+  private selected: Array<typeof ProductPanel.NoneElement> = [];
 
+  private newPickerId = 0;
   private showPickerId = -1;
+
+  constructor () {
+    super()
+
+    this.selected.push(Object.create(ProductPanel.NoneElement))
+    this.newPickerId = 1
+  }
 
   findPicker (pickerId: number) {
     return this.selected.findIndex((element) => { return element.pickerId === pickerId })
@@ -57,10 +63,7 @@ export default class ProductPanel extends Vue {
 
   onAddButtonClicked () {
     const newElement = Object.create(ProductPanel.NoneElement)
-    newElement.pickerId = 0
-    while (this.findPicker(newElement.pickerId) >= 0) {
-      newElement.pickerId++
-    }
+    newElement.pickerId = this.newPickerId++
     this.selected.push(newElement)
     this.updateProduct()
   }
@@ -76,20 +79,13 @@ export default class ProductPanel extends Vue {
 
   @Watch('selected', { immediate: true, deep: true })
   updateProduct () {
-    const newProducts: Array<Product> = []
+    const products: Array<Product> = []
     this.selected.forEach((element) => {
       if (element.product.isValid && element.product.amount > 0) {
-        const idx = newProducts.findIndex((product) => {
-          return product.item.ID === element.product.item.ID
-        })
-        if (idx >= 0) {
-          newProducts[idx].amount += element.product.amount
-        } else {
-          newProducts.push(new Product(element.product.item, element.product.amount))
-        }
+        products.push(element.product)
       }
     })
-    this.products = newProducts
+    this.products = Product.SimplifyProducts(products)
   }
 }
 </script>

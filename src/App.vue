@@ -42,6 +42,8 @@ import ProductPanel from '@/components/ProductPanel.vue'
 import ProductAndAmount from '@/components/ProductAndAmount.vue'
 import { Product } from '@/common/product'
 import { tr } from '@/common/dataloader'
+// TODO: remove following imports
+import { Planner } from '@/common/planner'
 
 @Component({
   components: {
@@ -55,13 +57,22 @@ export default class App extends Vue {
   private readonly tr = tr;
 
   get productSummary () {
+    const planner = new Planner(this.products)
+    console.log(planner)
+    // if (planner.root.recipe === null) {
+    //   return 'No recipe available.'
+    // }
     let result = ''
-    this.products.forEach(product => {
-      result += product.name + '[' + product.amount + '] '
-    })
-    if (result === '') {
-      return 'Nothing'
+    if (planner.root.recipe) {
+      result += tr(planner.root.recipe.Name) + '[' + planner.root.amount + ']: '
     }
+    planner.inputs.forEach((product) => {
+      result += tr(product.name) + '[' + product.amount + '] '
+    })
+    result += ' => '
+    planner.products.forEach((product) => {
+      result += tr(product.name) + '[' + product.amount + '] '
+    })
     return result
   }
 }

@@ -1,0 +1,42 @@
+{
+  "None": {
+    "ID": 0,
+    "Items": [2301]
+  },
+  "Smelt": {
+    "ID": 1,
+    "Items": [2302]
+  },
+  "Chemical": {
+    "ID": 2,
+    "Items": [2309]
+  },
+  "Refine": {
+    "ID": 3,
+    "Items": [2308]
+  },
+  "Assemble": {
+    "ID": 4,
+    "Items": [2303, 2304, 2305]
+  },
+  "Particle": {
+    "ID": 5,
+    "Items": [2310]
+  },
+  "Exchange": {
+    "ID": 6,
+    "Items": [2209]
+  },
+  "PhotonStore": {
+    "ID": 7,
+    "Items": [2208]
+  },
+  "Fractionate": {
+    "ID": 8,
+    "Items": [2314]
+  },
+  "Research": {
+    "ID": 15,
+    "Items": [2901]
+  }
+}

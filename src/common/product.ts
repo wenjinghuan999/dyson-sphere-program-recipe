@@ -23,6 +23,30 @@ class Recipe {
   readonly Description: string = '';
 
   static readonly Empty = new Recipe()
+
+  static amountOf (recipe: Recipe, itemId: number): number {
+    const resultIdx = recipe.Results.findIndex((value) => {
+      return value === itemId
+    })
+    if (resultIdx >= 0) {
+      return recipe.ResultCounts[resultIdx] * 60 / recipe.TimeSpend
+    }
+    const inputIdx = recipe.Results.findIndex((value) => {
+      return value === itemId
+    })
+    if (inputIdx >= 0) {
+      return recipe.ResultCounts[inputIdx] * 60 / recipe.TimeSpend
+    }
+    return 0
+  }
+
+  static amountOfByResultIdx (recipe: Recipe, resultIdx: number): number {
+    return recipe.ResultCounts[resultIdx] * 60 / recipe.TimeSpend
+  }
+
+  static amountOfByInputIdx (recipe: Recipe, inputIdx: number): number {
+    return recipe.ItemCounts[inputIdx] * 60 / recipe.TimeSpend
+  }
 }
 
 class Product {
@@ -49,6 +73,25 @@ class Product {
 
   get name (): string {
     return this.isValid ? this.item.Name : ''
+  }
+
+  static SimplifyProducts (products: Array<Product>): Array<Product> {
+    const newProducts: Array<Product> = []
+    products.forEach((product) => {
+      if (product.isValid && product.amount > 0) {
+        const idx = newProducts.findIndex((p) => {
+          return p.item.ID === product.item.ID
+        })
+        if (idx >= 0) {
+          newProducts[idx].amount += product.amount
+        } else {
+          newProducts.push(new Product(product.item, product.amount))
+        }
+      }
+    })
+    return newProducts.filter((product) => {
+      return product.amount !== 0
+    })
   }
 }
 
