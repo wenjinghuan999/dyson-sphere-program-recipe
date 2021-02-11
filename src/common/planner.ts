@@ -4,7 +4,7 @@ import { DataLoader } from '@/common/dataloader'
 class PlannerNode {
   readonly targets: Array<Product>;
   recipe: Recipe | null;
-  amount;
+  amount: number;
   products: Array<Product> = [];
   requires: Array<Product> = [];
   inputs: Array<Product> = [];
