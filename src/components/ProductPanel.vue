@@ -33,7 +33,7 @@ import { tr } from '@/common/dataloader'
 })
 export default class ProductPanel extends Vue {
   @Prop() private title!: string;
-  @VModel() private products!: Array<Product>;
+  @VModel() private products!: Product[];
   private readonly tr = tr;
 
   static NoneElement = { pickerId: 0, product: Product.Empty };
@@ -79,7 +79,7 @@ export default class ProductPanel extends Vue {
 
   @Watch('selected', { immediate: true, deep: true })
   updateProduct () {
-    const products: Array<Product> = []
+    const products: Product[] = []
     this.selected.forEach((element) => {
       if (element.product.isValid && element.product.amount > 0) {
         products.push(element.product)

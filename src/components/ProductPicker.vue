@@ -92,18 +92,18 @@ export default class ProductPicker extends Vue {
   private unit = 's';
   private amount = 1;
 
-  private panel: Array<Array<Product>>;
-  private static PanelCached: Array<Array<Product>>;
+  private panel: Product[][];
+  private static PanelCached: Product[][];
 
   constructor () {
     super()
     this.panel = ProductPicker.GetPanel()
   }
 
-  private static CreatePanel (): Array<Array<Product>> {
-    const panel: Array<Array<Product>> = []
+  private static CreatePanel (): Product[][] {
+    const panel: Product[][] = []
     for (let i = 11; i <= 17; i++) {
-      const panelRow: Array<Product> = []
+      const panelRow: Product[] = []
       for (let j = 1; j <= 12; j++) {
         const gridIndex = i * 100 + j
         const item = DataLoader.getInstance().AllItems.find((item) => {
@@ -118,7 +118,7 @@ export default class ProductPicker extends Vue {
       panel.push(panelRow)
     }
     for (let i = 21; i <= 24; i++) {
-      const panelRow: Array<Product> = []
+      const panelRow: Product[] = []
       for (let j = 1; j <= 12; j++) {
         const gridIndex = i * 100 + j
         const item = DataLoader.getInstance().AllItems.find((item) => {
@@ -136,7 +136,7 @@ export default class ProductPicker extends Vue {
     return panel
   }
 
-  private static GetPanel (): Array<Array<Product>> {
+  private static GetPanel (): Product[][] {
     if (!this.PanelCached) {
       this.PanelCached = this.CreatePanel()
     }

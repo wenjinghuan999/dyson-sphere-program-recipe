@@ -57,7 +57,7 @@ import { Planner } from '@/common/planner'
   }
 })
 export default class App extends Vue {
-  private products: Array<Product> = [];
+  private products: Product[] = [];
   private readonly tr = tr;
   private planner: Planner = new Planner([]);
 

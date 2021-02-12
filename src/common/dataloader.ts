@@ -41,7 +41,7 @@ class DataLoader {
     return map
   }
 
-  private static buildItemMap (items: Array<Item>): Record<number, Item> {
+  private static buildItemMap (items: Item[]): Record<number, Item> {
     const itemMap: Record<number, Item> = {}
     items.forEach((item) => {
       itemMap[item.ID] = item
@@ -49,8 +49,8 @@ class DataLoader {
     return itemMap
   }
 
-  private static buildRecipeMap (recipes: Array<Recipe>): Record<number, Array<Recipe>> {
-    const recipeMap: Record<number, Array<Recipe>> = {}
+  private static buildRecipeMap (recipes: Recipe[]): Record<number, Recipe[]> {
+    const recipeMap: Record<number, Recipe[]> = {}
     recipes.forEach((recipe) => {
       recipe.Results.forEach((itemId) => {
         if (recipeMap[itemId] === undefined) {
@@ -63,10 +63,10 @@ class DataLoader {
     return recipeMap
   }
 
-  readonly AllItems: Array<Item>;
-  readonly AllRecipes: Array<Recipe>;
+  readonly AllItems: Item[];
+  readonly AllRecipes: Recipe[];
   readonly ItemMap: Record<number, Item>;
-  readonly RecipeMap: Record<number, Array<Recipe>>;
+  readonly RecipeMap: Record<number, Recipe[]>;
   readonly StringMaps: Record<string, Record<string, string>>;
 
   private currentLocale = 'ZHCN'

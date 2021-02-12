@@ -2,16 +2,16 @@ import { Product, Recipe } from '@/common/product'
 import { DataLoader } from '@/common/dataloader'
 
 class PlannerNode {
-  readonly targets: Array<Product>;
+  readonly targets: Product[];
   recipe: Recipe | null;
   amount: number;
-  products: Array<Product> = [];
-  requires: Array<Product> = [];
-  inputs: Array<Product> = [];
-  children: Array<PlannerNode> = [];
+  products: Product[] = [];
+  requires: Product[] = [];
+  inputs: Product[] = [];
+  children: PlannerNode[] = [];
   dirty = false;
 
-  constructor (recipe: Recipe | null, amount = -1, targets: Array<Product> = []) {
+  constructor (recipe: Recipe | null, amount = -1, targets: Product[] = []) {
     this.recipe = recipe
     if (amount >= 0) {
       this.amount = amount
@@ -53,8 +53,8 @@ class PlannerNode {
     return amount
   }
 
-  static GetProducts (node: PlannerNode): Array<Product> {
-    const products: Array<Product> = []
+  static GetProducts (node: PlannerNode): Product[] {
+    const products: Product[] = []
     const recipe = node.recipe
     if (recipe && node.amount > 0) {
       for (let i = 0; i < recipe.Results.length; ++i) {
@@ -67,8 +67,8 @@ class PlannerNode {
     return products
   }
 
-  static GetRequires (node: PlannerNode): Array<Product> {
-    const requires: Array<Product> = []
+  static GetRequires (node: PlannerNode): Product[] {
+    const requires: Product[] = []
     const recipe = node.recipe
     if (recipe && node.amount > 0) {
       for (let i = 0; i < recipe.Items.length; ++i) {
@@ -81,8 +81,8 @@ class PlannerNode {
     return requires
   }
 
-  static GetInputs (node: PlannerNode): Array<Product> {
-    const inputs: Array<Product> = []
+  static GetInputs (node: PlannerNode): Product[] {
+    const inputs: Product[] = []
     node.requires.forEach((product) => {
       inputs.push(new Product(product.item, product.amount))
     })
@@ -94,7 +94,7 @@ class PlannerNode {
     return Product.SimplifyProducts(inputs)
   }
 
-  static GetOptionalRecipes (targets: Array<Product>): Array<Recipe> {
+  static GetOptionalRecipes (targets: Product[]): Recipe[] {
     if (targets.length === 0) {
       return []
     }
@@ -113,20 +113,20 @@ class PlannerNode {
 }
 
 class Planner {
-  targets: Array<Product>;
-  nodes: Array<PlannerNode>;
+  targets: Product[];
+  nodes: PlannerNode[];
   root: PlannerNode;
 
-  products: Array<Product> = [];
-  inputs: Array<Product> = [];
+  products: Product[] = [];
+  inputs: Product[] = [];
 
-  constructor (targets: Array<Product>) {
+  constructor (targets: Product[]) {
     this.targets = targets
     this.root = new PlannerNode(null, -1, targets)
     this.nodes = []
 
     let remaining = Product.SimplifyProducts(targets)
-    let inputs: Array<Product> = []
+    let inputs: Product[] = []
 
     while (remaining.length > 0) {
       remaining.sort((product1, product2) => {
@@ -168,7 +168,7 @@ class Planner {
   static UpdateProductsAndInputs (planner: Planner) {
     planner.products = []
     planner.inputs = []
-    const stack: Array<PlannerNode> = []
+    const stack: PlannerNode[] = []
     stack.push(planner.root)
     while (stack.length > 0) {
       const node = stack.pop()

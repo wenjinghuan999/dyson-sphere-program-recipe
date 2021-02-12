@@ -14,10 +14,10 @@ class Recipe {
   readonly ID: number = 0;
   readonly SID: number = 0;
   readonly TimeSpend: number = 0;
-  readonly Items: Array<number> = [];
-  readonly ItemCounts: Array<number> = [];
-  readonly Results: Array<number> = [];
-  readonly ResultCounts: Array<number> = [];
+  readonly Items: number[] = [];
+  readonly ItemCounts: number[] = [];
+  readonly Results: number[] = [];
+  readonly ResultCounts: number[] = [];
   readonly GridIndex: number = 0;
   readonly IconPath: string = 'Icons/placeholder';
   readonly Description: string = '';
@@ -75,8 +75,8 @@ class Product {
     return this.isValid ? this.item.Name : ''
   }
 
-  static SimplifyProducts (products: Array<Product>): Array<Product> {
-    const newProducts: Array<Product> = []
+  static SimplifyProducts (products: Product[]): Product[] {
+    const newProducts: Product[] = []
     products.forEach((product) => {
       if (product.isValid && product.amount > 0) {
         const idx = newProducts.findIndex((p) => {

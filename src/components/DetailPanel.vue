@@ -37,7 +37,7 @@ import { tr } from '@/common/dataloader'
 export default class DetailPanel extends Vue {
   @Prop() planner?: Planner;
   private readonly tr = tr;
-  private items: Array<Record<string, string | number | Array<Product>>>;
+  private items: Array<Record<string, string | number | Product[]>>;
   private readonly fields = [
     { key: 'recipe', label: tr('Recipe') },
     { key: 'amount', label: tr('Amount') },
@@ -64,8 +64,8 @@ export default class DetailPanel extends Vue {
     }
   }
 
-  static CreateItems (planner: Planner): Array<Record<string, string | number | Array<Product>>> {
-    const items: Array<Record<string, string | number | Array<Product>>> = []
+  static CreateItems (planner: Planner): Array<Record<string, string | number | Product[]>> {
+    const items: Array<Record<string, string | number | Product[]>> = []
     planner.nodes.forEach((node) => {
       items.push({
         recipe: node.recipe ? tr(node.recipe.Name) : '',
