@@ -12,6 +12,7 @@ class DataLoader {
     this.AllRecipes = recipesJson
     this.ItemMap = DataLoader.buildItemMap(this.AllItems)
     this.RecipeMap = DataLoader.buildRecipeMap(this.AllRecipes)
+    this.RecipeItemMap = DataLoader.buildRecipeItemMap(this.AllRecipes)
     this.StringMaps = DataLoader.buildStringMap()
 
     console.log(this)
@@ -49,24 +50,33 @@ class DataLoader {
     return itemMap
   }
 
-  private static buildRecipeMap (recipes: Recipe[]): Record<number, Recipe[]> {
-    const recipeMap: Record<number, Recipe[]> = {}
+  private static buildRecipeMap (recipes: Recipe[]): Record<number, Recipe> {
+    const recipeMap: Record<number, Recipe> = {}
+    recipes.forEach((recipe) => {
+      recipeMap[recipe.ID] = recipe
+    })
+    return recipeMap
+  }
+
+  private static buildRecipeItemMap (recipes: Recipe[]): Record<number, Recipe[]> {
+    const recipeItemMap: Record<number, Recipe[]> = {}
     recipes.forEach((recipe) => {
       recipe.Results.forEach((itemId) => {
-        if (recipeMap[itemId] === undefined) {
-          recipeMap[itemId] = [recipe]
+        if (recipeItemMap[itemId] === undefined) {
+          recipeItemMap[itemId] = [recipe]
         } else {
-          recipeMap[itemId].push(recipe)
+          recipeItemMap[itemId].push(recipe)
         }
       })
     })
-    return recipeMap
+    return recipeItemMap
   }
 
   readonly AllItems: Item[];
   readonly AllRecipes: Recipe[];
   readonly ItemMap: Record<number, Item>;
-  readonly RecipeMap: Record<number, Recipe[]>;
+  readonly RecipeMap: Record<number, Recipe>;
+  readonly RecipeItemMap: Record<number, Recipe[]>;
   readonly StringMaps: Record<string, Record<string, string>>;
 
   private currentLocale = 'ZHCN'

@@ -1,4 +1,4 @@
-import { Product, Recipe } from '@/common/product'
+import { Item, Product, Recipe } from '@/common/product'
 import { DataLoader } from '@/common/dataloader'
 
 class PlannerEdge {
@@ -6,10 +6,10 @@ class PlannerEdge {
   from: PlannerNode | null;
   to: PlannerNode | null;
 
-  constructor (product: Product) {
+  constructor (product: Product, from: PlannerNode | null = null, to: PlannerNode | null = null) {
     this.product = new Product(product.item, product.amount)
-    this.from = null
-    this.to = null
+    this.from = from
+    this.to = to
   }
 }
 
@@ -25,7 +25,7 @@ class PlannerNode {
   provides: Product[] = [];
   byProducts: Product[] = [];
 
-  constructor (recipe: Recipe | null, amount = -1, targets: Product[] = []) {
+  constructor (recipe: Recipe | null = null, amount = -1, targets: Product[] = []) {
     this.recipe = recipe
     if (amount >= 0) {
       this.amount = amount
@@ -155,7 +155,7 @@ class PlannerNode {
     if (targets.length === 0) {
       return []
     }
-    let recipes = DataLoader.getInstance().RecipeMap[targets[0].item.ID]
+    let recipes = DataLoader.getInstance().RecipeItemMap[targets[0].item.ID]
     for (let i = 1; i < targets.length && recipes && recipes.length > 0; ++i) {
       recipes = recipes.filter((recipe) => {
         return recipe.Results.indexOf(targets[i].item.ID) >= 0
@@ -172,7 +172,6 @@ class PlannerNode {
 class Planner {
   targets: Product[];
   nodes: PlannerNode[];
-  outputs: PlannerEdge[];
 
   byProducts: Product[] = [];
   provides: Product[] = [];
@@ -180,7 +179,6 @@ class Planner {
   constructor (targets: Product[]) {
     this.targets = targets
     this.nodes = []
-    this.outputs = []
 
     const remaining: PlannerEdge[] = []
     targets.forEach((product) => {
@@ -230,6 +228,65 @@ class Planner {
     this.nodes.forEach(node => node.removeUnusedInputs())
 
     Planner.UpdateProvidesAndByProducts(this)
+  }
+
+  static Serialize (planner: Planner): string {
+    return JSON.stringify(planner, (key, value) => {
+      if (value instanceof PlannerNode && (key === 'from' || key === 'to')) {
+        return planner.nodes.indexOf(value) + 1
+      } else if (key === 'item' && value as Item) {
+        return (value as Item).ID
+      } else if (key === 'recipe' && value as Recipe) {
+        return (value as Recipe).ID
+      }
+      return value
+    })
+  }
+
+  static Deserialize (text: string): Planner {
+    const parsed = JSON.parse(text, (key, value) => {
+      if (key === 'item' && typeof value === 'number') {
+        return DataLoader.getInstance().ItemMap[value]
+      } else if (key === 'recipe' && typeof value === 'number') {
+        return DataLoader.getInstance().RecipeMap[value]
+      } else if (value && value.item !== undefined && value.amount !== undefined) {
+        return new Product(value.item, value.amount)
+      }
+      return value
+    })
+
+    const planner = new Planner([])
+    Object.assign(planner.targets, parsed.targets)
+    Object.assign(planner.byProducts, parsed.byProducts)
+    Object.assign(planner.provides, parsed.provides)
+
+    parsed.nodes.forEach((n: any) => {
+      const node = new PlannerNode()
+      node.recipe = n.recipe
+      node.amount = n.amount
+      Object.assign(node.targets, n.targets)
+      Object.assign(node.products, n.products)
+      Object.assign(node.requires, n.requires)
+      Object.assign(node.provides, n.provides)
+      Object.assign(node.byProducts, n.byProducts)
+      planner.nodes.push(node)
+    })
+
+    planner.nodes.forEach((node, index) => {
+      const n = parsed.nodes[index]
+      n.inputs.forEach((e: any) => {
+        const from = e.from ? planner.nodes[e.from - 1] : null
+        const to = e.to ? planner.nodes[e.to - 1] : null
+        node.inputs.push(new PlannerEdge(e.product, from, to))
+      })
+      n.outputs.forEach((e: any) => {
+        const from = e.from ? planner.nodes[e.from - 1] : null
+        const to = e.to ? planner.nodes[e.to - 1] : null
+        node.outputs.push(new PlannerEdge(e.product, from, to))
+      })
+    })
+
+    return planner
   }
 
   static UpdateProvidesAndByProducts (planner: Planner) {
