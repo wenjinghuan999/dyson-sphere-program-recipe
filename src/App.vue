@@ -23,13 +23,7 @@
       </b-container>
       <b-container class="border">
         <b-container class="m-3">
-          <b-tabs content-class="mt-3">
-            <b-tab :title="tr('Graph')" active><p>I'm the first tab</p></b-tab>
-            <b-tab :title="tr('Details')">
-              <DetailPanel :planner="planner"/>
-            </b-tab>
-            <b-tab :title="tr('Summary')"><p>I'm a disabled tab!</p></b-tab>
-          </b-tabs>
+          <router-view :planner="planner" />
         </b-container>
       </b-container>
     </b-container>
@@ -38,11 +32,11 @@
 </template>
 
 <script lang="ts">
-import { Component, Watch, Vue } from 'vue-property-decorator'
+import { Component, Watch, Vue, Prop } from 'vue-property-decorator'
 import Navbar from '@/components/Navbar.vue'
 import ProductPanel from '@/components/ProductPanel.vue'
 import ProductAndAmount from '@/components/ProductAndAmount.vue'
-import DetailPanel from '@/components/DetailPanel.vue'
+import PipelinePanel from '@/components/PipelinePanel.vue'
 import { Product } from '@/common/product'
 import { tr } from '@/common/dataloader'
 // TODO: remove following imports
@@ -53,10 +47,11 @@ import { Planner } from '@/common/planner'
     Navbar,
     ProductPanel,
     ProductAndAmount,
-    DetailPanel
+    PipelinePanel
   }
 })
 export default class App extends Vue {
+  @Prop() panel?: string;
   private products: Product[] = [];
   private readonly tr = tr;
   private planner: Planner = new Planner([]);
