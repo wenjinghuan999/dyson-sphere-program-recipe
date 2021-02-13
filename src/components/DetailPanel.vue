@@ -11,7 +11,12 @@
           <ProductAndAmount v-for="product in data.value" :key="product.item.ID" :product="product" class="mt-2 mb-2 mr-1" />
         </b-container>
       </template>
-      <template #cell(inputs)="data">
+      <template #cell(provides)="data">
+        <b-container class="d-flex flex-wrap justify-content-center">
+          <ProductAndAmount v-for="product in data.value" :key="product.item.ID" :product="product" class="mt-2 mb-2 mr-1" />
+        </b-container>
+      </template>
+      <template #cell(sideProducts)="data">
         <b-container class="d-flex flex-wrap justify-content-center">
           <ProductAndAmount v-for="product in data.value" :key="product.item.ID" :product="product" class="mt-2 mb-2 mr-1" />
         </b-container>
@@ -24,7 +29,7 @@
 import { Component, Prop, Vue, Watch } from 'vue-property-decorator'
 import { Planner } from '@/common/planner'
 import Mixins from '@/common/mixin'
-import { Product, Recipe } from '@/common/product'
+import { Product } from '@/common/product'
 import ProductAndAmount from '@/components/ProductAndAmount.vue'
 import { tr } from '@/common/dataloader'
 
@@ -41,9 +46,10 @@ export default class DetailPanel extends Vue {
   private readonly fields = [
     { key: 'recipe', label: tr('Recipe') },
     { key: 'amount', label: tr('Amount') },
-    { key: 'requires', label: tr('Requirements'), thStyle: { width: '25%' } },
-    { key: 'products', label: tr('Products'), thStyle: { width: '25%' } },
-    { key: 'inputs', label: tr('Inputs'), thStyle: { width: '25%' } }
+    { key: 'requires', label: tr('Requirements'), thStyle: { width: '20%' } },
+    { key: 'products', label: tr('Products'), thStyle: { width: '20%' } },
+    { key: 'provides', label: tr('Provides'), thStyle: { width: '20%' } },
+    { key: 'sideProducts', label: tr('Side products'), thStyle: { width: '20%' } }
   ]
 
   constructor () {
@@ -71,8 +77,9 @@ export default class DetailPanel extends Vue {
         recipe: node.recipe ? tr(node.recipe.Name) : '',
         amount: node.amount,
         requires: node.requires,
-        inputs: node.inputs,
-        products: node.products
+        products: node.products,
+        provides: node.provides,
+        sideProducts: node.sideProducts
       })
     })
     return items

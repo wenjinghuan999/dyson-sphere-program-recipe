@@ -24,18 +24,42 @@ class Recipe {
 
   static readonly Empty = new Recipe()
 
-  static amountOf (recipe: Recipe, itemId: number): number {
+  static amountOfInResults (recipe: Recipe, itemId: number): number {
     const resultIdx = recipe.Results.findIndex((value) => {
       return value === itemId
     })
     if (resultIdx >= 0) {
-      return recipe.ResultCounts[resultIdx] * 60 / recipe.TimeSpend
+      return this.amountOfByResultIdx(recipe, resultIdx)
     }
+    return 0
+  }
+
+  static amountOfInInputs (recipe: Recipe, itemId: number): number {
     const inputIdx = recipe.Results.findIndex((value) => {
       return value === itemId
     })
     if (inputIdx >= 0) {
-      return recipe.ResultCounts[inputIdx] * 60 / recipe.TimeSpend
+      return this.amountOfByInputIdx(recipe, inputIdx)
+    }
+    return 0
+  }
+
+  static netAmountOfInResults (recipe: Recipe, itemId: number): number {
+    const resultIdx = recipe.Results.findIndex((value) => {
+      return value === itemId
+    })
+    if (resultIdx >= 0) {
+      return this.netAmountOfByResultIdx(recipe, resultIdx)
+    }
+    return 0
+  }
+
+  static netAmountOfInInputs (recipe: Recipe, itemId: number): number {
+    const inputIdx = recipe.Results.findIndex((value) => {
+      return value === itemId
+    })
+    if (inputIdx >= 0) {
+      return this.netAmountOfByInputIdx(recipe, inputIdx)
     }
     return 0
   }
@@ -46,6 +70,30 @@ class Recipe {
 
   static amountOfByInputIdx (recipe: Recipe, inputIdx: number): number {
     return recipe.ItemCounts[inputIdx] * 60 / recipe.TimeSpend
+  }
+
+  static netAmountOfByResultIdx (recipe: Recipe, resultIdx: number): number {
+    const inputIdx = recipe.Items.indexOf(recipe.Results[resultIdx])
+    let amount = recipe.ResultCounts[resultIdx]
+    if (inputIdx >= 0) {
+      amount -= recipe.ItemCounts[inputIdx]
+    }
+    if (amount <= 0) {
+      return 0
+    }
+    return amount * 60 / recipe.TimeSpend
+  }
+
+  static netAmountOfByInputIdx (recipe: Recipe, inputIdx: number): number {
+    const resultIdx = recipe.Results.indexOf(recipe.Items[inputIdx])
+    let amount = recipe.ItemCounts[inputIdx]
+    if (resultIdx >= 0) {
+      amount -= recipe.ResultCounts[resultIdx]
+    }
+    if (amount <= 0) {
+      return 0
+    }
+    return amount * 60 / recipe.TimeSpend
   }
 }
 
@@ -78,7 +126,7 @@ class Product {
   static SimplifyProducts (products: Product[]): Product[] {
     const newProducts: Product[] = []
     products.forEach((product) => {
-      if (product.isValid && product.amount > 0) {
+      if (product.isValid && product.amount !== 0) {
         const idx = newProducts.findIndex((p) => {
           return p.item.ID === product.item.ID
         })
@@ -92,6 +140,10 @@ class Product {
     return newProducts.filter((product) => {
       return product.amount !== 0
     })
+  }
+
+  static Neg (products: Product[]): Product[] {
+    return products.map(product => new Product(product.item, -product.amount))
   }
 }
 

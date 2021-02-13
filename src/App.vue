@@ -69,18 +69,16 @@ export default class App extends Vue {
   get productSummary () {
     const planner = new Planner(this.products)
     console.log(planner)
-    // if (planner.root.recipe === null) {
-    //   return 'No recipe available.'
-    // }
     let result = ''
-    if (planner.root.recipe) {
-      result += tr(planner.root.recipe.Name) + '[' + planner.root.amount + ']: '
-    }
-    planner.inputs.forEach((product) => {
+    planner.provides.forEach((product) => {
       result += tr(product.name) + '[' + product.amount + '] '
     })
     result += ' => '
-    planner.products.forEach((product) => {
+    planner.targets.forEach((product) => {
+      result += tr(product.name) + '[' + product.amount + '] '
+    })
+    result += ' + '
+    planner.sideProducts.forEach((product) => {
       result += tr(product.name) + '[' + product.amount + '] '
     })
     return result
