@@ -23,7 +23,7 @@ class PlannerNode {
   inputs: PlannerEdge[] = [];
   outputs: PlannerEdge[] = [];
   provides: Product[] = [];
-  sideProducts: Product[] = [];
+  byProducts: Product[] = [];
 
   constructor (recipe: Recipe | null, amount = -1, targets: Product[] = []) {
     this.recipe = recipe
@@ -38,7 +38,7 @@ class PlannerNode {
     this.products = PlannerNode.GetProducts(this)
     this.requires = PlannerNode.GetRequires(this)
     this.provides = PlannerNode.GetProvides(this)
-    this.sideProducts = PlannerNode.GetSideProducts(this)
+    this.byProducts = PlannerNode.GetByProducts(this)
   }
 
   get optionalRecipes () {
@@ -55,7 +55,7 @@ class PlannerNode {
       this.outputs.push(edge)
       edge.from = this
     }
-    this.sideProducts = PlannerNode.GetSideProducts(this)
+    this.byProducts = PlannerNode.GetByProducts(this)
   }
 
   addInput (edge: PlannerEdge) {
@@ -73,7 +73,7 @@ class PlannerNode {
 
   removeUnusedOutputs () {
     this.outputs = this.outputs.filter(output => output.to)
-    this.sideProducts = PlannerNode.GetSideProducts(this)
+    this.byProducts = PlannerNode.GetByProducts(this)
   }
 
   removeUnusedInputs () {
@@ -140,15 +140,15 @@ class PlannerNode {
     return Product.SimplifyProducts(provides)
   }
 
-  static GetSideProducts (node: PlannerNode): Product[] {
-    const sideProducts: Product[] = []
+  static GetByProducts (node: PlannerNode): Product[] {
+    const byProducts: Product[] = []
     node.products.forEach((product) => {
-      sideProducts.push(new Product(product.item, product.amount))
+      byProducts.push(new Product(product.item, product.amount))
     })
     node.outputs.forEach((output) => {
-      sideProducts.push(new Product(output.product.item, -output.product.amount))
+      byProducts.push(new Product(output.product.item, -output.product.amount))
     })
-    return Product.SimplifyProducts(sideProducts)
+    return Product.SimplifyProducts(byProducts)
   }
 
   static GetOptionalRecipes (targets: Product[]): Recipe[] {
@@ -174,7 +174,7 @@ class Planner {
   nodes: PlannerNode[];
   outputs: PlannerEdge[];
 
-  sideProducts: Product[] = [];
+  byProducts: Product[] = [];
   provides: Product[] = [];
 
   constructor (targets: Product[]) {
@@ -229,20 +229,20 @@ class Planner {
 
     this.nodes.forEach(node => node.removeUnusedInputs())
 
-    Planner.UpdateProvidesAndSideProducts(this)
+    Planner.UpdateProvidesAndByProducts(this)
   }
 
-  static UpdateProvidesAndSideProducts (planner: Planner) {
+  static UpdateProvidesAndByProducts (planner: Planner) {
     planner.nodes.forEach((node) => {
       node.provides.forEach((product) => {
         planner.provides.push(product)
       })
-      node.sideProducts.forEach((product) => {
-        planner.sideProducts.push(product)
+      node.byProducts.forEach((product) => {
+        planner.byProducts.push(product)
       })
     })
     planner.provides = Product.SimplifyProducts(planner.provides)
-    planner.sideProducts = Product.SimplifyProducts(planner.sideProducts)
+    planner.byProducts = Product.SimplifyProducts(planner.byProducts)
   }
 
   static AddOutputs (node: PlannerNode, edges: PlannerEdge[]) {
@@ -277,7 +277,7 @@ class Planner {
       node.targets = Product.SimplifyProducts(node.targets.concat(addTargets))
       node.amount = PlannerNode.GetAmount(node)
       node.products = PlannerNode.GetProducts(node)
-      node.sideProducts = PlannerNode.GetSideProducts(node)
+      node.byProducts = PlannerNode.GetByProducts(node)
 
       let addRequires = Product.Neg(node.requires)
       node.requires = PlannerNode.GetRequires(node)

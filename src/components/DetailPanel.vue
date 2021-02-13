@@ -16,7 +16,7 @@
           <ProductAndAmount v-for="product in data.value" :key="product.item.ID" :product="product" class="mt-2 mb-2 mr-1" />
         </b-container>
       </template>
-      <template #cell(sideProducts)="data">
+      <template #cell(byProducts)="data">
         <b-container class="d-flex flex-wrap justify-content-center">
           <ProductAndAmount v-for="product in data.value" :key="product.item.ID" :product="product" class="mt-2 mb-2 mr-1" />
         </b-container>
@@ -48,8 +48,8 @@ export default class DetailPanel extends Vue {
     { key: 'amount', label: tr('Amount') },
     { key: 'requires', label: tr('Requirements'), thStyle: { width: '20%' } },
     { key: 'products', label: tr('Products'), thStyle: { width: '20%' } },
-    { key: 'provides', label: tr('Provides'), thStyle: { width: '20%' } },
-    { key: 'sideProducts', label: tr('Side products'), thStyle: { width: '20%' } }
+    { key: 'provides', label: tr('Raw inputs'), thStyle: { width: '20%' } },
+    { key: 'byProducts', label: tr('By-products'), thStyle: { width: '20%' } }
   ]
 
   constructor () {
@@ -79,7 +79,7 @@ export default class DetailPanel extends Vue {
         requires: node.requires,
         products: node.products,
         provides: node.provides,
-        sideProducts: node.sideProducts
+        byProducts: node.byProducts
       })
     })
     return items

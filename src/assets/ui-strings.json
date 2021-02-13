@@ -84,10 +84,17 @@
     "FRFR": "Des produits"
   },
   {
-    "Name": "Inputs",
+    "Name": "Raw inputs",
     "ID": 13,
-    "ZHCN": "\u8f93\u5165",
-    "ENUS": "Inputs",
-    "FRFR": "Contributions"
+    "ZHCN": "\u539f\u6599\u8f93\u5165",
+    "ENUS": "Raw inputs",
+    "FRFR": "Entr\u00e9es brutes"
+  },
+  {
+    "Name": "By-products",
+    "ID": 14,
+    "ZHCN": "\u526f\u4ea7\u7269",
+    "ENUS": "By-products",
+    "FRFR": "Sous-produits"
   }
 ]

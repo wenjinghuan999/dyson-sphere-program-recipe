@@ -78,7 +78,7 @@ export default class App extends Vue {
       result += tr(product.name) + '[' + product.amount + '] '
     })
     result += ' + '
-    planner.sideProducts.forEach((product) => {
+    planner.byProducts.forEach((product) => {
       result += tr(product.name) + '[' + product.amount + '] '
     })
     return result
