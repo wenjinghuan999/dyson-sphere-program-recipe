@@ -289,6 +289,26 @@ class Planner {
     return planner
   }
 
+  static SerializeProductArray (products: Product[]): string {
+    return JSON.stringify(products, (key, value) => {
+      if (key === 'item' && value as Item) {
+        return (value as Item).ID
+      }
+      return value
+    })
+  }
+
+  static DeserializeProductArray (text: string): Product[] {
+    return JSON.parse(text, (key, value) => {
+      if (key === 'item' && typeof value === 'number') {
+        return DataLoader.getInstance().ItemMap[value]
+      } else if (value && value.item !== undefined && value.amount !== undefined) {
+        return new Product(value.item, value.amount)
+      }
+      return value
+    })
+  }
+
   static UpdateProvidesAndByProducts (planner: Planner) {
     planner.nodes.forEach((node) => {
       node.provides.forEach((product) => {

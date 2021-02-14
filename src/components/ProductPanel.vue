@@ -6,6 +6,7 @@
           v-model="element.product"
           v-on:click="onItemPickerClicked(element.pickerId)"
           v-on:input="updateProduct()"
+          :defaultProduct="element.product"
           :showPicker="showPickerId == element.pickerId"
           :default-message="tr('Select Item')"
         />
@@ -22,7 +23,7 @@
 import { Component, Prop, VModel, Vue, Watch } from 'vue-property-decorator'
 import ProductPicker from '@/components/ProductPicker.vue'
 import Mixins from '@/common/mixin'
-import { Product } from '@/common/product'
+import { Item, Product } from '@/common/product'
 import { tr } from '@/common/dataloader'
 
 @Component({
@@ -33,12 +34,13 @@ import { tr } from '@/common/dataloader'
 })
 export default class ProductPanel extends Vue {
   @Prop() private title!: string;
+  @Prop() private defaultProducts!: Product[];
   @VModel() private products!: Product[];
   private readonly tr = tr;
 
   static NoneElement = { pickerId: 0, product: Product.Empty };
 
-  private selected: Array<typeof ProductPanel.NoneElement> = [];
+  private selected: (typeof ProductPanel.NoneElement)[] = [];
 
   private newPickerId = 0;
   private showPickerId = -1;
@@ -46,8 +48,7 @@ export default class ProductPanel extends Vue {
   constructor () {
     super()
 
-    this.selected.push(Object.create(ProductPanel.NoneElement))
-    this.newPickerId = 1
+    ProductPanel.ConstrcutPickers(this)
   }
 
   findPicker (pickerId: number) {
@@ -55,17 +56,25 @@ export default class ProductPanel extends Vue {
   }
 
   onDeleteButtonClicked (pickerId: number) {
-    if (this.selected.length > 1) {
-      this.selected.splice(this.findPicker(pickerId), 1)
-      this.updateProduct()
-    }
+    this.removePicker(pickerId)
   }
 
   onAddButtonClicked () {
-    const newElement = Object.create(ProductPanel.NoneElement)
-    newElement.pickerId = this.newPickerId++
+    this.addNewPicker(null)
+  }
+
+  addNewPicker (product: Product | null) {
+    const newElement = {
+      pickerId: this.newPickerId++,
+      product: product === null ? new Product(Item.Empty, 1) : new Product(product.item, product.amount)
+    }
     this.selected.push(newElement)
-    this.updateProduct()
+  }
+
+  removePicker (pickerId: number) {
+    if (this.selected.length > 1) {
+      this.selected.splice(this.findPicker(pickerId), 1)
+    }
   }
 
   onItemPickerClicked (pickerId: number) {
@@ -81,11 +90,44 @@ export default class ProductPanel extends Vue {
   updateProduct () {
     const products: Product[] = []
     this.selected.forEach((element) => {
-      if (element.product.isValid && element.product.amount > 0) {
-        products.push(element.product)
-      }
+      products.push(new Product(element.product.item, element.product.amount))
     })
-    this.products = Product.SimplifyProducts(products)
+    this.products = products
+  }
+
+  static ConstrcutPickers (panel: ProductPanel) {
+    if (panel.defaultProducts.length > 0) {
+      const newSelected: (typeof ProductPanel.NoneElement)[] = []
+      panel.defaultProducts.forEach((product) => {
+        newSelected.push({
+          pickerId: panel.newPickerId++,
+          product: new Product(product.item, product.amount)
+        })
+      })
+      panel.selected = newSelected
+    } else {
+      panel.selected = [{
+        pickerId: panel.newPickerId++,
+        product: new Product(Item.Empty, 1)
+      }]
+    }
+  }
+
+  @Watch('defaultProducts')
+  onDefaultProductChanged () {
+    let pickerChanged = false
+    if (this.defaultProducts.length !== this.selected.length) {
+      pickerChanged = true
+    }
+    for (let i = 0; i < this.defaultProducts.length && !pickerChanged; ++i) {
+      if (this.defaultProducts[i].item.ID !== this.selected[i].product.item.ID ||
+        this.defaultProducts[i].amount !== this.selected[i].product.amount) {
+        pickerChanged = true
+      }
+    }
+    if (pickerChanged) {
+      ProductPanel.ConstrcutPickers(this)
+    }
   }
 }
 </script>

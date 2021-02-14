@@ -2,7 +2,7 @@ import Vue from 'vue'
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 import VueCookies from 'vue-cookies'
 import VueRouter from 'vue-router'
-import PipelinePanel from '@/components/PipelinePanel.vue'
+import RouterView from '@/components/RouterView.vue'
 import App from './App.vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
@@ -22,16 +22,22 @@ const router = new VueRouter({
     {
       path: '/',
       name: 'home',
-      component: PipelinePanel,
-      props: {
-        activePanel: 'details'
-      }
+      component: RouterView,
+      props: (route) => ({
+        activePanel: 'details',
+        planData: route.query.plan,
+        targetsData: route.query.target
+      })
     },
     {
       path: '/:activePanel',
       name: 'page',
-      component: PipelinePanel,
-      props: true
+      component: RouterView,
+      props: (route) => ({
+        activePanel: route.params.activePanel,
+        planData: route.query.plan,
+        targetsData: route.query.target
+      })
     }
   ]
 })
@@ -41,6 +47,8 @@ router.beforeEach((to, from, next) => {
     next()
   } else if (to.name === 'page' && pages.has(to.params.activePanel)) {
     next()
+  } else if (to.fullPath === from.fullPath) {
+    next(false)
   } else {
     next('/')
   }

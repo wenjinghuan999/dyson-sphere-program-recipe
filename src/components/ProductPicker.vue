@@ -84,7 +84,8 @@ import '@livelybone/vue-popper/lib/css/index.css'
 export default class ProductPicker extends Vue {
   @Prop() private defaultMessage!: string;
   @Prop() private showPicker = false;
-  @VModel() private selectedProduct?: Product;
+  @Prop() private defaultProduct!: Product;
+  @VModel() private selectedProduct!: Product;
   private readonly tr = tr;
 
   private readonly dataLoader = DataLoader.getInstance();
@@ -98,6 +99,11 @@ export default class ProductPicker extends Vue {
   constructor () {
     super()
     this.panel = ProductPicker.GetPanel()
+
+    if (this.defaultProduct && this.defaultProduct.isValid) {
+      this.selectedItem = new Product(this.defaultProduct.item)
+      this.amount = this.defaultProduct.amount
+    }
   }
 
   private static CreatePanel (): Product[][] {
@@ -163,9 +169,23 @@ export default class ProductPicker extends Vue {
   @Watch('selectedItem')
   @Watch('amount')
   onChanged () {
-    const newProduct = Object.create(this.selectedItem) as Product
-    newProduct.amount = this.amount / (this.unit === 'min' ? 60 : 1)
-    this.selectedProduct = newProduct
+    this.selectedProduct = new Product(
+      this.selectedItem.item,
+      this.amount / (this.unit === 'min' ? 60 : 1)
+    )
+  }
+
+  @Watch('defaultProduct', { deep: true, immediate: true })
+  onDefaultProductChanged () {
+    if (!this.defaultProduct || !this.defaultProduct.isValid) {
+      return
+    }
+    if (this.selectedItem.item.ID !== this.selectedProduct.item.ID) {
+      this.selectedItem = new Product(DataLoader.getInstance().ItemMap[this.defaultProduct.item.ID])
+    }
+    if (this.amount !== this.defaultProduct.amount) {
+      this.amount = this.defaultProduct.amount
+    }
   }
 }
 </script>

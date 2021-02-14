@@ -47,6 +47,7 @@ class DataLoader {
     items.forEach((item) => {
       itemMap[item.ID] = item
     })
+    itemMap[0] = Item.Empty
     return itemMap
   }
 
@@ -55,6 +56,7 @@ class DataLoader {
     recipes.forEach((recipe) => {
       recipeMap[recipe.ID] = recipe
     })
+    recipeMap[0] = Recipe.Empty
     return recipeMap
   }
 

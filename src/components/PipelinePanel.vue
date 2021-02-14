@@ -28,10 +28,11 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator'
-import { tr } from '@/common/dataloader'
-import DetailPanel from '@/components/DetailPanel.vue'
-import { Planner } from '@/common/planner'
 import { BvEvent } from 'bootstrap-vue'
+import { tr } from '@/common/dataloader'
+import { Product } from '@/common/product'
+import { Planner } from '@/common/planner'
+import DetailPanel from '@/components/DetailPanel.vue'
 
 @Component({
   components: {
@@ -40,12 +41,13 @@ import { BvEvent } from 'bootstrap-vue'
 })
 export default class PipelinePanel extends Vue {
   @Prop() planner?: Planner;
+  @Prop() targets?: Product[];
   @Prop() activePanel?: string;
   private readonly tr = tr;
 
   private onActivateTab (newTabIndex: number, prevTabIndex: number, e: BvEvent) {
     const newActivePanel = newTabIndex === 0 ? 'graph' : newTabIndex === 1 ? 'details' : 'summary'
-    this.$router.replace({ path: newActivePanel })
+    // this.$router.replace({ path: newActivePanel })
   }
 }
 </script>
