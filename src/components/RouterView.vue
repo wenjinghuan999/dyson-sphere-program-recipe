@@ -102,21 +102,19 @@ export default class RouterView extends Vue {
   }
 
   get productSummary () {
-    const planner = new Planner(this.targets)
-    // console.log(planner)
-    // let result = ''
-    // planner.provides.forEach((product) => {
-    //   result += tr(product.name) + '[' + product.amount + '] '
-    // })
-    // result += ' => '
-    // planner.targets.forEach((product) => {
-    //   result += tr(product.name) + '[' + product.amount + '] '
-    // })
-    // result += ' + '
-    // planner.byProducts.forEach((product) => {
-    //   result += tr(product.name) + '[' + product.amount + '] '
-    // })
-    const result = Base64.encode(Planner.Serialize(planner))
+    console.log(this.planner)
+    let result = ''
+    this.planner.provides.forEach((product) => {
+      result += tr(product.name) + '[' + product.amount + '] '
+    })
+    result += ' => '
+    this.planner.targets.forEach((product) => {
+      result += tr(product.name) + '[' + product.amount + '] '
+    })
+    result += ' + '
+    this.planner.byProducts.forEach((product) => {
+      result += tr(product.name) + '[' + product.amount + '] '
+    })
     return result
   }
 }
