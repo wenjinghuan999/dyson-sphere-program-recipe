@@ -2,6 +2,7 @@ import itemsJson from '@/assets/prototypes/items.json'
 import recipesJson from '@/assets/prototypes/recipes.json'
 import stringsJson from '@/assets/prototypes/strings.json'
 import uiStringsJson from '@/assets/ui-strings.json'
+import recipeTypesJson from '@/assets/recipetypes.json'
 import { Item, Recipe } from '@/common/product'
 
 class DataLoader {
@@ -14,6 +15,7 @@ class DataLoader {
     this.RecipeMap = DataLoader.buildRecipeMap(this.AllRecipes)
     this.RecipeItemMap = DataLoader.buildRecipeItemMap(this.AllRecipes)
     this.StringMaps = DataLoader.buildStringMap()
+    this.RecipeTypesMap = DataLoader.buildRecipeTypesMap(this.ItemMap)
 
     console.log(this)
   }
@@ -74,12 +76,22 @@ class DataLoader {
     return recipeItemMap
   }
 
+  private static buildRecipeTypesMap (itemMap: Record<number, Item>): Record<number, Item[]> {
+    const recipeTypesMap: Record<number, Item[]> = {}
+    recipeTypesJson.forEach((recipeType) => {
+      const items = recipeType.Items.map(itemId => itemMap[itemId])
+      recipeTypesMap[recipeType.ID] = items
+    })
+    return recipeTypesMap
+  }
+
   readonly AllItems: Item[];
   readonly AllRecipes: Recipe[];
   readonly ItemMap: Record<number, Item>;
   readonly RecipeMap: Record<number, Recipe>;
   readonly RecipeItemMap: Record<number, Recipe[]>;
   readonly StringMaps: Record<string, Record<string, string>>;
+  readonly RecipeTypesMap: Record<number, Item[]>;
 
   private currentLocale = 'ZHCN'
 

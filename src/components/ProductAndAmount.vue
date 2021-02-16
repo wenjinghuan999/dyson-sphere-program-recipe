@@ -27,6 +27,6 @@ import Mixins from '@/common/mixin'
   mixins: [Mixins]
 })
 export default class ProductAndAmount extends Vue {
-  @Prop() private readonly product!: typeof Product;
+  @Prop() private readonly product!: Product;
 }
 </script>

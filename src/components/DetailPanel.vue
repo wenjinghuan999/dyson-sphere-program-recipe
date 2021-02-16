@@ -1,6 +1,12 @@
 <template>
   <b-container>
     <b-table striped hover fixed :fields="fields" :items="items">
+      <template #cell(recipe)="data">
+        <b-container class="d-flex flex-wrap justify-content-center">
+          <p>{{ tr(data.value.Name) }}</p>
+          <building-and-recipe :recipe="data.value" class="mt-2 mb-2 mr-1" />
+        </b-container>
+      </template>
       <template #cell(requires)="data">
         <b-container class="d-flex flex-wrap justify-content-center">
           <ProductAndAmount v-for="product in data.value" :key="product.item.ID" :product="product" class="mt-2 mb-2 mr-1" />
@@ -29,27 +35,29 @@
 import { Component, Prop, Vue, Watch } from 'vue-property-decorator'
 import { Planner } from '@/common/planner'
 import Mixins from '@/common/mixin'
-import { Product } from '@/common/product'
+import { Product, Recipe } from '@/common/product'
 import ProductAndAmount from '@/components/ProductAndAmount.vue'
+import BuildingAndRecipe from '@/components/BuildingAndRecipe.vue'
 import { tr } from '@/common/dataloader'
 
 @Component({
   mixins: [Mixins],
   components: {
-    ProductAndAmount
+    ProductAndAmount,
+    BuildingAndRecipe
   }
 })
 export default class DetailPanel extends Vue {
   @Prop() planner?: Planner;
   private readonly tr = tr;
-  private items: Record<string, string | number | Product[]>[];
+  private items: Record<string, string | number | Recipe | Product[]>[];
   private readonly fields = [
-    { key: 'recipe', label: tr('Recipe') },
-    { key: 'amount', label: tr('Amount') },
-    { key: 'requires', label: tr('Requirements'), thStyle: { width: '20%' } },
-    { key: 'products', label: tr('Products'), thStyle: { width: '20%' } },
-    { key: 'provides', label: tr('Raw inputs'), thStyle: { width: '20%' } },
-    { key: 'byProducts', label: tr('By-products'), thStyle: { width: '20%' } }
+    { key: 'recipe', label: tr('Recipe'), thStyle: { width: '19%' } },
+    { key: 'amount', label: tr('Amount'), thStyle: { width: '5%' } },
+    { key: 'requires', label: tr('Requirements'), thStyle: { width: '19%' } },
+    { key: 'products', label: tr('Products'), thStyle: { width: '19%' } },
+    { key: 'provides', label: tr('Raw inputs'), thStyle: { width: '19%' } },
+    { key: 'byProducts', label: tr('By-products'), thStyle: { width: '19%' } }
   ]
 
   constructor () {
@@ -70,11 +78,11 @@ export default class DetailPanel extends Vue {
     }
   }
 
-  static CreateItems (planner: Planner): Array<Record<string, string | number | Product[]>> {
-    const items: Record<string, string | number | Product[]>[] = []
+  static CreateItems (planner: Planner): Array<Record<string, string | number | Recipe | Product[]>> {
+    const items: Record<string, string | number | Recipe | Product[]>[] = []
     planner.nodes.forEach((node) => {
       items.push({
-        recipe: node.recipe ? tr(node.recipe.Name) : '',
+        recipe: node.recipe ? node.recipe : Recipe.Empty,
         amount: node.amount,
         requires: node.requires,
         products: node.products,

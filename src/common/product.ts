@@ -13,6 +13,7 @@ class Recipe {
   readonly Name: string = 'None';
   readonly ID: number = 0;
   readonly SID: number = 0;
+  readonly Type: number = -1;
   readonly TimeSpend: number = 0;
   readonly Items: number[] = [];
   readonly ItemCounts: number[] = [];
