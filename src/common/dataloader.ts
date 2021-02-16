@@ -16,12 +16,12 @@ class DataLoader {
     this.ItemMap = DataLoader.buildItemMap(this.AllItems)
     this.ItemNameMap = DataLoader.buildItemNameMap(this.AllItems)
     this.VeinMap = DataLoader.buildVeinMap(this.AllVeins)
-    this.VeinNameMap = DataLoader.buildVeinNameMap(this.AllVeins)
+    this.VeinItemMap = DataLoader.buildVeinItemMap(this.AllVeins)
     this.RecipeMap = DataLoader.buildRecipeMap(this.AllRecipes)
     this.RecipeItemMap = DataLoader.buildRecipeItemMap(this.AllRecipes)
     this.StringMaps = DataLoader.buildStringMap()
     this.RecipeTypesMap = DataLoader.buildRecipeTypesMap(this.ItemMap)
-    this.MiningMap = DataLoader.buildMiningMap(this.ItemMap, this.ItemNameMap, this.VeinNameMap, this.RecipeTypesMap)
+    this.MiningMap = DataLoader.buildMiningMap(this.ItemMap, this.ItemNameMap, this.VeinItemMap, this.RecipeTypesMap)
 
     console.log(this)
   }
@@ -78,14 +78,13 @@ class DataLoader {
     return veinMap
   }
 
-  private static buildVeinNameMap (veins: Vein[]): Record<string, Vein> {
-    const veinNameMap: Record<string, Vein> = {}
+  private static buildVeinItemMap (veins: Vein[]): Record<string, Vein> {
+    const veinItemMap: Record<string, Vein> = {}
     veins.forEach((vein) => {
-      veinNameMap[vein.Name] = vein
+      veinItemMap[vein.MiningItem] = vein
     })
-    veinNameMap[''] = Vein.Empty
-    veinNameMap.None = Vein.Empty
-    return veinNameMap
+    veinItemMap[0] = Vein.Empty
+    return veinItemMap
   }
 
   private static buildRecipeMap (recipes: Recipe[]): Record<number, Recipe> {
@@ -123,7 +122,7 @@ class DataLoader {
   private static buildMiningMap (
     itemMap: Record<number, Item>,
     itemNameMap: Record<string, Item>,
-    veinNameMap: Record<string, Vein>,
+    veinItemMap: Record<number, Vein>,
     recipeTypesMap: Record<number, Item[]>
   ): Record<number, MiningRecipe[]> {
     // TODO make this configurable
@@ -146,8 +145,11 @@ class DataLoader {
         } else if (item.MiningFrom === '\u6c14\u6001\u5de8\u661f\u8f68\u9053') {
           building = miningBuildings[3]
           rate = MiningRecipe.GasMiningRate
+        } else if (item.MiningFrom === '\u6811\u6728' || item.MiningFrom === '\u690d\u7269') {
+          building = Item.Empty
+          rate = 0
         }
-        const vein = veinNameMap[item.MiningFrom]
+        const vein = veinItemMap[item.ID]
         if (vein) {
           rate /= vein.MiningTime
         } else {
@@ -180,7 +182,7 @@ class DataLoader {
   readonly ItemMap: Record<number, Item>;
   readonly ItemNameMap: Record<string, Item>;
   readonly VeinMap: Record<number, Vein>;
-  readonly VeinNameMap: Record<string, Vein>;
+  readonly VeinItemMap: Record<number, Vein>;
   readonly RecipeMap: Record<number, Recipe>;
   readonly RecipeItemMap: Record<number, Recipe[]>;
   readonly StringMaps: Record<string, Record<string, string>>;

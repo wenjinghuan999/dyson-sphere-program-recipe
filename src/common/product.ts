@@ -186,7 +186,11 @@ class MiningProduct {
   constructor (product: Product, miningRecipe: MiningRecipe) {
     this.product = product
     this.miningRecipe = miningRecipe
-    this.amount = product.amount / miningRecipe.productionRate
+    if (miningRecipe.productionRate > 0) {
+      this.amount = product.amount / miningRecipe.productionRate
+    } else {
+      this.amount = -1
+    }
   }
 }
 

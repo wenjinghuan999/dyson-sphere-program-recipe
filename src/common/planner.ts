@@ -172,6 +172,7 @@ class PlannerNode {
 class Planner {
   targets: Product[];
   nodes: PlannerNode[];
+  targetNode: PlannerNode;
 
   byProducts: Product[] = [];
   provides: Product[] = [];
@@ -182,10 +183,14 @@ class Planner {
   constructor (targets: Product[]) {
     this.targets = targets
     this.nodes = []
+    this.targetNode = new PlannerNode(null, -1, targets)
+    this.targetNode.requires = Product.SimplifyProducts(targets)
 
     const remaining: PlannerEdge[] = []
     targets.forEach((product) => {
-      remaining.push(new PlannerEdge(product))
+      const edge = new PlannerEdge(product)
+      this.targetNode.addInput(edge)
+      remaining.push(edge)
     })
     const nodeMap: Map<number, PlannerNode> = new Map()
 
@@ -228,7 +233,7 @@ class Planner {
       }
     }
 
-    this.nodes.forEach(node => node.removeUnusedInputs())
+    this.nodes.concat(this.targetNode).forEach(node => node.removeUnusedInputs())
 
     Planner.UpdateProvidesAndByProducts(this)
     Planner.UpdateMinnings(this)
@@ -294,7 +299,7 @@ class Planner {
   }
 
   static UpdateProvidesAndByProducts (planner: Planner) {
-    planner.nodes.forEach((node) => {
+    planner.nodes.concat([planner.targetNode]).forEach((node) => {
       node.provides.forEach((product) => {
         planner.provides.push(product)
       })

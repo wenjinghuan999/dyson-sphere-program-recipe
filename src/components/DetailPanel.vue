@@ -47,6 +47,9 @@
             <BuildingAndMining :recipe="data.value" class="mt-2 mb-2 mr-1" />
           </b-container>
         </template>
+        <template #cell(amount)="data">
+          <p>{{ data.value >= 0 ? data.value : '-'}}</p>
+        </template>
         <template #cell(product)="data">
           <b-container class="d-flex flex-wrap justify-content-center">
             <ProductAndAmount :product="data.value" class="mt-2 mb-2 mr-1" />

@@ -55,7 +55,7 @@ export default class BuildingAndMining extends Vue {
 
   get vein (): Vein | null {
     if (this.recipe.item.MiningFrom) {
-      const vein = DataLoader.getInstance().VeinNameMap[this.recipe.item.MiningFrom]
+      const vein = DataLoader.getInstance().VeinItemMap[this.recipe.item.ID]
       if (vein) {
         return vein
       } else {
