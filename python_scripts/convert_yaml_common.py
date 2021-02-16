@@ -8,7 +8,7 @@ def int_constructor(loader, node):
   return int(loader.construct_scalar(node))
   
 def bool_constructor(loader, node):
-  return bool(loader.construct_scalar(node))
+  return bool(loader.construct_scalar(node) != "0")
   
 def float_constructor(loader, node):
   return float(loader.construct_scalar(node))

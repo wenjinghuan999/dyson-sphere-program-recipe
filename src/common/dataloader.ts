@@ -1,21 +1,27 @@
 import itemsJson from '@/assets/prototypes/items.json'
+import veinsJson from '@/assets/prototypes/veins.json'
 import recipesJson from '@/assets/prototypes/recipes.json'
 import stringsJson from '@/assets/prototypes/strings.json'
 import uiStringsJson from '@/assets/ui-strings.json'
 import recipeTypesJson from '@/assets/recipetypes.json'
-import { Item, Recipe } from '@/common/product'
+import { Item, Vein, Recipe, MiningRecipe } from '@/common/product'
 
 class DataLoader {
   private static instance: DataLoader;
 
   private constructor () {
     this.AllItems = itemsJson
+    this.AllVeins = veinsJson
     this.AllRecipes = recipesJson
     this.ItemMap = DataLoader.buildItemMap(this.AllItems)
+    this.ItemNameMap = DataLoader.buildItemNameMap(this.AllItems)
+    this.VeinMap = DataLoader.buildVeinMap(this.AllVeins)
+    this.VeinNameMap = DataLoader.buildVeinNameMap(this.AllVeins)
     this.RecipeMap = DataLoader.buildRecipeMap(this.AllRecipes)
     this.RecipeItemMap = DataLoader.buildRecipeItemMap(this.AllRecipes)
     this.StringMaps = DataLoader.buildStringMap()
     this.RecipeTypesMap = DataLoader.buildRecipeTypesMap(this.ItemMap)
+    this.MiningMap = DataLoader.buildMiningMap(this.ItemMap, this.ItemNameMap, this.VeinNameMap, this.RecipeTypesMap)
 
     console.log(this)
   }
@@ -53,6 +59,35 @@ class DataLoader {
     return itemMap
   }
 
+  private static buildItemNameMap (items: Item[]): Record<string, Item> {
+    const itemNameMap: Record<string, Item> = {}
+    items.forEach((item) => {
+      itemNameMap[item.Name] = item
+    })
+    itemNameMap[''] = Item.Empty
+    itemNameMap.None = Item.Empty
+    return itemNameMap
+  }
+
+  private static buildVeinMap (veins: Vein[]): Record<number, Vein> {
+    const veinMap: Record<number, Vein> = {}
+    veins.forEach((vein) => {
+      veinMap[vein.ID] = vein
+    })
+    veinMap[0] = Vein.Empty
+    return veinMap
+  }
+
+  private static buildVeinNameMap (veins: Vein[]): Record<string, Vein> {
+    const veinNameMap: Record<string, Vein> = {}
+    veins.forEach((vein) => {
+      veinNameMap[vein.Name] = vein
+    })
+    veinNameMap[''] = Vein.Empty
+    veinNameMap.None = Vein.Empty
+    return veinNameMap
+  }
+
   private static buildRecipeMap (recipes: Recipe[]): Record<number, Recipe> {
     const recipeMap: Record<number, Recipe> = {}
     recipes.forEach((recipe) => {
@@ -85,13 +120,72 @@ class DataLoader {
     return recipeTypesMap
   }
 
+  private static buildMiningMap (
+    itemMap: Record<number, Item>,
+    itemNameMap: Record<string, Item>,
+    veinNameMap: Record<string, Vein>,
+    recipeTypesMap: Record<number, Item[]>
+  ): Record<number, MiningRecipe[]> {
+    // TODO make this configurable
+    const miningMap: Record<number, MiningRecipe[]> = {}
+    itemsJson.forEach((it) => {
+      const item = itemMap[it.ID]
+      const recipes: MiningRecipe[] = []
+      if (item.MiningFrom) {
+        const miningBuildings = recipeTypesMap[0]
+        let building = miningBuildings[0]
+        let rate = MiningRecipe.MineMiningRate
+        if (item.IsFluid) {
+          if (item.ID === 1007) {
+            building = miningBuildings[2]
+            rate = MiningRecipe.OilMiningRate
+          } else {
+            building = miningBuildings[1]
+            rate = MiningRecipe.OceanMiningRate
+          }
+        } else if (item.MiningFrom === '\u6c14\u6001\u5de8\u661f\u8f68\u9053') {
+          building = miningBuildings[3]
+          rate = MiningRecipe.GasMiningRate
+        }
+        const vein = veinNameMap[item.MiningFrom]
+        if (vein) {
+          rate /= vein.MiningTime
+        } else {
+          rate /= 60
+        }
+        recipes.push(new MiningRecipe(item, building, rate))
+      }
+      if (item.ProduceFrom) {
+        const building = itemNameMap[item.ProduceFrom]
+        const defaultProductionRates: Record<number, number> = {
+          1121: 0,
+          1208: 1,
+          2207: 1
+        }
+        const rate = defaultProductionRates[item.ID]
+        if (rate) {
+          recipes.push(new MiningRecipe(item, building, rate))
+        }
+      }
+      if (recipes.length) {
+        miningMap[it.ID] = recipes
+      }
+    })
+    return miningMap
+  }
+
   readonly AllItems: Item[];
+  readonly AllVeins: Vein[];
   readonly AllRecipes: Recipe[];
   readonly ItemMap: Record<number, Item>;
+  readonly ItemNameMap: Record<string, Item>;
+  readonly VeinMap: Record<number, Vein>;
+  readonly VeinNameMap: Record<string, Vein>;
   readonly RecipeMap: Record<number, Recipe>;
   readonly RecipeItemMap: Record<number, Recipe[]>;
   readonly StringMaps: Record<string, Record<string, string>>;
   readonly RecipeTypesMap: Record<number, Item[]>;
+  readonly MiningMap: Record<number, MiningRecipe[]>;
 
   private currentLocale = 'ZHCN'
 

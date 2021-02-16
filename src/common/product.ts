@@ -2,11 +2,24 @@ class Item {
   readonly Name: string = 'None';
   readonly ID: number = 0;
   readonly MiningFrom: string = '';
+  readonly ProduceFrom: string = '';
+  readonly IsFluid: boolean = false;
   readonly IconPath: string = 'Icons/placeholder';
   readonly GridIndex: number = 0;
   readonly Description: string = '';
 
   static readonly Empty = new Item()
+}
+
+class Vein {
+  readonly Name: string = 'None';
+  readonly ID: number = 0;
+  readonly IconPath: string = 'Icons/placeholder';
+  readonly Description: string = '';
+  readonly MiningItem: number = 0;
+  readonly MiningTime: number = 0;
+
+  static readonly Empty = new Vein()
 }
 
 class Recipe {
@@ -98,6 +111,23 @@ class Recipe {
   }
 }
 
+class MiningRecipe {
+  item: Item;
+  building: Item;
+  productionRate: number;
+
+  constructor (item: Item, building: Item, productionRate: number) {
+    this.item = item
+    this.building = building
+    this.productionRate = productionRate
+  }
+
+  static MineMiningRate = 3 * 60;
+  static OilMiningRate = 1.5 * 60;
+  static OceanMiningRate = 55;
+  static GasMiningRate = 36;
+}
+
 class Product {
   item: Item;
   amount = 0;
@@ -148,6 +178,18 @@ class Product {
   }
 }
 
+class MiningProduct {
+  product: Product;
+  miningRecipe: MiningRecipe;
+  amount: number;
+
+  constructor (product: Product, miningRecipe: MiningRecipe) {
+    this.product = product
+    this.miningRecipe = miningRecipe
+    this.amount = product.amount / miningRecipe.productionRate
+  }
+}
+
 class UserInputProduct {
   item: Item;
   amount: number;
@@ -185,5 +227,5 @@ class UserInputProduct {
 }
 
 export {
-  Item, Recipe, Product, UserInputProduct
+  Item, Vein, Recipe, MiningRecipe, Product, MiningProduct, UserInputProduct
 }

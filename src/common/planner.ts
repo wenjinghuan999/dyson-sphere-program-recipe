@@ -1,4 +1,4 @@
-import { Item, Product, Recipe } from '@/common/product'
+import { Item, MiningRecipe, Product, MiningProduct, Recipe } from '@/common/product'
 import { DataLoader } from '@/common/dataloader'
 
 class PlannerEdge {
@@ -176,6 +176,9 @@ class Planner {
   byProducts: Product[] = [];
   provides: Product[] = [];
 
+  minings: MiningProduct[] = [];
+  externals: Product[] = [];
+
   constructor (targets: Product[]) {
     this.targets = targets
     this.nodes = []
@@ -228,6 +231,7 @@ class Planner {
     this.nodes.forEach(node => node.removeUnusedInputs())
 
     Planner.UpdateProvidesAndByProducts(this)
+    Planner.UpdateMinnings(this)
   }
 
   static Serialize (planner: Planner): string {
@@ -349,6 +353,21 @@ class Planner {
 
       node.provides = PlannerNode.GetProvides(node)
     }
+  }
+
+  static UpdateMinnings (planner: Planner) {
+    const minings: MiningProduct[] = []
+    const externals: Product[] = []
+    planner.provides.forEach((product) => {
+      const miningRecipes = DataLoader.getInstance().MiningMap[product.item.ID]
+      if (miningRecipes && miningRecipes.length > 0) {
+        minings.push(new MiningProduct(product, miningRecipes[0]))
+      } else {
+        externals.push(new Product(product.item, product.amount))
+      }
+    })
+    planner.minings = minings
+    planner.externals = externals
   }
 }
 

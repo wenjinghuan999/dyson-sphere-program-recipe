@@ -5,7 +5,7 @@
     "SID": 1101,
     "Type": 1,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 60,
     "Items": [
       1001
@@ -29,7 +29,7 @@
     "SID": 1201,
     "Type": 1,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 90,
     "Items": [
       1001
@@ -53,7 +53,7 @@
     "SID": 1102,
     "Type": 1,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 60,
     "Items": [
       1002
@@ -77,7 +77,7 @@
     "SID": 1105,
     "Type": 1,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 60,
     "Items": [
       1005
@@ -101,7 +101,7 @@
     "SID": 1401,
     "Type": 4,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 60,
     "Items": [
       1101
@@ -125,7 +125,7 @@
     "SID": 1202,
     "Type": 4,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 60,
     "Items": [
       1102,
@@ -151,7 +151,7 @@
     "SID": 2104,
     "Type": 4,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 240,
     "Items": [
       1101,
@@ -179,7 +179,7 @@
     "SID": 2101,
     "Type": 4,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 60,
     "Items": [
       1101,
@@ -205,7 +205,7 @@
     "SID": 1701,
     "Type": 15,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 180,
     "Items": [
       1202,
@@ -231,7 +231,7 @@
     "SID": 2408,
     "Type": 4,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 180,
     "Items": [
       1101,
@@ -261,7 +261,7 @@
     "SID": 1305,
     "Type": 4,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 120,
     "Items": [
       1110
@@ -285,7 +285,7 @@
     "SID": 1402,
     "Type": 4,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 120,
     "Items": [
       1202,
@@ -311,7 +311,7 @@
     "SID": 2102,
     "Type": 4,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 180,
     "Items": [
       2201,
@@ -337,7 +337,7 @@
     "SID": 2306,
     "Type": 4,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 480,
     "Items": [
       1103,
@@ -367,7 +367,7 @@
     "SID": 2307,
     "Type": 4,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 360,
     "Items": [
       1103,
@@ -396,7 +396,7 @@
     "ID": 16,
     "SID": 1107,
     "Type": 3,
-    "Handcraft": true,
+    "Handcraft": false,
     "Explicit": true,
     "TimeSpend": 240,
     "Items": [
@@ -423,7 +423,7 @@
     "SID": 1106,
     "Type": 1,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 120,
     "Items": [
       1006
@@ -447,7 +447,7 @@
     "SID": 1702,
     "Type": 15,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 360,
     "Items": [
       1109,
@@ -473,7 +473,7 @@
     "SID": 1210,
     "Type": 4,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 180,
     "Items": [
       1106,
@@ -499,7 +499,7 @@
     "SID": 1310,
     "Type": 4,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 240,
     "Items": [
       1103,
@@ -525,7 +525,7 @@
     "SID": 1311,
     "Type": 4,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 360,
     "Items": [
       1107,
@@ -551,7 +551,7 @@
     "SID": 2407,
     "Type": 4,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 300,
     "Items": [
       1103,
@@ -580,8 +580,8 @@
     "ID": 23,
     "SID": 1108,
     "Type": 2,
-    "Handcraft": true,
-    "Explicit": true,
+    "Handcraft": false,
+    "Explicit": false,
     "TimeSpend": 180,
     "Items": [
       1114,
@@ -606,8 +606,8 @@
     "ID": 24,
     "SID": 1406,
     "Type": 2,
-    "Handcraft": true,
-    "Explicit": true,
+    "Handcraft": false,
+    "Explicit": false,
     "TimeSpend": 360,
     "Items": [
       1114,
@@ -634,8 +634,8 @@
     "ID": 25,
     "SID": 1208,
     "Type": 2,
-    "Handcraft": true,
-    "Explicit": true,
+    "Handcraft": false,
+    "Explicit": false,
     "TimeSpend": 360,
     "Items": [
       1115,
@@ -663,7 +663,7 @@
     "SID": 1309,
     "Type": 4,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 240,
     "Items": [
       1117,
@@ -689,7 +689,7 @@
     "SID": 1703,
     "Type": 15,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 480,
     "Items": [
       1112,
@@ -715,7 +715,7 @@
     "SID": 1505,
     "Type": 4,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 240,
     "Items": [
       1118,
@@ -742,7 +742,7 @@
     "ID": 29,
     "SID": 1605,
     "Type": 4,
-    "Handcraft": true,
+    "Handcraft": false,
     "Explicit": true,
     "TimeSpend": 240,
     "Items": [
@@ -771,7 +771,7 @@
     "SID": 1304,
     "Type": 4,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 300,
     "Items": [
       1110,
@@ -798,8 +798,8 @@
     "ID": 31,
     "SID": 1109,
     "Type": 2,
-    "Handcraft": true,
-    "Explicit": true,
+    "Handcraft": false,
+    "Explicit": false,
     "TimeSpend": 180,
     "Items": [
       1109,
@@ -824,7 +824,7 @@
     "ID": 32,
     "SID": 1209,
     "Type": 2,
-    "Handcraft": true,
+    "Handcraft": false,
     "Explicit": true,
     "TimeSpend": 120,
     "Items": [
@@ -850,8 +850,8 @@
     "ID": 33,
     "SID": 1409,
     "Type": 2,
-    "Handcraft": true,
-    "Explicit": true,
+    "Handcraft": false,
+    "Explicit": false,
     "TimeSpend": 240,
     "Items": [
       1123,
@@ -876,8 +876,8 @@
     "ID": 34,
     "SID": 1403,
     "Type": 1,
-    "Handcraft": true,
-    "Explicit": true,
+    "Handcraft": false,
+    "Explicit": false,
     "TimeSpend": 600,
     "Items": [
       1005
@@ -900,7 +900,7 @@
     "ID": 35,
     "SID": 1509,
     "Type": 2,
-    "Handcraft": true,
+    "Handcraft": false,
     "Explicit": true,
     "TimeSpend": 240,
     "Items": [
@@ -925,7 +925,7 @@
     "SID": 1503,
     "Type": 4,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 480,
     "Items": [
       1124,
@@ -952,8 +952,8 @@
     "ID": 37,
     "SID": 1203,
     "Type": 1,
-    "Handcraft": true,
-    "Explicit": true,
+    "Handcraft": false,
+    "Explicit": false,
     "TimeSpend": 120,
     "Items": [
       1105
@@ -977,7 +977,7 @@
     "SID": 1408,
     "Type": 4,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 720,
     "Items": [
       1126,
@@ -1003,7 +1003,7 @@
     "SID": 2210,
     "Type": 4,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 900,
     "Items": [
       1107,
@@ -1034,8 +1034,8 @@
     "ID": 40,
     "SID": 1407,
     "Type": 5,
-    "Handcraft": true,
-    "Explicit": true,
+    "Handcraft": false,
+    "Explicit": false,
     "TimeSpend": 300,
     "Items": [
       1120
@@ -1059,7 +1059,7 @@
     "SID": 1211,
     "Type": 4,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 360,
     "Items": [
       1107,
@@ -1087,7 +1087,7 @@
     "SID": 1508,
     "Type": 4,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 1200,
     "Items": [
       1206,
@@ -1113,7 +1113,7 @@
     "SID": 2111,
     "Type": 4,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 1800,
     "Items": [
       1107,
@@ -1142,8 +1142,8 @@
     "ID": 44,
     "SID": 1212,
     "Type": 4,
-    "Handcraft": true,
-    "Explicit": true,
+    "Handcraft": false,
+    "Explicit": false,
     "TimeSpend": 720,
     "Items": [
       1122,
@@ -1173,7 +1173,7 @@
     "SID": 2401,
     "Type": 4,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 120,
     "Items": [
       1101,
@@ -1201,7 +1201,7 @@
     "SID": 2402,
     "Type": 4,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 180,
     "Items": [
       2303,
@@ -1229,7 +1229,7 @@
     "SID": 2403,
     "Type": 4,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 240,
     "Items": [
       2304,
@@ -1257,7 +1257,7 @@
     "SID": 2304,
     "Type": 4,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 180,
     "Items": [
       1101,
@@ -1287,7 +1287,7 @@
     "SID": 2305,
     "Type": 4,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 240,
     "Items": [
       1101,
@@ -1317,7 +1317,7 @@
     "SID": 1404,
     "Type": 4,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 60,
     "Items": [
       1101,
@@ -1343,7 +1343,7 @@
     "SID": 1504,
     "Type": 4,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 180,
     "Items": [
       1301,
@@ -1369,7 +1369,7 @@
     "SID": 1604,
     "Type": 4,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 360,
     "Items": [
       1303,
@@ -1395,7 +1395,7 @@
     "SID": 1603,
     "Type": 4,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 120,
     "Items": [
       1105,
@@ -1449,7 +1449,7 @@
     "SID": 1704,
     "Type": 15,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 600,
     "Items": [
       1303,
@@ -1475,7 +1475,7 @@
     "SID": 2404,
     "Type": 4,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 180,
     "Items": [
       1101,
@@ -1505,7 +1505,7 @@
     "SID": 1205,
     "Type": 1,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 120,
     "Items": [
       1005
@@ -1528,7 +1528,7 @@
     "ID": 58,
     "SID": 1207,
     "Type": 3,
-    "Handcraft": true,
+    "Handcraft": false,
     "Explicit": true,
     "TimeSpend": 240,
     "Items": [
@@ -1557,7 +1557,7 @@
     "SID": 1103,
     "Type": 1,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 120,
     "Items": [
       1003
@@ -1580,8 +1580,8 @@
     "ID": 60,
     "SID": 1206,
     "Type": 1,
-    "Handcraft": true,
-    "Explicit": true,
+    "Handcraft": false,
+    "Explicit": false,
     "TimeSpend": 120,
     "Items": [
       1109
@@ -1604,7 +1604,7 @@
     "ID": 61,
     "SID": 1306,
     "Type": 1,
-    "Handcraft": true,
+    "Handcraft": false,
     "Explicit": true,
     "TimeSpend": 120,
     "Items": [
@@ -1628,7 +1628,7 @@
     "ID": 62,
     "SID": 1303,
     "Type": 4,
-    "Handcraft": true,
+    "Handcraft": false,
     "Explicit": true,
     "TimeSpend": 240,
     "Items": [
@@ -1652,8 +1652,8 @@
     "ID": 63,
     "SID": 1301,
     "Type": 1,
-    "Handcraft": true,
-    "Explicit": true,
+    "Handcraft": false,
+    "Explicit": false,
     "TimeSpend": 180,
     "Items": [
       1101
@@ -1677,7 +1677,7 @@
     "SID": 2105,
     "Type": 4,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 300,
     "Items": [
       1101,
@@ -1707,7 +1707,7 @@
     "SID": 1104,
     "Type": 1,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 120,
     "Items": [
       1004
@@ -1730,8 +1730,8 @@
     "ID": 66,
     "SID": 1204,
     "Type": 1,
-    "Handcraft": true,
-    "Explicit": true,
+    "Handcraft": false,
+    "Explicit": false,
     "TimeSpend": 720,
     "Items": [
       1106,
@@ -1759,7 +1759,7 @@
     "SID": 2106,
     "Type": 4,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 300,
     "Items": [
       1104,
@@ -1787,7 +1787,7 @@
     "SID": 1502,
     "Type": 4,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 180,
     "Items": [
       1111,
@@ -1812,7 +1812,7 @@
     "ID": 69,
     "SID": 1602,
     "Type": 4,
-    "Handcraft": true,
+    "Handcraft": false,
     "Explicit": true,
     "TimeSpend": 180,
     "Items": [
@@ -1839,7 +1839,7 @@
     "SID": 1510,
     "Type": 4,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 240,
     "Items": [
       1123,
@@ -1865,7 +1865,7 @@
     "SID": 2208,
     "Type": 4,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 360,
     "Items": [
       1103,
@@ -1895,7 +1895,7 @@
     "SID": 2108,
     "Type": 4,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 480,
     "Items": [
       1103,
@@ -1927,7 +1927,7 @@
     "SID": 2103,
     "Type": 4,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 300,
     "Items": [
       2202,
@@ -1954,7 +1954,7 @@
     "ID": 74,
     "SID": 1608,
     "Type": 5,
-    "Handcraft": true,
+    "Handcraft": false,
     "Explicit": true,
     "TimeSpend": 120,
     "Items": [
@@ -1980,8 +1980,8 @@
     "ID": 75,
     "SID": 1706,
     "Type": 15,
-    "Handcraft": true,
-    "Explicit": true,
+    "Handcraft": false,
+    "Explicit": false,
     "TimeSpend": 900,
     "Items": [
       6001,
@@ -2015,7 +2015,7 @@
     "SID": 2107,
     "Type": 4,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 300,
     "Items": [
       1101,
@@ -2043,7 +2043,7 @@
     "SID": 2110,
     "Type": 4,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 900,
     "Items": [
       1107,
@@ -2073,7 +2073,7 @@
     "SID": 1507,
     "Type": 4,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 600,
     "Items": [
       1209
@@ -2121,7 +2121,7 @@
     "SID": 1511,
     "Type": 4,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 360,
     "Items": [
       1124,
@@ -2149,7 +2149,7 @@
     "SID": 1512,
     "Type": 4,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 480,
     "Items": [
       1125,
@@ -2177,7 +2177,7 @@
     "SID": 2308,
     "Type": 4,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 1800,
     "Items": [
       1107,
@@ -2207,7 +2207,7 @@
     "SID": 1412,
     "Type": 4,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 360,
     "Items": [
       1502,
@@ -2235,7 +2235,7 @@
     "SID": 2201,
     "Type": 4,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 60,
     "Items": [
       1101,
@@ -2261,7 +2261,7 @@
     "SID": 2301,
     "Type": 4,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 60,
     "Items": [
       1101,
@@ -2287,7 +2287,7 @@
     "SID": 2205,
     "Type": 4,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 120,
     "Items": [
       1101,
@@ -2313,7 +2313,7 @@
     "SID": 2204,
     "Type": 4,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 120,
     "Items": [
       1101,
@@ -2341,7 +2341,7 @@
     "SID": 2302,
     "Type": 4,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 60,
     "Items": [
       2011,
@@ -2367,7 +2367,7 @@
     "SID": 2202,
     "Type": 4,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 60,
     "Items": [
       2001,
@@ -2393,7 +2393,7 @@
     "SID": 2303,
     "Type": 4,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 60,
     "Items": [
       2012,
@@ -2419,7 +2419,7 @@
     "SID": 2206,
     "Type": 4,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 240,
     "Items": [
       1103,
@@ -2445,7 +2445,7 @@
     "SID": 2203,
     "Type": 4,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 60,
     "Items": [
       2002,
@@ -2473,7 +2473,7 @@
     "SID": 2209,
     "Type": 4,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 1200,
     "Items": [
       1103,
@@ -2503,7 +2503,7 @@
     "SID": 1410,
     "Type": 4,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 240,
     "Items": [
       1101,
@@ -2531,7 +2531,7 @@
     "SID": 2309,
     "Type": 4,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 1800,
     "Items": [
       2103,
@@ -2559,7 +2559,7 @@
     "SID": 1411,
     "Type": 4,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 360,
     "Items": [
       1107,
@@ -2587,7 +2587,7 @@
     "SID": 1501,
     "Type": 4,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 120,
     "Items": [
       1101,
@@ -2615,7 +2615,7 @@
     "SID": 1601,
     "Type": 4,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 120,
     "Items": [
       1203,
@@ -2641,7 +2641,7 @@
     "SID": 1506,
     "Type": 4,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 240,
     "Items": [
       1204,
@@ -2668,7 +2668,7 @@
     "ID": 100,
     "SID": 1606,
     "Type": 4,
-    "Handcraft": true,
+    "Handcraft": false,
     "Explicit": true,
     "TimeSpend": 240,
     "Items": [
@@ -2695,7 +2695,7 @@
     "SID": 1405,
     "Type": 4,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 360,
     "Items": [
       1112,
@@ -2721,7 +2721,7 @@
     "SID": 1705,
     "Type": 15,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 1440,
     "Items": [
       1209,
@@ -2747,7 +2747,7 @@
     "SID": 1302,
     "Type": 4,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 180,
     "Items": [
       1204,
@@ -2774,8 +2774,8 @@
     "ID": 104,
     "SID": 1312,
     "Type": 5,
-    "Handcraft": true,
-    "Explicit": true,
+    "Handcraft": false,
+    "Explicit": false,
     "TimeSpend": 480,
     "Items": [
       1206,
@@ -2803,7 +2803,7 @@
     "SID": 1110,
     "Type": 4,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 120,
     "Items": [
       1006
@@ -2827,7 +2827,7 @@
     "SID": 1111,
     "Type": 4,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 240,
     "Items": [
       1117,
@@ -2853,7 +2853,7 @@
     "SID": 1112,
     "Type": 4,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 480,
     "Items": [
       1126,
@@ -2879,7 +2879,7 @@
     "SID": 2405,
     "Type": 4,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 120,
     "Items": [
       1401,
@@ -2907,7 +2907,7 @@
     "SID": 2406,
     "Type": 4,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 180,
     "Items": [
       1103,
@@ -2937,7 +2937,7 @@
     "SID": 2409,
     "Type": 4,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 1800,
     "Items": [
       2104,
@@ -2967,7 +2967,7 @@
     "SID": 1712,
     "Type": 4,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 60,
     "Items": [
       1108,
@@ -2993,7 +2993,7 @@
     "SID": 2109,
     "Type": 4,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 600,
     "Items": [
       1107,
@@ -3023,7 +3023,7 @@
     "SID": 2207,
     "Type": 4,
     "Handcraft": true,
-    "Explicit": true,
+    "Explicit": false,
     "TimeSpend": 120,
     "Items": [
       1101,
@@ -3050,7 +3050,7 @@
     "ID": 115,
     "SID": 1307,
     "Type": 8,
-    "Handcraft": true,
+    "Handcraft": false,
     "Explicit": true,
     "TimeSpend": 1,
     "Items": [

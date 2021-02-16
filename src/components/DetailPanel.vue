@@ -4,7 +4,7 @@
       <template #cell(recipe)="data">
         <b-container class="d-flex flex-wrap justify-content-center">
           <p>{{ tr(data.value.Name) }}</p>
-          <building-and-recipe :recipe="data.value" class="mt-2 mb-2 mr-1" />
+          <BuildingAndRecipe :recipe="data.value" class="mt-2 mb-2 mr-1" />
         </b-container>
       </template>
       <template #cell(requires)="data">
@@ -28,6 +28,21 @@
         </b-container>
       </template>
     </b-table>
+    <b-table striped hover fixed :fields="miningFields" :items="miningItems">
+      <template #cell(recipe)="data">
+        <b-container class="d-flex flex-wrap justify-content-center">
+          <BuildingAndMining :recipe="data.value" class="mt-2 mb-2 mr-1" />
+        </b-container>
+      </template>
+      <template #cell(product)="data">
+        <b-container class="d-flex flex-wrap justify-content-center">
+          <ProductAndAmount :product="data.value" class="mt-2 mb-2 mr-1" />
+        </b-container>
+      </template>
+    </b-table>
+    <b-container class="d-flex flex-wrap justify-content-center border">
+      <ProductAndAmount v-for="product in externals" :key="product.item.ID" :product="product" class="mt-2 mb-2 mr-1" />
+    </b-container>
   </b-container>
 </template>
 
@@ -35,22 +50,26 @@
 import { Component, Prop, Vue, Watch } from 'vue-property-decorator'
 import { Planner } from '@/common/planner'
 import Mixins from '@/common/mixin'
-import { Product, Recipe } from '@/common/product'
+import { Recipe, MiningRecipe, Product } from '@/common/product'
 import ProductAndAmount from '@/components/ProductAndAmount.vue'
 import BuildingAndRecipe from '@/components/BuildingAndRecipe.vue'
+import BuildingAndMining from '@/components/BuildingAndMining.vue'
 import { tr } from '@/common/dataloader'
 
 @Component({
   mixins: [Mixins],
   components: {
     ProductAndAmount,
-    BuildingAndRecipe
+    BuildingAndRecipe,
+    BuildingAndMining
   }
 })
 export default class DetailPanel extends Vue {
-  @Prop() planner?: Planner;
+  @Prop() planner!: Planner;
   private readonly tr = tr;
-  private items: Record<string, string | number | Recipe | Product[]>[];
+  private items: Record<string, number | Recipe | Product[]>[];
+  private miningItems: Record<string, number | MiningRecipe | Product>[];
+  private externals: Product[];
   private readonly fields = [
     { key: 'recipe', label: tr('Recipe'), thStyle: { width: '19%' } },
     { key: 'amount', label: tr('Amount'), thStyle: { width: '5%' } },
@@ -60,26 +79,28 @@ export default class DetailPanel extends Vue {
     { key: 'byProducts', label: tr('By-products'), thStyle: { width: '19%' } }
   ]
 
+  private readonly miningFields = [
+    { key: 'recipe', label: tr('Recipe'), thStyle: { width: '45%' } },
+    { key: 'amount', label: tr('Amount'), thStyle: { width: '10%' }, tdClass: 'align-middle' },
+    { key: 'product', label: tr('Products'), thStyle: { width: '45%' } }
+  ]
+
   constructor () {
     super()
-    if (this.planner) {
-      this.items = DetailPanel.CreateItems(this.planner)
-    } else {
-      this.items = []
-    }
+    this.items = DetailPanel.CreateItems(this.planner)
+    this.miningItems = DetailPanel.CreateMiningItems(this.planner)
+    this.externals = this.planner.externals
   }
 
   @Watch('planner', { deep: true })
   onPlannerChanged () {
-    if (this.planner) {
-      this.items = DetailPanel.CreateItems(this.planner)
-    } else {
-      this.items = []
-    }
+    this.items = DetailPanel.CreateItems(this.planner)
+    this.miningItems = DetailPanel.CreateMiningItems(this.planner)
+    this.externals = this.planner.externals
   }
 
-  static CreateItems (planner: Planner): Array<Record<string, string | number | Recipe | Product[]>> {
-    const items: Record<string, string | number | Recipe | Product[]>[] = []
+  static CreateItems (planner: Planner): Array<Record<string, number | Recipe | Product[]>> {
+    const items: Record<string, number | Recipe | Product[]>[] = []
     planner.nodes.forEach((node) => {
       items.push({
         recipe: node.recipe ? node.recipe : Recipe.Empty,
@@ -88,6 +109,18 @@ export default class DetailPanel extends Vue {
         products: node.products,
         provides: node.provides,
         byProducts: node.byProducts
+      })
+    })
+    return items
+  }
+
+  static CreateMiningItems (planner: Planner): Array<Record<string, number | MiningRecipe | Product>> {
+    const items: Record<string, number | MiningRecipe | Product>[] = []
+    planner.minings.forEach((mining) => {
+      items.push({
+        recipe: mining.miningRecipe,
+        amount: Math.round(mining.amount * 100) / 100,
+        product: mining.product
       })
     })
     return items
