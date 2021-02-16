@@ -148,6 +148,42 @@ class Product {
   }
 }
 
+class UserInputProduct {
+  item: Item;
+  amount: number;
+  unit: string;
+
+  constructor (
+    item: Item = Item.Empty,
+    amount = 0,
+    unit = 's'
+  ) {
+    this.item = item
+    this.amount = amount
+    this.unit = unit
+  }
+
+  get product () {
+    return new Product(this.item, this.unit === 'min' ? this.amount / 60 : this.amount)
+  }
+
+  get isValid (): boolean {
+    return this.item !== Item.Empty
+  }
+
+  get icon (): string {
+    return this.isValid ? this.item.IconPath : 'Icons/placeholder'
+  }
+
+  get name (): string {
+    return this.isValid ? this.item.Name : ''
+  }
+
+  static get Empty () {
+    return new UserInputProduct(Item.Empty, 1, 's')
+  }
+}
+
 export {
-  Item, Recipe, Product
+  Item, Recipe, Product, UserInputProduct
 }

@@ -23,7 +23,7 @@
 import { Component, Prop, VModel, Vue, Watch } from 'vue-property-decorator'
 import ProductPicker from '@/components/ProductPicker.vue'
 import Mixins from '@/common/mixin'
-import { Item, Product } from '@/common/product'
+import { Item, UserInputProduct } from '@/common/product'
 import { tr } from '@/common/dataloader'
 
 @Component({
@@ -34,11 +34,11 @@ import { tr } from '@/common/dataloader'
 })
 export default class ProductPanel extends Vue {
   @Prop() private title!: string;
-  @Prop() private defaultProducts!: Product[];
-  @VModel() private products!: Product[];
+  @Prop() private defaultProducts!: UserInputProduct[];
+  @VModel() private products!: UserInputProduct[];
   private readonly tr = tr;
 
-  static NoneElement = { pickerId: 0, product: Product.Empty };
+  static NoneElement = { pickerId: 0, product: UserInputProduct.Empty };
 
   private selected: (typeof ProductPanel.NoneElement)[] = [];
 
@@ -63,10 +63,12 @@ export default class ProductPanel extends Vue {
     this.addNewPicker(null)
   }
 
-  addNewPicker (product: Product | null) {
+  addNewPicker (product: UserInputProduct | null) {
     const newElement = {
       pickerId: this.newPickerId++,
-      product: product === null ? new Product(Item.Empty, 1) : new Product(product.item, product.amount)
+      product: product === null
+        ? new UserInputProduct(Item.Empty, 1, 's')
+        : new UserInputProduct(product.item, product.amount, product.unit)
     }
     this.selected.push(newElement)
   }
@@ -88,9 +90,9 @@ export default class ProductPanel extends Vue {
 
   @Watch('selected', { immediate: true, deep: true })
   updateProduct () {
-    const products: Product[] = []
+    const products: UserInputProduct[] = []
     this.selected.forEach((element) => {
-      products.push(new Product(element.product.item, element.product.amount))
+      products.push(new UserInputProduct(element.product.item, element.product.amount, element.product.unit))
     })
     this.products = products
   }
@@ -101,14 +103,14 @@ export default class ProductPanel extends Vue {
       panel.defaultProducts.forEach((product) => {
         newSelected.push({
           pickerId: panel.newPickerId++,
-          product: new Product(product.item, product.amount)
+          product: new UserInputProduct(product.item, product.amount, product.unit)
         })
       })
       panel.selected = newSelected
     } else {
       panel.selected = [{
         pickerId: panel.newPickerId++,
-        product: new Product(Item.Empty, 1)
+        product: new UserInputProduct(Item.Empty, 1, 's')
       }]
     }
   }
@@ -121,7 +123,8 @@ export default class ProductPanel extends Vue {
     }
     for (let i = 0; i < this.defaultProducts.length && !pickerChanged; ++i) {
       if (this.defaultProducts[i].item.ID !== this.selected[i].product.item.ID ||
-        this.defaultProducts[i].amount !== this.selected[i].product.amount) {
+        this.defaultProducts[i].amount !== this.selected[i].product.amount ||
+        this.defaultProducts[i].unit !== this.selected[i].product.unit) {
         pickerChanged = true
       }
     }
