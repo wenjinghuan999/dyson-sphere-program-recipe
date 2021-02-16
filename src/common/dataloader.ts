@@ -146,8 +146,7 @@ class DataLoader {
           building = miningBuildings[3]
           rate = MiningRecipe.GasMiningRate
         } else if (item.MiningFrom === '\u6811\u6728' || item.MiningFrom === '\u690d\u7269') {
-          building = Item.Empty
-          rate = 0
+          return
         }
         const vein = veinItemMap[item.ID]
         if (vein) {
