@@ -96,5 +96,19 @@
     "ZHCN": "\u526f\u4ea7\u7269",
     "ENUS": "By-products",
     "FRFR": "Sous-produits"
+  },
+  {
+    "Name": "Production line",
+    "ID": 15,
+    "ZHCN": "\u751f\u4ea7\u7ebf",
+    "ENUS": "Production line",
+    "FRFR": "Ligne de production"
+  },
+  {
+    "Name": "Mining",
+    "ID": 16,
+    "ZHCN": "\u91c7\u77ff",
+    "ENUS": "Mining",
+    "FRFR": "Exploitation mini\u00e8re"
   }
 ]

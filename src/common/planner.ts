@@ -1,4 +1,4 @@
-import { Item, MiningRecipe, Product, MiningProduct, Recipe } from '@/common/product'
+import { Item, Product, MiningProduct, Recipe } from '@/common/product'
 import { DataLoader } from '@/common/dataloader'
 
 class PlannerEdge {

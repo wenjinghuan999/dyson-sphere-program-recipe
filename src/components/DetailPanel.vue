@@ -1,48 +1,69 @@
 <template>
   <b-container>
-    <b-table striped hover fixed :fields="fields" :items="items">
-      <template #cell(recipe)="data">
-        <b-container class="d-flex flex-wrap justify-content-center">
-          <p>{{ tr(data.value.Name) }}</p>
-          <BuildingAndRecipe :recipe="data.value" class="mt-2 mb-2 mr-1" />
-        </b-container>
-      </template>
-      <template #cell(requires)="data">
-        <b-container class="d-flex flex-wrap justify-content-center">
-          <ProductAndAmount v-for="product in data.value" :key="product.item.ID" :product="product" class="mt-2 mb-2 mr-1" />
-        </b-container>
-      </template>
-      <template #cell(products)="data">
-        <b-container class="d-flex flex-wrap justify-content-center">
-          <ProductAndAmount v-for="product in data.value" :key="product.item.ID" :product="product" class="mt-2 mb-2 mr-1" />
-        </b-container>
-      </template>
-      <template #cell(provides)="data">
-        <b-container class="d-flex flex-wrap justify-content-center">
-          <ProductAndAmount v-for="product in data.value" :key="product.item.ID" :product="product" class="mt-2 mb-2 mr-1" />
-        </b-container>
-      </template>
-      <template #cell(byProducts)="data">
-        <b-container class="d-flex flex-wrap justify-content-center">
-          <ProductAndAmount v-for="product in data.value" :key="product.item.ID" :product="product" class="mt-2 mb-2 mr-1" />
-        </b-container>
-      </template>
-    </b-table>
-    <b-table striped hover fixed :fields="miningFields" :items="miningItems">
-      <template #cell(recipe)="data">
-        <b-container class="d-flex flex-wrap justify-content-center">
-          <BuildingAndMining :recipe="data.value" class="mt-2 mb-2 mr-1" />
-        </b-container>
-      </template>
-      <template #cell(product)="data">
-        <b-container class="d-flex flex-wrap justify-content-center">
-          <ProductAndAmount :product="data.value" class="mt-2 mb-2 mr-1" />
-        </b-container>
-      </template>
-    </b-table>
-    <b-container class="d-flex flex-wrap justify-content-center border">
-      <ProductAndAmount v-for="product in externals" :key="product.item.ID" :product="product" class="mt-2 mb-2 mr-1" />
-    </b-container>
+    <div v-if="items.length">
+      <div class="d-flex justify-content-center">
+        <div class="w-50 p-2 mb-2 border border-primary align-middle">
+          <h5 class="m-0 text-primary">{{ tr('Production line') }}</h5>
+        </div>
+      </div>
+      <b-table striped hover fixed :fields="fields" :items="items">
+        <template #cell(recipe)="data">
+          <b-container class="d-flex flex-wrap justify-content-center">
+            <p>{{ tr(data.value.Name) }}</p>
+            <BuildingAndRecipe :recipe="data.value" class="mt-2 mb-2 mr-1" />
+          </b-container>
+        </template>
+        <template #cell(requires)="data">
+          <b-container class="d-flex flex-wrap justify-content-center">
+            <ProductAndAmount v-for="product in data.value" :key="product.item.ID" :product="product" class="mt-2 mb-2 mr-1" />
+          </b-container>
+        </template>
+        <template #cell(products)="data">
+          <b-container class="d-flex flex-wrap justify-content-center">
+            <ProductAndAmount v-for="product in data.value" :key="product.item.ID" :product="product" class="mt-2 mb-2 mr-1" />
+          </b-container>
+        </template>
+        <template #cell(provides)="data">
+          <b-container class="d-flex flex-wrap justify-content-center">
+            <ProductAndAmount v-for="product in data.value" :key="product.item.ID" :product="product" class="mt-2 mb-2 mr-1" />
+          </b-container>
+        </template>
+        <template #cell(byProducts)="data">
+          <b-container class="d-flex flex-wrap justify-content-center">
+            <ProductAndAmount v-for="product in data.value" :key="product.item.ID" :product="product" class="mt-2 mb-2 mr-1" />
+          </b-container>
+        </template>
+      </b-table>
+    </div>
+    <div v-if="miningItems.length">
+      <div class="d-flex justify-content-center">
+        <div class="w-50 p-2 mb-2 border border-primary align-middle">
+          <h5 class="m-0 text-primary">{{ tr('Mining') }}</h5>
+        </div>
+      </div>
+      <b-table striped hover fixed :fields="miningFields" :items="miningItems">
+        <template #cell(recipe)="data">
+          <b-container class="d-flex flex-wrap justify-content-center">
+            <BuildingAndMining :recipe="data.value" class="mt-2 mb-2 mr-1" />
+          </b-container>
+        </template>
+        <template #cell(product)="data">
+          <b-container class="d-flex flex-wrap justify-content-center">
+            <ProductAndAmount :product="data.value" class="mt-2 mb-2 mr-1" />
+          </b-container>
+        </template>
+      </b-table>
+    </div>
+    <div v-if="externals.length">
+      <div class="d-flex justify-content-center">
+        <div class="w-50 p-2 mb-2 border border-primary align-middle">
+          <h5 class="m-0 text-primary">{{ tr('Raw inputs') }}</h5>
+        </div>
+      </div>
+      <b-container class="d-flex flex-wrap justify-content-center border">
+        <ProductAndAmount v-for="product in externals" :key="product.item.ID" :product="product" class="mt-2 mb-2 mr-1" />
+      </b-container>
+    </div>
   </b-container>
 </template>
 
