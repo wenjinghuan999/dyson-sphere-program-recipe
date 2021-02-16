@@ -46,8 +46,9 @@ export default class PipelinePanel extends Vue {
   private readonly tr = tr;
 
   private onActivateTab (newTabIndex: number, prevTabIndex: number, e: BvEvent) {
+    const query = this.$router.currentRoute.query
     const newActivePanel = newTabIndex === 0 ? 'graph' : newTabIndex === 1 ? 'details' : 'summary'
-    // this.$router.replace({ path: newActivePanel })
+    this.$router.replace({ path: newActivePanel, query: query })
   }
 }
 </script>

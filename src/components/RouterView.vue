@@ -90,8 +90,10 @@ export default class RouterView extends Vue {
   @Watch('targets')
   onTargetsChanged () {
     const targetsData = Base64.encodeURI(Planner.SerializeProductArray(this.targets))
+    const path = this.$router.currentRoute.path
+    const query = { target: targetsData }
     if (targetsData !== this.targetsData) {
-      this.$router.push('/?target=' + targetsData)
+      this.$router.push({ path: path, query: query })
     }
   }
 
