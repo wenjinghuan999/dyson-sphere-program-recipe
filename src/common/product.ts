@@ -139,7 +139,7 @@ class Product {
       }
     })
     return newProducts.filter((product) => {
-      return product.amount !== 0
+      return Math.abs(product.amount) > 1e-8
     })
   }
 

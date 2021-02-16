@@ -83,7 +83,7 @@ export default class DetailPanel extends Vue {
     planner.nodes.forEach((node) => {
       items.push({
         recipe: node.recipe ? node.recipe : Recipe.Empty,
-        amount: node.amount,
+        amount: Math.round(node.amount * 100) / 100,
         requires: node.requires,
         products: node.products,
         provides: node.provides,

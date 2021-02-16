@@ -108,15 +108,15 @@ export default class RouterView extends Vue {
     console.log(this.planner)
     let result = ''
     this.planner.provides.forEach((product) => {
-      result += tr(product.name) + '[' + product.amount + '] '
+      result += tr(product.name) + '[' + (Math.round(product.amount * 100) / 100) + '] '
     })
     result += ' => '
     this.planner.targets.forEach((product) => {
-      result += tr(product.name) + '[' + product.amount + '] '
+      result += tr(product.name) + '[' + (Math.round(product.amount * 100) / 100) + '] '
     })
     result += ' + '
     this.planner.byProducts.forEach((product) => {
-      result += tr(product.name) + '[' + product.amount + '] '
+      result += tr(product.name) + '[' + (Math.round(product.amount * 100) / 100) + '] '
     })
     return result
   }
