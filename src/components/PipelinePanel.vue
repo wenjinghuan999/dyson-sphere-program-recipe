@@ -8,7 +8,7 @@
         :title="tr('Graph')"
         :active="activePanel !== 'details' && activePanel !== 'summary'"
       >
-        <p>I'm the first tab</p>
+        <GraphPanel />
       </b-tab>
       <b-tab
         :title="tr('Details')"
@@ -33,10 +33,12 @@ import { tr } from '@/common/dataloader'
 import { Product } from '@/common/product'
 import { Planner } from '@/common/planner'
 import DetailPanel from '@/components/DetailPanel.vue'
+import GraphPanel from '@/components/GraphPanel.vue'
 
 @Component({
   components: {
-    DetailPanel
+    DetailPanel,
+    GraphPanel
   }
 })
 export default class PipelinePanel extends Vue {
