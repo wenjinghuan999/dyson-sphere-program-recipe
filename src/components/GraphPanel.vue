@@ -8,6 +8,7 @@
 import { Component, Prop, Vue, Watch } from 'vue-property-decorator'
 import Mixins from '@/common/mixin'
 import { LiteGraph, LGraph, LGraphCanvas, LGraphNode } from 'litegraph.js'
+import 'litegraph.js/css/litegraph.css'
 import tempIcon from '@/assets/Icons/Vein/iron-vein.png'
 
 @Component({
