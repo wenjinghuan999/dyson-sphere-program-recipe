@@ -377,5 +377,5 @@ class Planner {
 }
 
 export {
-  Planner
+  Planner, PlannerNode, PlannerEdge
 }
