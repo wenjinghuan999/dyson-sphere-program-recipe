@@ -1,6 +1,10 @@
 <template>
-  <b-container>
-    <canvas id='maincanvas' width='1024' height='720'></canvas>
+  <b-container id='main-canvas-container'
+    :class="isFullscreen ? 'vh-100' : ''">
+    <canvas id='maincanvas'
+      style='background-color: #fff'
+      :style="isFullscreen ? 'position: fixed; left: 0; top: 0' : ''">
+    </canvas>
   </b-container>
 </template>
 
@@ -24,6 +28,15 @@ export default class GraphPanel extends Vue {
   private canvas: LGraphCanvas | null = null;
   private graphNodes: RecipeNode[] = [];
 
+  static DefaultWidth = 1024
+  static DefaultHeight = 720
+  static START_Y = 100
+  static MARGIN_X = 100
+  static MARGIN_Y = 50
+
+  private isFullscreen = false
+  private lastMouseClick = 0
+
   constructor () {
     super()
 
@@ -41,7 +54,30 @@ export default class GraphPanel extends Vue {
   mounted () {
     // Call this function after mounted
     this.canvas = new LGraphCanvas('#maincanvas', this.graph)
+    this.canvas.onMouse = this.onMouse
+    window.onresize = this.onResize
+    this.onResize()
     this.createGraph()
+  }
+
+  onResize () {
+    if (this.canvas) {
+      let width = GraphPanel.DefaultWidth
+      let height = GraphPanel.DefaultHeight
+      if (this.isFullscreen) {
+        width = window.innerWidth
+        height = window.innerHeight
+      } else {
+        const container = document.getElementById('main-canvas-container')
+        if (container) {
+          width = container.offsetWidth - 54
+        }
+      }
+      this.canvas.ds.reset()
+      this.canvas.resize(width, height)
+      this.graph.setDirtyCanvas(true, true)
+      this.centerizeGraph()
+    }
   }
 
   @Watch('planner')
@@ -154,13 +190,10 @@ export default class GraphPanel extends Vue {
       lastColumn = column
     }
 
-    const START_X = 1024
-    const START_Y = 100
-    const MARGIN_X = 100
-    const MARGIN_Y = 50
+    const START_X = this.canvas?.canvas.width || GraphPanel.DefaultWidth
 
     let x = START_X
-    let y = START_Y
+    let y = GraphPanel.START_Y
     for (const column of sortedColumns) {
       // calculate maximum width
       let maxWidth = 0
@@ -168,17 +201,63 @@ export default class GraphPanel extends Vue {
         const graphNode = this.graphNodes[idx]
         maxWidth = Math.max(maxWidth, graphNode.size[0])
       })
-      x -= maxWidth + MARGIN_X
-      y = START_Y
+      x -= maxWidth + GraphPanel.MARGIN_X
+      y = GraphPanel.START_Y
       // set position for each node
       column.forEach(([, idx]) => {
         const graphNode = this.graphNodes[idx]
         graphNode.pos = [x, y]
         graphNode.size = [maxWidth, graphNode.size[1]]
-        y += graphNode.size[1] + MARGIN_Y
+        y += graphNode.size[1] + GraphPanel.MARGIN_Y
       })
     }
+
+    this.centerizeGraph()
+  }
+
+  centerizeGraph () {
+    // centerize items if there's space
+    const width = this.canvas?.canvas.width || GraphPanel.DefaultWidth
+    const height = this.canvas?.canvas.height || GraphPanel.DefaultHeight
+    const bounds = [Number.MAX_SAFE_INTEGER, Number.MAX_SAFE_INTEGER, 0, 0]
+    for (const graphNode of this.graphNodes) {
+      bounds[0] = Math.min(bounds[0], graphNode.pos[0])
+      bounds[1] = Math.min(bounds[1], graphNode.pos[1])
+      bounds[2] = Math.max(bounds[2], graphNode.pos[0] + graphNode.size[0])
+      bounds[3] = Math.max(bounds[3], graphNode.pos[1] + graphNode.size[1])
+    }
+
+    if (bounds[0] >= bounds[2] || bounds[1] >= bounds[3]) {
+      return
+    }
+
+    const offsetX = width - Math.max((width - (bounds[2] - bounds[0])) / 2, GraphPanel.MARGIN_X) - bounds[2]
+    const offsetY = Math.max((height - (bounds[3] - bounds[1])) / 2, GraphPanel.START_Y) - bounds[1]
+
+    for (const graphNode of this.graphNodes) {
+      graphNode.pos[0] += offsetX
+      graphNode.pos[1] += offsetY
+    }
+
     this.graph.setDirtyCanvas(true, true)
+  }
+
+  onMouse (e: MouseEvent): boolean {
+    if (e.button === 0) {
+      const now = LiteGraph.getTime()
+      const isDoubleClick = now - this.lastMouseClick < 300
+      if (isDoubleClick) {
+        this.toggleFullscreen()
+        return true
+      }
+      this.lastMouseClick = now
+    }
+    return false
+  }
+
+  toggleFullscreen () {
+    this.isFullscreen = !this.isFullscreen
+    this.onResize()
   }
 }
 </script>
