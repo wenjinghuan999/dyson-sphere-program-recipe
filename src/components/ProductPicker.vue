@@ -104,9 +104,9 @@ export default class ProductPicker extends Vue {
     let amount = this.defaultProduct.amount
     if (this.unit !== this.defaultProduct.unit) {
       if (this.unit === 's') {
-        amount *= 60
-      } else {
         amount /= 60
+      } else {
+        amount *= 60
       }
     }
     this.amount = amount
@@ -184,8 +184,16 @@ export default class ProductPicker extends Vue {
     if (this.selectedItem.ID !== this.defaultProduct.item.ID) {
       this.selectedItem = DataLoader.getInstance().ItemMap[this.defaultProduct.item.ID]
     }
-    if (this.amount !== this.defaultProduct.amount) {
-      this.amount = this.defaultProduct.amount
+    if (this.amount !== this.defaultProduct.amount || this.unit !== this.defaultProduct.unit) {
+      let amount = this.defaultProduct.amount
+      if (this.unit !== this.defaultProduct.unit) {
+        if (this.unit === 's') {
+          amount /= 60
+        } else {
+          amount *= 60
+        }
+      }
+      this.amount = amount
     }
   }
 }
