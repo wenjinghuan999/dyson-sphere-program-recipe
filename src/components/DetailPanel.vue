@@ -8,10 +8,12 @@
       </div>
       <b-table striped hover fixed :fields="fields" :items="items">
         <template #cell(recipe)="data">
-          <b-container class="d-flex flex-wrap justify-content-center">
+          <div class="text-center">
             <p>{{ tr(data.value.Name) }}</p>
-            <BuildingAndRecipe :recipe="data.value" class="mt-2 mb-2 mr-1" />
-          </b-container>
+            <b-container class="d-flex flex-wrap justify-content-center">
+              <BuildingAndRecipe :recipe="data.value" class="mt-2 mb-2 mr-1" />
+            </b-container>
+          </div>
         </template>
         <template #cell(requires)="data">
           <b-container class="d-flex flex-wrap justify-content-center">
