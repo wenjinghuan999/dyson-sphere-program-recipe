@@ -1,15 +1,15 @@
 <template>
   <div>
-    <b-container class="p-0 mt-2 shadow">
-      <b-container class="pt-2 border bg-primary text-white text-left">
+    <b-container class="p-0 mt-2 shadow" fluid="lg">
+      <b-container class="pt-2 border bg-primary text-white text-left" fluid>
         <h3>1. {{ tr('Select Products') }}</h3>
       </b-container>
-      <b-container class="border">
-        <b-container class="m-3">
+      <b-container class="border" fluid>
+        <b-container class="m-3" fluid>
           <ProductPanel v-model="userInputProducts" :unit="options.unit" :defaultProducts="userInputProducts"/>
         </b-container>
       </b-container>
-      <b-container class="d-inline-flex pt-2 border bg-primary justify-content-left">
+      <b-container class="d-inline-flex pt-2 border bg-primary justify-content-left" fluid>
         <div class="d-inline-flex btn bg-transparent p-0 text-white text-left" v-b-toggle.collapse-summary>
           <b-icon-caret-down-fill v-if="collapseSummaryVisible" />
           <b-icon-caret-right-fill v-else />
@@ -17,11 +17,11 @@
         </div>
       </b-container>
       <b-collapse visible id="collapse-summary" v-model="collapseSummaryVisible">
-        <b-container class="d-flex flex-wrap justify-content-center border">
+        <b-container class="d-flex flex-wrap justify-content-center border" fluid>
           <ProductAndAmount v-for="product in targets" :key="product.item.ID" :product="product" :unit="options.unit" class="mt-2 mb-2 mr-1" />
         </b-container>
       </b-collapse>
-      <b-container class="d-inline-flex pt-2 border bg-primary justify-content-left">
+      <b-container class="d-inline-flex pt-2 border bg-primary justify-content-left" fluid>
         <div class="d-inline-flex btn bg-transparent p-0 text-white text-left" v-b-toggle.collapse-options>
           <b-icon-caret-down-fill v-if="collapseOptionsVisible" />
           <b-icon-caret-right-fill v-else />
@@ -29,19 +29,17 @@
         </div>
       </b-container>
       <b-collapse id="collapse-options" v-model="collapseOptionsVisible">
-        <b-container class="d-flex flex-wrap justify-content-center border">
+        <b-container class="d-flex flex-wrap justify-content-center border" fluid>
           <OptionsPanel v-model="options" class="mt-2 mb-2 mr-1" />
         </b-container>
       </b-collapse>
     </b-container>
-    <b-container class="p-0 mt-3 shadow">
-      <b-container class="pt-2 border bg-primary text-white text-left">
+    <b-container class="p-0 mt-3 shadow" fluid="lg">
+      <b-container class="pt-2 border bg-primary text-white text-left" fluid>
         <h3>2. {{ tr('View Pipeline') }}</h3>
       </b-container>
-      <b-container class="border">
-        <b-container class="m-3">
-          <PipelinePanel :planner="planner" :options="options" :targets="targets" :activePanel="activePanel"/>
-        </b-container>
+      <b-container class="border pt-3" fluid>
+        <PipelinePanel :planner="planner" :options="options" :targets="targets" :activePanel="activePanel"/>
       </b-container>
     </b-container>
     <div class="mt-3"> {{ productSummary }} </div>

@@ -4,7 +4,7 @@ import VueCookies from 'vue-cookies'
 import VueRouter from 'vue-router'
 import RouterView from '@/components/RouterView.vue'
 import App from './App.vue'
-import 'bootstrap/dist/css/bootstrap.css'
+import '../scss/custom.scss'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import 'bootstrap-vue/dist/bootstrap-vue-icons.min.css'
 

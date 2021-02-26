@@ -26,7 +26,7 @@ import 'litegraph.js/css/litegraph.css'
 export default class GraphPanel extends Vue {
   @Prop() planner!: Planner;
   @Prop() options!: Options;
-  @Prop() shown? = true;
+  @Prop() shown!: boolean;
   private graph = new LGraph();
   private canvas: LGraphCanvas | null = null;
   private graphNodes: RecipeNode[] = [];
