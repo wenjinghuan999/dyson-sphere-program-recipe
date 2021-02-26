@@ -1,11 +1,11 @@
 <template>
-  <b-container id='main-canvas-container'
-    :class="isFullscreen ? 'vh-100' : ''">
+  <div id='main-canvas-container'
+    :class="isFullscreen ? 'vh-100' : 'fluid m-0 p-0'">
     <canvas id='maincanvas'
       style='background-color: #fff'
       :style="isFullscreen ? 'position: fixed; left: 0; top: 0' : ''">
     </canvas>
-  </b-container>
+  </div>
 </template>
 
 <script lang="ts">
@@ -61,6 +61,7 @@ export default class GraphPanel extends Vue {
     window.onresize = this.onResize
     this.onResize()
     this.createGraph()
+    this.onResize()
   }
 
   @Watch('shown')
@@ -74,7 +75,7 @@ export default class GraphPanel extends Vue {
       } else {
         const container = document.getElementById('main-canvas-container')
         if (container) {
-          width = container.offsetWidth - 54
+          width = container.offsetWidth
         }
       }
       this.canvas.ds.reset()

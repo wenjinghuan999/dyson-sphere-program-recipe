@@ -9,8 +9,8 @@
           <ProductPanel v-model="userInputProducts" :unit="options.unit" :defaultProducts="userInputProducts"/>
         </b-container>
       </b-container>
-      <b-container class="d-inline-flex pt-2 border bg-primary justify-content-left" fluid>
-        <div class="d-inline-flex btn bg-transparent p-0 text-white text-left" v-b-toggle.collapse-summary>
+      <b-container class="d-inline-flex pt-2 border bg-primary justify-content-left" fluid v-b-toggle.collapse-summary>
+        <div class="d-inline-flex btn bg-transparent p-0 text-white text-left">
           <b-icon-caret-down-fill v-if="collapseSummaryVisible" />
           <b-icon-caret-right-fill v-else />
           <h5>{{ tr('Summary') }}</h5>
@@ -21,8 +21,8 @@
           <ProductAndAmount v-for="product in targets" :key="product.item.ID" :product="product" :unit="options.unit" class="mt-2 mb-2 mr-1" />
         </b-container>
       </b-collapse>
-      <b-container class="d-inline-flex pt-2 border bg-primary justify-content-left" fluid>
-        <div class="d-inline-flex btn bg-transparent p-0 text-white text-left" v-b-toggle.collapse-options>
+      <b-container class="d-inline-flex pt-2 border bg-primary justify-content-left" fluid v-b-toggle.collapse-options>
+        <div class="d-inline-flex btn bg-transparent p-0 text-white text-left">
           <b-icon-caret-down-fill v-if="collapseOptionsVisible" />
           <b-icon-caret-right-fill v-else />
           <h5>{{ tr('Options') }}</h5>
