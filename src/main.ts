@@ -24,7 +24,7 @@ const router = new VueRouter({
       name: 'home',
       component: RouterView,
       props: (route) => ({
-        activePanel: 'details',
+        activePanel: 'graph',
         planData: route.query.plan,
         targetsData: route.query.target
       })

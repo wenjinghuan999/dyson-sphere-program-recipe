@@ -8,7 +8,7 @@
         :title="tr('Graph')"
         :active="activePanel !== 'details' && activePanel !== 'summary'"
       >
-        <GraphPanel :planner="planner" />
+        <GraphPanel :planner="planner" :shown="activePanel !== 'details' && activePanel !== 'summary'" />
       </b-tab>
       <b-tab
         :title="tr('Details')"

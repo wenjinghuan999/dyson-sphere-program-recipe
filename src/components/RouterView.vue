@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-container class="p-0 pt-2 shadow">
+    <b-container class="p-0 mt-2 shadow">
       <b-container class="pt-2 border bg-primary text-white text-left">
         <h3>1. {{ tr('Select Products') }}</h3>
       </b-container>

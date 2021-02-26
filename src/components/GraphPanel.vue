@@ -24,6 +24,7 @@ import 'litegraph.js/css/litegraph.css'
 })
 export default class GraphPanel extends Vue {
   @Prop() planner!: Planner;
+  @Prop() shown? = true;
   private graph = new LGraph();
   private canvas: LGraphCanvas | null = null;
   private graphNodes: RecipeNode[] = [];
@@ -60,6 +61,7 @@ export default class GraphPanel extends Vue {
     this.createGraph()
   }
 
+  @Watch('shown')
   onResize () {
     if (this.canvas) {
       let width = GraphPanel.DefaultWidth
