@@ -250,6 +250,16 @@ export default class GraphPanel extends Vue {
   }
 
   onMouse (e: MouseEvent): boolean {
+    if (!this.canvas) { return false }
+    type CanvasMouseEvent = MouseEvent & { canvasX: number; canvasY: number }
+    this.canvas.adjustMouseEvent(e)
+    const ea = e as CanvasMouseEvent
+    const node = this.graph.getNodeOnPos(
+      ea.canvasX, ea.canvasY,
+      this.canvas.visible_nodes,
+      5
+    )
+    if (node) { return false }
     if (e.button === 0) {
       const now = LiteGraph.getTime()
       const isDoubleClick = now - this.lastMouseClick < 300
