@@ -9,18 +9,30 @@
           <ProductPanel v-model="userInputProducts" :unit="options.unit" :defaultProducts="userInputProducts"/>
         </b-container>
       </b-container>
-      <b-container class="pt-2 border bg-primary text-white text-left">
-        <h5>{{ tr('Summary') }}</h5>
+      <b-container class="d-inline-flex pt-2 border bg-primary justify-content-left">
+        <div class="d-inline-flex btn bg-transparent p-0 text-white text-left" v-b-toggle.collapse-summary>
+          <b-icon-caret-down-fill v-if="collapseSummaryVisible" />
+          <b-icon-caret-right-fill v-else />
+          <h5>{{ tr('Summary') }}</h5>
+        </div>
       </b-container>
-      <b-container class="d-flex flex-wrap justify-content-center border">
-        <ProductAndAmount v-for="product in targets" :key="product.item.ID" :product="product" :unit="options.unit" class="mt-2 mb-2 mr-1" />
+      <b-collapse visible id="collapse-summary" v-model="collapseSummaryVisible">
+        <b-container class="d-flex flex-wrap justify-content-center border">
+          <ProductAndAmount v-for="product in targets" :key="product.item.ID" :product="product" :unit="options.unit" class="mt-2 mb-2 mr-1" />
+        </b-container>
+      </b-collapse>
+      <b-container class="d-inline-flex pt-2 border bg-primary justify-content-left">
+        <div class="d-inline-flex btn bg-transparent p-0 text-white text-left" v-b-toggle.collapse-options>
+          <b-icon-caret-down-fill v-if="collapseOptionsVisible" />
+          <b-icon-caret-right-fill v-else />
+          <h5>{{ tr('Options') }}</h5>
+        </div>
       </b-container>
-      <b-container class="pt-2 border bg-primary text-white text-left">
-        <h5>{{ tr('Options') }}</h5>
-      </b-container>
-      <b-container class="d-flex flex-wrap justify-content-center border">
-        <OptionsPanel v-model="options" class="mt-2 mb-2 mr-1" />
-      </b-container>
+      <b-collapse id="collapse-options" v-model="collapseOptionsVisible">
+        <b-container class="d-flex flex-wrap justify-content-center border">
+          <OptionsPanel v-model="options" class="mt-2 mb-2 mr-1" />
+        </b-container>
+      </b-collapse>
     </b-container>
     <b-container class="p-0 mt-3 shadow">
       <b-container class="pt-2 border bg-primary text-white text-left">
@@ -69,6 +81,9 @@ export default class RouterView extends Vue {
   private planner: Planner;
   private options: Options;
   private readonly tr = tr;
+
+  private collapseOptionsVisible = false;
+  private collapseSummaryVisible = true;
 
   constructor () {
     super()
