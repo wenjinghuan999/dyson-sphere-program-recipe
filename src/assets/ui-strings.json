@@ -117,5 +117,12 @@
     "ZHCN": "\u9009\u9879",
     "ENUS": "Options",
     "FRFR": "Options"
+  },
+  {
+    "Name": "Unit",
+    "ID": 18,
+    "ZHCN": "\u5355\u4f4d",
+    "ENUS": "Unit",
+    "FRFR": "Unit\u00e9s"
   }
 ]
