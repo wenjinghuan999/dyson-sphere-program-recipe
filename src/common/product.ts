@@ -154,6 +154,11 @@ class Product {
     return this.isValid ? this.item.Name : ''
   }
 
+  getReadableValue (unit: string): string {
+    const amount = unit === 's' ? this.amount : this.amount * 60
+    return '' + Math.round(amount * 100) / 100 + '/' + unit
+  }
+
   static SimplifyProducts (products: Product[]): Product[] {
     const newProducts: Product[] = []
     products.forEach((product) => {

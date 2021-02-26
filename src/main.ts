@@ -26,7 +26,8 @@ const router = new VueRouter({
       props: (route) => ({
         activePanel: 'graph',
         planData: route.query.plan,
-        targetsData: route.query.target
+        targetsData: route.query.target,
+        optionsData: route.query.options
       })
     },
     {
@@ -36,7 +37,8 @@ const router = new VueRouter({
       props: (route) => ({
         activePanel: route.params.activePanel,
         planData: route.query.plan,
-        targetsData: route.query.target
+        targetsData: route.query.target,
+        optionsData: route.query.options
       })
     }
   ]

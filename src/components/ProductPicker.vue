@@ -33,10 +33,9 @@
           <div class="input-group-text">@</div>
         </div>
         <b-form-input v-model="amount" type="number" value="1" min="0" style="max-width: 4.5rem" />
-        <div class="input-group-append input-group-prepend">
-          <div class="input-group-text">/</div>
+        <div class="input-group-append">
+          <div class="input-group-text">/{{unit}}</div>
         </div>
-        <b-form-select class="form-control" v-model="unit" :options="unitOptions" style="max-width: 4.5rem"></b-form-select>
       </b-input-group>
     </b-button-toolbar>
     <vue-popper
@@ -84,6 +83,7 @@ import '@livelybone/vue-popper/lib/css/index.css'
 export default class ProductPicker extends Vue {
   @Prop() private defaultMessage!: string;
   @Prop() private showPicker = false;
+  @Prop() private unit!: string;
   @Prop() private defaultProduct!: UserInputProduct;
   @VModel() private selectedProduct!: UserInputProduct;
 
@@ -92,7 +92,6 @@ export default class ProductPicker extends Vue {
 
   private selectedItem: Item = Item.Empty;
   private amount = 1;
-  private unit = 's';
 
   private panel: Item[][];
   private static PanelCached: Item[][];
@@ -102,8 +101,15 @@ export default class ProductPicker extends Vue {
     this.panel = ProductPicker.GetPanel()
 
     this.selectedItem = this.defaultProduct.item
-    this.amount = this.defaultProduct.amount
-    this.unit = this.defaultProduct.unit
+    let amount = this.defaultProduct.amount
+    if (this.unit !== this.defaultProduct.unit) {
+      if (this.unit === 's') {
+        amount *= 60
+      } else {
+        amount /= 60
+      }
+    }
+    this.amount = amount
   }
 
   private static CreatePanel (): Item[][] {
@@ -180,9 +186,6 @@ export default class ProductPicker extends Vue {
     }
     if (this.amount !== this.defaultProduct.amount) {
       this.amount = this.defaultProduct.amount
-    }
-    if (this.unit !== this.defaultProduct.unit) {
-      this.unit = this.defaultProduct.unit
     }
   }
 }

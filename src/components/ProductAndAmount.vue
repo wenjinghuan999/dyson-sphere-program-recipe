@@ -11,7 +11,7 @@
       </div>
       <div class="input-group-append">
         <div class="input-group-text">
-          <span>{{ Math.round((product.amount + Number.EPSILON) * 100) / 100 }}/s</span>
+          <span>{{ amount }}/{{ unit }}</span>
         </div>
       </div>
     </b-input-group>
@@ -28,5 +28,14 @@ import Mixins from '@/common/mixin'
 })
 export default class ProductAndAmount extends Vue {
   @Prop() private readonly product!: Product;
+  @Prop() private readonly unit!: string;
+
+  get amount (): number {
+    let amount = this.product.amount
+    if (this.unit === 'min') {
+      amount *= 60
+    }
+    return Math.round((amount + Number.EPSILON) * 100) / 100
+  }
 }
 </script>

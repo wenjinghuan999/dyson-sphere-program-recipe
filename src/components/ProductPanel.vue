@@ -6,6 +6,7 @@
           v-model="element.product"
           v-on:click="onItemPickerClicked(element.pickerId)"
           v-on:input="updateProduct()"
+          :unit="unit"
           :defaultProduct="element.product"
           :showPicker="showPickerId == element.pickerId"
           :default-message="tr('Select Item')"
@@ -35,6 +36,7 @@ import { tr } from '@/common/dataloader'
 export default class ProductPanel extends Vue {
   @Prop() private title!: string;
   @Prop() private defaultProducts!: UserInputProduct[];
+  @Prop() private unit!: string;
   @VModel() private products!: UserInputProduct[];
   private readonly tr = tr;
 

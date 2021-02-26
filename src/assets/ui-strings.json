@@ -110,5 +110,12 @@
     "ZHCN": "\u91c7\u77ff",
     "ENUS": "Mining",
     "FRFR": "Exploitation mini\u00e8re"
+  },
+  {
+    "Name": "Options",
+    "ID": 17,
+    "ZHCN": "\u9009\u9879",
+    "ENUS": "Options",
+    "FRFR": "Options"
   }
 ]

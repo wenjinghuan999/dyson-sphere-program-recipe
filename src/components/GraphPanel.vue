@@ -14,6 +14,7 @@ import Mixins from '@/common/mixin'
 import { LiteGraph, LGraph, LGraphCanvas } from 'litegraph.js'
 import { RecipeNode } from '@/common/graphnodes'
 import { Planner, PlannerNode } from '@/common/planner'
+import { Options } from '@/common/options'
 import { DataLoader } from '@/common/dataloader'
 import 'litegraph.js/css/litegraph.css'
 
@@ -24,6 +25,7 @@ import 'litegraph.js/css/litegraph.css'
 })
 export default class GraphPanel extends Vue {
   @Prop() planner!: Planner;
+  @Prop() options!: Options;
   @Prop() shown? = true;
   private graph = new LGraph();
   private canvas: LGraphCanvas | null = null;
@@ -83,6 +85,7 @@ export default class GraphPanel extends Vue {
   }
 
   @Watch('planner')
+  @Watch('options')
   onPlannerChanged () {
     this.createGraph()
   }
@@ -92,6 +95,7 @@ export default class GraphPanel extends Vue {
       // reset status
       this.graph.clear()
       this.graphNodes = []
+      const unit = this.options.unit
 
       this.planner.nodes.forEach((node) => {
         if (!node.recipe) {
@@ -102,14 +106,14 @@ export default class GraphPanel extends Vue {
           node.products.forEach((product) => {
             const idx = graphNode.findOutputSlotById(product.item.ID)
             if (idx >= 0) {
-              graphNode.outputs[idx].label = product.amount + '/s         '
+              graphNode.outputs[idx].label = product.getReadableValue(unit) + '         '
             }
           })
 
           node.requires.forEach((require) => {
             const idx = graphNode.findInputSlotById(require.item.ID)
             if (idx >= 0) {
-              graphNode.inputs[idx].label = '         ' + require.amount + '/s'
+              graphNode.inputs[idx].label = '         ' + require.getReadableValue(unit)
             }
           })
 

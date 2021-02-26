@@ -6,14 +6,20 @@
       </b-container>
       <b-container class="border">
         <b-container class="m-3">
-          <ProductPanel v-model="userInputProducts" :defaultProducts="userInputProducts"/>
+          <ProductPanel v-model="userInputProducts" :unit="options.unit" :defaultProducts="userInputProducts"/>
         </b-container>
       </b-container>
       <b-container class="pt-2 border bg-primary text-white text-left">
         <h5>{{ tr('Summary') }}</h5>
       </b-container>
       <b-container class="d-flex flex-wrap justify-content-center border">
-        <ProductAndAmount v-for="product in targets" :key="product.item.ID" :product="product" class="mt-2 mb-2 mr-1" />
+        <ProductAndAmount v-for="product in targets" :key="product.item.ID" :product="product" :unit="options.unit" class="mt-2 mb-2 mr-1" />
+      </b-container>
+      <b-container class="pt-2 border bg-primary text-white text-left">
+        <h5>{{ tr('Options') }}</h5>
+      </b-container>
+      <b-container class="d-flex flex-wrap justify-content-center border">
+        <OptionsPanel v-model="options" class="mt-2 mb-2 mr-1" />
       </b-container>
     </b-container>
     <b-container class="p-0 mt-3 shadow">
@@ -22,7 +28,7 @@
       </b-container>
       <b-container class="border">
         <b-container class="m-3">
-          <PipelinePanel :planner="planner" :targets="targets" :activePanel="activePanel"/>
+          <PipelinePanel :planner="planner" :options="options" :targets="targets" :activePanel="activePanel"/>
         </b-container>
       </b-container>
     </b-container>
@@ -35,10 +41,12 @@ import { Component, Watch, Vue, Prop } from 'vue-property-decorator'
 import Navbar from '@/components/Navbar.vue'
 import ProductPanel from '@/components/ProductPanel.vue'
 import ProductAndAmount from '@/components/ProductAndAmount.vue'
+import OptionsPanel from '@/components/OptionsPanel.vue'
 import PipelinePanel from '@/components/PipelinePanel.vue'
 import { Item, Product, UserInputProduct } from '@/common/product'
 import { DataLoader, tr } from '@/common/dataloader'
 import { Planner } from '@/common/planner'
+import { Options } from '@/common/options'
 import { Base64 } from 'js-base64'
 
 @Component({
@@ -46,17 +54,20 @@ import { Base64 } from 'js-base64'
     Navbar,
     ProductPanel,
     ProductAndAmount,
+    OptionsPanel,
     PipelinePanel
   }
 })
 export default class RouterView extends Vue {
   @Prop() planData?: string;
+  @Prop() optionsData?: string;
   @Prop() targetsData?: string;
   @Prop() activePanel?: string;
 
   private userInputProducts: UserInputProduct[];
   private targets: Product[];
   private planner: Planner;
+  private options: Options;
   private readonly tr = tr;
 
   constructor () {
@@ -74,10 +85,16 @@ export default class RouterView extends Vue {
       this.userInputProducts = []
       this.targets = []
     }
+    if (this.optionsData) {
+      this.options = Options.Deserialize(Base64.decode(this.optionsData))
+    } else {
+      this.options = new Options()
+    }
   }
 
   @Watch('planData')
   @Watch('targetsData')
+  @Watch('optionsData')
   onRouterDataChanged () {
     if (this.planData) {
       this.planner = Planner.Deserialize(Base64.decode(this.planData))
@@ -92,13 +109,20 @@ export default class RouterView extends Vue {
       this.userInputProducts = []
       this.targets = []
     }
+    if (this.optionsData) {
+      this.options = Options.Deserialize(Base64.decode(this.optionsData))
+    } else {
+      this.options = new Options()
+    }
   }
 
   @Watch('userInputProducts')
+  @Watch('options')
   onUserInputProductsChanged () {
     const targetsData = Base64.encodeURI(RouterView.SerializeUserInputProducts(this.userInputProducts))
+    const optionsData = Base64.encodeURI(Options.Serialize(this.options))
     const path = this.$router.currentRoute.path
-    const query = { target: targetsData }
+    const query = { target: targetsData, options: optionsData }
     if (targetsData !== this.targetsData) {
       this.$router.push({ path: path, query: query })
     }

@@ -8,7 +8,7 @@
         :title="tr('Graph')"
         :active="activePanel !== 'details' && activePanel !== 'summary'"
       >
-        <GraphPanel :planner="planner" :shown="activePanel !== 'details' && activePanel !== 'summary'" />
+        <GraphPanel :planner="planner" :options="options" :shown="activePanel !== 'details' && activePanel !== 'summary'" />
       </b-tab>
       <b-tab
         :title="tr('Details')"
@@ -32,6 +32,7 @@ import { BvEvent } from 'bootstrap-vue'
 import { tr } from '@/common/dataloader'
 import { Product } from '@/common/product'
 import { Planner } from '@/common/planner'
+import { Options } from '@/common/options'
 import DetailPanel from '@/components/DetailPanel.vue'
 import GraphPanel from '@/components/GraphPanel.vue'
 
@@ -43,6 +44,7 @@ import GraphPanel from '@/components/GraphPanel.vue'
 })
 export default class PipelinePanel extends Vue {
   @Prop() planner?: Planner;
+  @Prop() options?: Options;
   @Prop() targets?: Product[];
   @Prop() activePanel?: string;
   private readonly tr = tr;
