@@ -124,5 +124,12 @@
     "ZHCN": "\u5355\u4f4d",
     "ENUS": "Unit",
     "FRFR": "Unit\u00e9s"
+  },
+  {
+    "Name": "Building",
+    "ID": 19,
+    "ZHCN": "\u5efa\u7b51",
+    "ENUS": "Building",
+    "FRFR": "B\u00e2timent"
   }
 ]
