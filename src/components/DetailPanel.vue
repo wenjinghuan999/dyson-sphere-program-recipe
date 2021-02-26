@@ -15,22 +15,22 @@
         </template>
         <template #cell(requires)="data">
           <b-container class="d-flex flex-wrap justify-content-center">
-            <ProductAndAmount v-for="product in data.value" :key="product.item.ID" :product="product" class="mt-2 mb-2 mr-1" />
+            <ProductAndAmount v-for="product in data.value" :unit="options.unit" :key="product.item.ID" :product="product" class="mt-2 mb-2 mr-1" />
           </b-container>
         </template>
         <template #cell(products)="data">
           <b-container class="d-flex flex-wrap justify-content-center">
-            <ProductAndAmount v-for="product in data.value" :key="product.item.ID" :product="product" class="mt-2 mb-2 mr-1" />
+            <ProductAndAmount v-for="product in data.value" :unit="options.unit" :key="product.item.ID" :product="product" class="mt-2 mb-2 mr-1" />
           </b-container>
         </template>
         <template #cell(provides)="data">
           <b-container class="d-flex flex-wrap justify-content-center">
-            <ProductAndAmount v-for="product in data.value" :key="product.item.ID" :product="product" class="mt-2 mb-2 mr-1" />
+            <ProductAndAmount v-for="product in data.value" :unit="options.unit" :key="product.item.ID" :product="product" class="mt-2 mb-2 mr-1" />
           </b-container>
         </template>
         <template #cell(byProducts)="data">
           <b-container class="d-flex flex-wrap justify-content-center">
-            <ProductAndAmount v-for="product in data.value" :key="product.item.ID" :product="product" class="mt-2 mb-2 mr-1" />
+            <ProductAndAmount v-for="product in data.value" :unit="options.unit" :key="product.item.ID" :product="product" class="mt-2 mb-2 mr-1" />
           </b-container>
         </template>
       </b-table>
@@ -52,7 +52,7 @@
         </template>
         <template #cell(product)="data">
           <b-container class="d-flex flex-wrap justify-content-center">
-            <ProductAndAmount :product="data.value" class="mt-2 mb-2 mr-1" />
+            <ProductAndAmount :product="data.value" :unit="options.unit" class="mt-2 mb-2 mr-1" />
           </b-container>
         </template>
       </b-table>
@@ -64,7 +64,7 @@
         </div>
       </div>
       <b-container class="d-flex flex-wrap justify-content-center border">
-        <ProductAndAmount v-for="product in externals" :key="product.item.ID" :product="product" class="mt-2 mb-2 mr-1" />
+        <ProductAndAmount v-for="product in externals" :unit="options.unit" :key="product.item.ID" :product="product" class="mt-2 mb-2 mr-1" />
       </b-container>
     </div>
   </b-container>
@@ -73,6 +73,7 @@
 <script lang="ts">
 import { Component, Prop, Vue, Watch } from 'vue-property-decorator'
 import { Planner } from '@/common/planner'
+import { Options } from '@/common/options'
 import Mixins from '@/common/mixin'
 import { Recipe, MiningRecipe, Product } from '@/common/product'
 import ProductAndAmount from '@/components/ProductAndAmount.vue'
@@ -90,6 +91,8 @@ import { tr } from '@/common/dataloader'
 })
 export default class DetailPanel extends Vue {
   @Prop() planner!: Planner;
+  @Prop() options!: Options;
+
   private readonly tr = tr;
   private items: Record<string, number | Recipe | Product[]>[];
   private miningItems: Record<string, number | MiningRecipe | Product>[];

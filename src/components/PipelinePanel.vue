@@ -14,7 +14,7 @@
         :title="tr('Details')"
         :active="activePanel === 'details'"
       >
-        <DetailPanel :planner="planner"/>
+        <DetailPanel :planner="planner" :options="options" />
       </b-tab>
       <b-tab
         :title="tr('Summary')"
