@@ -17,6 +17,7 @@ import { Planner, PlannerNode } from '@/common/planner'
 import { Options } from '@/common/options'
 import { DataLoader } from '@/common/dataloader'
 import 'litegraph.js/css/litegraph.css'
+import { Item } from '@/common/product'
 
 @Component({
   mixins: [Mixins],
@@ -153,15 +154,14 @@ export default class GraphPanel extends Vue {
   }
 
   rearrange () {
-    this.rearrangeCompact()
+    if (this.options.graphViewMode === 'Sparse') {
+      this.rearrangeSparse()
+    } else {
+      this.rearrangeCompact()
+    }
   }
 
-  rearrangeSparse () {
-    this.rearrangeCompact()
-  }
-
-  rearrangeCompact () {
-    // sort graph nodes
+  sortGraphNodes (): [PlannerNode, number][][] {
     const sortedColumns: [PlannerNode, number][][] = []
     const usedNodes = new Map<number, number>() // used node index and to which column it belongs
     let lastColumn: [PlannerNode, number][] = [[this.planner.targetNode, -1]]
@@ -205,11 +205,76 @@ export default class GraphPanel extends Vue {
       lastColumn = column
     }
 
+    return sortedColumns
+  }
+
+  getAlignedY (graphNode: RecipeNode): number {
+    let resultY = Number.POSITIVE_INFINITY
+    const outSlot = graphNode.findFirstConnectedOutputSlot()
+    if (outSlot < 0) { return resultY }
+    const item = graphNode.slots[graphNode.numInputs + outSlot].item
+    graphNode.getOutputNodes(outSlot).forEach((outGraphNode) => {
+      const inputSlot = (outGraphNode as RecipeNode).slots.find(s => s.item === item)?.index || 0
+      const y = outGraphNode.pos[1] + LiteGraph.NODE_SLOT_HEIGHT * (inputSlot - outSlot)
+      resultY = Math.min(resultY, y)
+    })
+    return resultY
+  }
+
+  rearrangeSparse () {
+    const sortedColumns = this.sortGraphNodes()
     const START_X = this.canvas?.canvas.width || GraphPanel.DefaultWidth
 
     let x = START_X
     let y = GraphPanel.START_Y
-    for (const column of sortedColumns) {
+    for (let columnIdx = 0; columnIdx < sortedColumns.length; ++columnIdx) {
+      const column = sortedColumns[columnIdx]
+      if (columnIdx > 0) {
+        // sort this column again based on last column
+        column.sort(([, idx1], [, idx2]) => {
+          return this.getAlignedY(this.graphNodes[idx1]) - this.getAlignedY(this.graphNodes[idx2])
+        })
+      }
+
+      // calculate maximum width
+      let maxWidth = 0
+      column.forEach(([, idx]) => {
+        const graphNode = this.graphNodes[idx]
+        maxWidth = Math.max(maxWidth, graphNode.size[0])
+      })
+      x -= maxWidth + GraphPanel.MARGIN_X
+      y = GraphPanel.START_Y
+      // set position for each node
+      column.forEach(([, idx]) => {
+        const graphNode = this.graphNodes[idx]
+        const alignY = this.getAlignedY(graphNode)
+        if (alignY < Number.POSITIVE_INFINITY) {
+          y = Math.max(y, alignY)
+        }
+        graphNode.pos = [x, y]
+        graphNode.size = [maxWidth, graphNode.size[1]]
+        y += graphNode.size[1] + GraphPanel.MARGIN_Y
+      })
+    }
+
+    this.centerizeGraph()
+  }
+
+  rearrangeCompact () {
+    const sortedColumns = this.sortGraphNodes()
+    const START_X = this.canvas?.canvas.width || GraphPanel.DefaultWidth
+
+    let x = START_X
+    let y = GraphPanel.START_Y
+    for (let columnIdx = 0; columnIdx < sortedColumns.length; ++columnIdx) {
+      const column = sortedColumns[columnIdx]
+      if (columnIdx > 0) {
+        // sort this column again based on last column
+        column.sort(([, idx1], [, idx2]) => {
+          return this.getAlignedY(this.graphNodes[idx1]) - this.getAlignedY(this.graphNodes[idx2])
+        })
+      }
+
       // calculate maximum width
       let maxWidth = 0
       column.forEach(([, idx]) => {
@@ -234,7 +299,7 @@ export default class GraphPanel extends Vue {
     // centerize items if there's space
     const width = this.canvas?.canvas.width || GraphPanel.DefaultWidth
     const height = this.canvas?.canvas.height || GraphPanel.DefaultHeight
-    const bounds = [Number.MAX_SAFE_INTEGER, Number.MAX_SAFE_INTEGER, 0, 0]
+    const bounds = [Number.POSITIVE_INFINITY, Number.POSITIVE_INFINITY, 0, 0]
     for (const graphNode of this.graphNodes) {
       bounds[0] = Math.min(bounds[0], graphNode.pos[0])
       bounds[1] = Math.min(bounds[1], graphNode.pos[1])

@@ -144,6 +144,16 @@ class RecipeNode extends LGraphNode {
     return -1
   }
 
+  findFirstConnectedOutputSlot (): number {
+    for (let i = this.numInputs; i < this.slots.length; ++i) {
+      const outputNodes = this.getOutputNodes(i - this.numInputs)
+      if (outputNodes?.length) {
+        return i - this.numInputs
+      }
+    }
+    return -1
+  }
+
   computeSize (): [number, number] {
     const size = super.computeSize()
     const margin = 4
