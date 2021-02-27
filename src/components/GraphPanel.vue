@@ -12,12 +12,11 @@
 import { Component, Prop, Vue, Watch } from 'vue-property-decorator'
 import Mixins from '@/common/mixin'
 import { LiteGraph, LGraph, LGraphCanvas } from 'litegraph.js'
-import { RecipeNode } from '@/common/graphnodes'
+import { PipelineCanvas, RecipeNode } from '@/common/graphnodes'
 import { Planner, PlannerNode } from '@/common/planner'
 import { Options } from '@/common/options'
 import { DataLoader } from '@/common/dataloader'
 import 'litegraph.js/css/litegraph.css'
-import { Item } from '@/common/product'
 
 @Component({
   mixins: [Mixins],
@@ -59,6 +58,7 @@ export default class GraphPanel extends Vue {
     // Call this function after mounted
     this.canvas = new LGraphCanvas('#maincanvas', this.graph)
     this.canvas.onMouse = this.onMouse
+    this.canvas.renderLink = PipelineCanvas.prototype.renderCutsomLink as unknown as typeof LGraphCanvas.prototype.renderLink
     window.onresize = this.onResize
     this.onResize()
     this.createGraph()

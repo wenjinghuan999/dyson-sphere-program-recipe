@@ -1,4 +1,4 @@
-import { LiteGraph, LGraphNode, IWidget, widgetTypes, LGraphCanvas } from 'litegraph.js'
+import { LiteGraph, LGraphNode, IWidget, widgetTypes, LGraphCanvas, Vector2, LLink } from 'litegraph.js'
 import { Item, Recipe } from '@/common/product'
 import { DataLoader, tr } from '@/common/dataloader'
 
@@ -186,6 +186,252 @@ class RecipeNode extends LGraphNode {
   }
 }
 
+class PipelineCanvas extends LGraphCanvas {
+  renderCutsomLink (
+    ctx: CanvasRenderingContext2D,
+    a: Vector2,
+    b: Vector2,
+    link: LLink,
+    skipBorder: boolean,
+    flow: boolean,
+    color?: string | undefined,
+    startDir?: number | undefined,
+    endDir?: number | undefined,
+    numSublines?: number | undefined
+  ) {
+    if (link) {
+      this.visible_links.push(link)
+    }
+
+    // choose color
+    if (!color && link) {
+      color = LGraphCanvas.link_type_colors[link.type]
+    }
+    if (!color) {
+      color = this.default_link_color
+    }
+    if (link != null && this.highlighted_links[link.id]) {
+      color = '#FFF'
+    }
+
+    startDir = startDir || LiteGraph.RIGHT
+    endDir = endDir || LiteGraph.LEFT
+
+    const dist = Math.sqrt((a[0] - b[0]) * (a[0] - b[0]) + (a[1] - b[1]) * (a[1] - b[1]))
+
+    if (this.render_connections_border && this.ds.scale > 0.6) {
+      ctx.lineWidth = this.connections_width + 4
+    }
+    ctx.lineJoin = 'round'
+    numSublines = numSublines || 1
+    if (numSublines > 1) {
+      ctx.lineWidth = 0.5
+    }
+
+    // begin line shape
+    ctx.beginPath()
+    for (let i = 0; i < numSublines; i += 1) {
+      const offsety = (i - (numSublines - 1) * 0.5) * 5
+
+      if (this.links_render_mode === LiteGraph.SPLINE_LINK) {
+        ctx.moveTo(a[0], a[1] + offsety)
+        let startOffsetX = 0
+        let startOffsetY = 0
+        let endOffsetX = 0
+        let endOffsetY = 0
+        switch (startDir) {
+          case LiteGraph.LEFT:
+            startOffsetX = dist * -0.25
+            break
+          case LiteGraph.RIGHT:
+            startOffsetX = dist * 0.25
+            break
+          case LiteGraph.UP:
+            startOffsetY = dist * -0.25
+            break
+          case LiteGraph.DOWN:
+            startOffsetY = dist * 0.25
+            break
+        }
+        switch (endDir) {
+          case LiteGraph.LEFT:
+            endOffsetX = dist * -0.25
+            break
+          case LiteGraph.RIGHT:
+            endOffsetX = dist * 0.25
+            break
+          case LiteGraph.UP:
+            endOffsetY = dist * -0.25
+            break
+          case LiteGraph.DOWN:
+            endOffsetY = dist * 0.25
+            break
+        }
+        ctx.bezierCurveTo(
+          a[0] + startOffsetX,
+          a[1] + startOffsetY + offsety,
+          b[0] + endOffsetX,
+          b[1] + endOffsetY + offsety,
+          b[0],
+          b[1] + offsety
+        )
+      } else if (this.links_render_mode === LiteGraph.LINEAR_LINK) {
+        ctx.moveTo(a[0], a[1] + offsety)
+        let startOffsetX = 0
+        let startOffsetY = 0
+        let endOffsetX = 0
+        let endOffsetY = 0
+        switch (startDir) {
+          case LiteGraph.LEFT:
+            startOffsetX = -1
+            break
+          case LiteGraph.RIGHT:
+            startOffsetX = 1
+            break
+          case LiteGraph.UP:
+            startOffsetY = -1
+            break
+          case LiteGraph.DOWN:
+            startOffsetY = 1
+            break
+        }
+        switch (endDir) {
+          case LiteGraph.LEFT:
+            endOffsetX = -1
+            break
+          case LiteGraph.RIGHT:
+            endOffsetX = 1
+            break
+          case LiteGraph.UP:
+            endOffsetY = -1
+            break
+          case LiteGraph.DOWN:
+            endOffsetY = 1
+            break
+        }
+        const l = 15
+        ctx.lineTo(
+          a[0] + startOffsetX * l,
+          a[1] + startOffsetY * l + offsety
+        )
+        ctx.lineTo(
+          b[0] + endOffsetX * l,
+          b[1] + endOffsetY * l + offsety
+        )
+        ctx.lineTo(b[0], b[1] + offsety)
+      } else if (this.links_render_mode === LiteGraph.STRAIGHT_LINK) {
+        ctx.moveTo(a[0], a[1])
+        let startX = a[0]
+        let startY = a[1]
+        let endX = b[0]
+        let endY = b[1]
+        if (startDir === LiteGraph.RIGHT) {
+          startX += 10
+        } else {
+          startY += 10
+        }
+        if (endDir === LiteGraph.LEFT) {
+          endX -= 10
+        } else {
+          endY -= 10
+        }
+        ctx.lineTo(startX, startY)
+        ctx.lineTo((startX + endX) * 0.5, startY)
+        ctx.lineTo((startX + endX) * 0.5, endY)
+        ctx.lineTo(endX, endY)
+        ctx.lineTo(b[0], b[1])
+      } else {
+        return
+      } // unknown
+    }
+
+    // rendering the outline of the connection can be a little bit slow
+    if (
+      this.render_connections_border &&
+      this.ds.scale > 0.6 &&
+      !skipBorder
+    ) {
+      ctx.strokeStyle = 'rgba(0,0,0,0.5)'
+      ctx.stroke()
+    }
+
+    ctx.lineWidth = this.connections_width
+    ctx.fillStyle = ctx.strokeStyle = color
+    ctx.stroke()
+    // end line shape
+
+    // render arrow in the middle
+    if (
+      this.ds.scale >= 0.6 &&
+      this.highquality_render &&
+      endDir !== LiteGraph.CENTER
+    ) {
+      // render arrow
+      if (this.render_connection_arrows) {
+        // compute two points in the connection
+        const posA = this.computeConnectionPoint(
+          a,
+          b,
+          0.25,
+          startDir,
+          endDir
+        ) as unknown as [number, number]
+        const posB = this.computeConnectionPoint(
+          a,
+          b,
+          0.26,
+          startDir,
+          endDir
+        ) as unknown as [number, number]
+        const posC = this.computeConnectionPoint(
+          a,
+          b,
+          0.75,
+          startDir,
+          endDir
+        ) as unknown as [number, number]
+        const posD = this.computeConnectionPoint(
+          a,
+          b,
+          0.76,
+          startDir,
+          endDir
+        ) as unknown as [number, number]
+
+        // compute the angle between them so the arrow points in the right direction
+        let angleA = 0
+        let angleB = 0
+        if (this.render_curved_connections) {
+          angleA = -Math.atan2(posB[0] - posA[0], posB[1] - posA[1])
+          angleB = -Math.atan2(posD[0] - posC[0], posD[1] - posC[1])
+        } else {
+          angleB = angleA = b[1] > a[1] ? 0 : Math.PI
+        }
+
+        // render arrow
+        ctx.save()
+        ctx.translate(posA[0], posA[1])
+        ctx.rotate(angleA)
+        ctx.beginPath()
+        ctx.moveTo(-5, -3)
+        ctx.lineTo(0, +7)
+        ctx.lineTo(+5, -3)
+        ctx.fill()
+        ctx.restore()
+        ctx.save()
+        ctx.translate(posC[0], posC[1])
+        ctx.rotate(angleB)
+        ctx.beginPath()
+        ctx.moveTo(-5, -3)
+        ctx.lineTo(0, +7)
+        ctx.lineTo(+5, -3)
+        ctx.fill()
+        ctx.restore()
+      }
+    }
+  }
+}
+
 export {
-  RecipeNode
+  RecipeNode, PipelineCanvas
 }
