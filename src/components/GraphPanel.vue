@@ -153,6 +153,14 @@ export default class GraphPanel extends Vue {
   }
 
   rearrange () {
+    this.rearrangeCompact()
+  }
+
+  rearrangeSparse () {
+    this.rearrangeCompact()
+  }
+
+  rearrangeCompact () {
     // sort graph nodes
     const sortedColumns: [PlannerNode, number][][] = []
     const usedNodes = new Map<number, number>() // used node index and to which column it belongs

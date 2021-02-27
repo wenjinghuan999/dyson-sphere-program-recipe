@@ -29,9 +29,7 @@
         </div>
       </b-container>
       <b-collapse id="collapse-options" v-model="collapseOptionsVisible">
-        <b-container class="d-flex flex-wrap justify-content-center border" fluid>
-          <OptionsPanel v-model="options" class="mt-2 mb-2 mr-1" />
-        </b-container>
+        <OptionsPanel v-model="options" />
       </b-collapse>
     </b-container>
     <b-container class="p-0 mt-3 shadow" fluid="lg">
@@ -130,13 +128,13 @@ export default class RouterView extends Vue {
   }
 
   @Watch('userInputProducts')
-  @Watch('options')
+  @Watch('options', { deep: true })
   onUserInputProductsChanged () {
     const targetsData = Base64.encodeURI(RouterView.SerializeUserInputProducts(this.userInputProducts))
     const optionsData = Base64.encodeURI(Options.Serialize(this.options))
     const path = this.$router.currentRoute.path
     const query = { target: targetsData, options: optionsData }
-    if (targetsData !== this.targetsData) {
+    if (targetsData !== this.targetsData || optionsData !== this.optionsData) {
       this.$router.push({ path: path, query: query })
     }
   }

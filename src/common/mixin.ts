@@ -26,4 +26,9 @@ export default class Mixins extends Vue {
     'ENUS',
     'FRFR'
   ]
+
+  graphViewModeOptions = [
+    'Compact',
+    'Sparse'
+  ]
 }

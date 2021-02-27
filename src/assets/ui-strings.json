@@ -131,5 +131,26 @@
     "ZHCN": "\u5efa\u7b51",
     "ENUS": "Building",
     "FRFR": "B\u00e2timent"
+  },
+  {
+    "Name": "Graph view mode",
+    "ID": 20,
+    "ZHCN": "\u56fe\u8868\u663e\u793a\u65b9\u5f0f",
+    "ENUS": "Graph view mode",
+    "FRFR": "Mode d'affichage graphique"
+  },
+  {
+    "Name": "Compact",
+    "ID": 21,
+    "ZHCN": "\u7d27\u51d1",
+    "ENUS": "Compact",
+    "FRFR": "Compact"
+  },
+  {
+    "Name": "Sparse",
+    "ID": 22,
+    "ZHCN": "\u7a00\u758f",
+    "ENUS": "Sparse",
+    "FRFR": "Clairsem\u00e9"
   }
 ]
