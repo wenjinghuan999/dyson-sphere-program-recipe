@@ -21,6 +21,7 @@ class DataLoader {
     this.RecipeItemMap = DataLoader.buildRecipeItemMap(this.AllRecipes)
     this.StringMaps = DataLoader.buildStringMap()
     this.RecipeTypesMap = DataLoader.buildRecipeTypesMap(this.ItemMap)
+    this.RecipeTypesNameMap = DataLoader.buildRecipeTypesNameMap(this.ItemMap)
     this.MiningMap = DataLoader.buildMiningMap(this.ItemMap, this.ItemNameMap, this.VeinItemMap, this.RecipeTypesMap)
 
     console.log(this)
@@ -119,6 +120,14 @@ class DataLoader {
     return recipeTypesMap
   }
 
+  private static buildRecipeTypesNameMap (itemMap: Record<number, Item>): Record<number, string> {
+    const recipeTypesNameMap: Record<number, string> = {}
+    recipeTypesJson.forEach((recipeType) => {
+      recipeTypesNameMap[recipeType.ID] = recipeType.Name
+    })
+    return recipeTypesNameMap
+  }
+
   private static buildMiningMap (
     itemMap: Record<number, Item>,
     itemNameMap: Record<string, Item>,
@@ -186,6 +195,7 @@ class DataLoader {
   readonly RecipeItemMap: Record<number, Recipe[]>;
   readonly StringMaps: Record<string, Record<string, string>>;
   readonly RecipeTypesMap: Record<number, Item[]>;
+  readonly RecipeTypesNameMap: Record<number, string>;
   readonly MiningMap: Record<number, MiningRecipe[]>;
 
   private currentLocale = 'ZHCN'

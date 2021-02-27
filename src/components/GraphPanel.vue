@@ -48,7 +48,7 @@ export default class GraphPanel extends Vue {
     }
 
     for (const recipeId in DataLoader.getInstance().RecipeMap) {
-      RecipeNode.createRecipeNodeType(DataLoader.getInstance().RecipeMap[recipeId])
+      RecipeNode.CreateRecipeNodeType(DataLoader.getInstance().RecipeMap[recipeId])
     }
 
     LiteGraph.NODE_SLOT_HEIGHT = 32
@@ -107,7 +107,8 @@ export default class GraphPanel extends Vue {
         if (!node.recipe) {
           this.graphNodes.push(LiteGraph.createNode(''))
         } else {
-          const graphNode = LiteGraph.createNode(node.recipe.Name) as RecipeNode
+          const key = RecipeNode.GetRecipeNodeTypeName(node.recipe)
+          const graphNode = LiteGraph.createNode(key) as RecipeNode
 
           node.products.forEach((product) => {
             const idx = graphNode.findOutputSlotById(product.item.ID)

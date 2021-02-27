@@ -58,7 +58,7 @@ class RecipeNode extends LGraphNode {
     this.recipe = recipe
     recipe.Items.forEach((itemId, index) => {
       const item = DataLoader.getInstance().ItemMap[itemId]
-      this.addInput('', 'number')
+      this.addInput('', item.Name)
       const slotId = this.slots.length
       this.slots.push(new NodeSlot(item.ID, -1, index))
       import(`@/assets/${item.IconPath}.png`).then((module) => {
@@ -68,7 +68,7 @@ class RecipeNode extends LGraphNode {
     this.numInputs = this.slots.length
     recipe.Results.forEach((itemId, index) => {
       const item = DataLoader.getInstance().ItemMap[itemId]
-      this.addOutput('', 'number')
+      this.addOutput('', item.Name)
       const slotId = this.slots.length
       this.slots.push(new NodeSlot(item.ID, 1, index))
       import(`@/assets/${item.IconPath}.png`).then((module) => {
@@ -171,15 +171,26 @@ class RecipeNode extends LGraphNode {
     return size
   }
 
-  static createRecipeNodeType (recipe: Recipe | null) {
+  static GetRecipeNodeTypeName (recipe: Recipe | null): string {
     if (recipe) {
-      const key = recipe.Name
+      const typeStr = DataLoader.getInstance().RecipeTypesNameMap[recipe.Type]
+      if (typeStr) {
+        return tr(typeStr) + '/' + tr(recipe.Name)
+      }
+    }
+    return ''
+  }
+
+  static CreateRecipeNodeType (recipe: Recipe | null) {
+    if (recipe) {
+      const key = this.GetRecipeNodeTypeName(recipe)
       if (!(key in LiteGraph.registered_node_types)) {
         const NewRecipeNode = class extends RecipeNode {
           constructor () {
             super(recipe as Recipe)
           }
         }
+        NewRecipeNode.title = tr(recipe.Name)
         LiteGraph.registerNodeType(key, NewRecipeNode)
       }
     } else {
@@ -369,7 +380,7 @@ class PipelineCanvas extends LGraphCanvas {
       !skipBorder
     ) {
       ctx.strokeStyle = 'rgba(0,0,0,0.5)'
-      if (this.highlighted_links[link.id]) {
+      if (link && this.highlighted_links[link.id]) {
         ctx.strokeStyle = '#FFF'
       }
       ctx.stroke()
@@ -377,17 +388,15 @@ class PipelineCanvas extends LGraphCanvas {
 
     ctx.lineWidth = this.connections_width
 
-    let pattern: CanvasPattern | null = null
-    const linkTarget = this.graph.getNodeById(link.target_id)
+    let pattern = ctx.createPattern(PipelineCanvas.belt1, 'repeat')
+    const linkTarget = this.graph.getNodeById(link?.target_id)
     if (linkTarget) {
       const slotIdx = linkTarget.inputs.findIndex(i => i.link === link.id)
       const slot = (linkTarget as RecipeNode).slots[slotIdx]
-      if (slot.amount <= 6) {
-        pattern = ctx.createPattern(PipelineCanvas.belt1, 'repeat')
-      } else if (slot.amount <= 12) {
-        pattern = ctx.createPattern(PipelineCanvas.belt2, 'repeat')
-      } else {
+      if (slot.amount >= 30) {
         pattern = ctx.createPattern(PipelineCanvas.belt3, 'repeat')
+      } else if (slot.amount >= 12) {
+        pattern = ctx.createPattern(PipelineCanvas.belt2, 'repeat')
       }
     }
     if (pattern) {

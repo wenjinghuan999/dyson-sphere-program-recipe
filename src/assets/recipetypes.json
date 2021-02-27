@@ -5,47 +5,47 @@
     "Items": [2301, 2306, 2307, 2105]
   },
   {
-    "Name": "Smelt",
+    "Name": "冶炼设备",
     "ID": 1,
     "Items": [2302]
   },
   {
-    "Name": "Chemical",
+    "Name": "化工设备",
     "ID": 2,
     "Items": [2309]
   },
   {
-    "Name": "Refine",
+    "Name": "精炼设备",
     "ID": 3,
     "Items": [2308]
   },
   {
-    "Name": "Assemble",
+    "Name": "制造台",
     "ID": 4,
     "Items": [2303, 2304, 2305]
   },
   {
-    "Name": "Particle",
+    "Name": "粒子对撞机",
     "ID": 5,
     "Items": [2310]
   },
   {
-    "Name": "Exchange",
+    "Name": "能量交换器",
     "ID": 6,
     "Items": [2209]
   },
   {
-    "Name": "PhotonStore",
+    "Name": "光子生成",
     "ID": 7,
     "Items": [2208]
   },
   {
-    "Name": "Fractionate",
+    "Name": "分馏设备",
     "ID": 8,
     "Items": [2314]
   },
   {
-    "Name": "Research",
+    "Name": "科研设备",
     "ID": 15,
     "Items": [2901]
   }
