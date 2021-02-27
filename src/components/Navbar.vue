@@ -3,7 +3,7 @@
     <b-navbar toggleable="lg" type="dark" variant="dark">
       <b-container>
         <b-navbar-brand href="#">
-          <img src="../assets/Icons/DSPGAME.png">
+          <img src="/DSPGAME.png">
           <span> {{ title }} </span>
         </b-navbar-brand>
         <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
