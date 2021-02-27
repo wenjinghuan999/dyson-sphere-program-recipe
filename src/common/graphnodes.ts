@@ -6,12 +6,14 @@ class NodeSlot {
   item: number;
   align: number;
   index: number;
+  amount: number;
   img: HTMLImageElement | null;
 
   constructor (item: number, align: number, index: number) {
     this.item = item
     this.align = align
     this.index = index
+    this.amount = 0
     this.img = null
   }
 }
@@ -187,6 +189,21 @@ class RecipeNode extends LGraphNode {
 }
 
 class PipelineCanvas extends LGraphCanvas {
+  static belt1 = new Image();
+  static belt2 = new Image();
+  static belt3 = new Image();
+  private static _initializer = (() => {
+    import('@/assets/Icons/Belt/belt-1.png').then((module) => {
+      PipelineCanvas.belt1.src = module.default
+    })
+    import('@/assets/Icons/Belt/belt-2.png').then((module) => {
+      PipelineCanvas.belt2.src = module.default
+    })
+    import('@/assets/Icons/Belt/belt-3.png').then((module) => {
+      PipelineCanvas.belt3.src = module.default
+    })
+  })()
+
   renderCutsomLink (
     ctx: CanvasRenderingContext2D,
     a: Vector2,
@@ -352,11 +369,32 @@ class PipelineCanvas extends LGraphCanvas {
       !skipBorder
     ) {
       ctx.strokeStyle = 'rgba(0,0,0,0.5)'
+      if (this.highlighted_links[link.id]) {
+        ctx.strokeStyle = '#FFF'
+      }
       ctx.stroke()
     }
 
     ctx.lineWidth = this.connections_width
-    ctx.fillStyle = ctx.strokeStyle = color
+
+    let pattern: CanvasPattern | null = null
+    const linkTarget = this.graph.getNodeById(link.target_id)
+    if (linkTarget) {
+      const slotIdx = linkTarget.inputs.findIndex(i => i.link === link.id)
+      const slot = (linkTarget as RecipeNode).slots[slotIdx]
+      if (slot.amount <= 6) {
+        pattern = ctx.createPattern(PipelineCanvas.belt1, 'repeat')
+      } else if (slot.amount <= 12) {
+        pattern = ctx.createPattern(PipelineCanvas.belt2, 'repeat')
+      } else {
+        pattern = ctx.createPattern(PipelineCanvas.belt3, 'repeat')
+      }
+    }
+    if (pattern) {
+      ctx.fillStyle = ctx.strokeStyle = pattern
+    } else {
+      ctx.fillStyle = ctx.strokeStyle = '#AAA'
+    }
     ctx.stroke()
     // end line shape
 

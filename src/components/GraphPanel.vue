@@ -34,7 +34,7 @@ export default class GraphPanel extends Vue {
   static DefaultWidth = 1024
   static DefaultHeight = 720
   static START_Y = 100
-  static MARGIN_X = 100
+  static MARGIN_X = 200
   static MARGIN_Y = 50
 
   private isFullscreen = false
@@ -59,6 +59,10 @@ export default class GraphPanel extends Vue {
     this.canvas = new LGraphCanvas('#maincanvas', this.graph)
     this.canvas.onMouse = this.onMouse
     this.canvas.renderLink = PipelineCanvas.prototype.renderCutsomLink as unknown as typeof LGraphCanvas.prototype.renderLink
+    /* eslint-disable @typescript-eslint/camelcase */
+    this.canvas.connections_width = 4
+    // this.canvas.links_render_mode = LiteGraph.STRAIGHT_LINK
+    /* eslint-enable @typescript-eslint/camelcase */
     window.onresize = this.onResize
     this.onResize()
     this.createGraph()
@@ -109,6 +113,7 @@ export default class GraphPanel extends Vue {
             const idx = graphNode.findOutputSlotById(product.item.ID)
             if (idx >= 0) {
               graphNode.outputs[idx].label = product.getReadableValue(unit) + '         '
+              graphNode.slots[graphNode.numInputs + idx].amount = product.amount
             }
           })
 
@@ -116,6 +121,7 @@ export default class GraphPanel extends Vue {
             const idx = graphNode.findInputSlotById(require.item.ID)
             if (idx >= 0) {
               graphNode.inputs[idx].label = '         ' + require.getReadableValue(unit)
+              graphNode.slots[idx].amount = require.amount
             }
           })
 
