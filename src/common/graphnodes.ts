@@ -34,7 +34,7 @@ class BuildingWidget implements IWidget<string, { values: string[] }> {
   }
 
   computeSize (width: number): [number, number] {
-    return [width, LiteGraph.NODE_WIDGET_HEIGHT + LiteGraph.NODE_SLOT_HEIGHT + 4]
+    return [width, LiteGraph.NODE_WIDGET_HEIGHT + LiteGraph.NODE_SLOT_HEIGHT + 8]
   }
 
   callback (value: string, graphCanvas: LGraphCanvas, node: LGraphNode, pos: [number, number], event?: MouseEvent) {
@@ -51,11 +51,13 @@ class RecipeNode extends LGraphNode {
   slots: NodeSlot[] = [];
   numInputs = 0;
   recipe: Recipe;
+  amount: number;
   building: BuildingWidget;
 
-  constructor (recipe: Recipe) {
+  constructor (recipe: Recipe, amount = 0) {
     super()
     this.recipe = recipe
+    this.amount = amount
     recipe.Items.forEach((itemId, index) => {
       const item = DataLoader.getInstance().ItemMap[itemId]
       this.addInput('', item.Name)
@@ -91,8 +93,20 @@ class RecipeNode extends LGraphNode {
         this.loadImages(slotId, module.default)
       })
     }
+    this.addProperty('amount', 0, 'number')
+    this.addWidget('number', 'x', this.amount, (value: number) => {
+      this.setAmount(value)
+    }, { min: 0, max: 100, precision: 1, property: 'amount' })
 
     this.title = tr(recipe.Name)
+  }
+
+  setAmount (amount: number) {
+    if (amount < 0) {
+      amount = 0
+    }
+    // @ts-expect-error
+    this.setProperty('amount', amount)
   }
 
   onDrawForeground (ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement) {

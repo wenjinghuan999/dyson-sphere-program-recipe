@@ -109,6 +109,7 @@ export default class GraphPanel extends Vue {
         } else {
           const key = RecipeNode.GetRecipeNodeTypeName(node.recipe)
           const graphNode = LiteGraph.createNode(key) as RecipeNode
+          graphNode.setAmount(node.amount)
 
           node.products.forEach((product) => {
             const idx = graphNode.findOutputSlotById(product.item.ID)
