@@ -407,9 +407,9 @@ class PipelineCanvas extends LGraphCanvas {
     if (linkTarget) {
       const slotIdx = linkTarget.inputs.findIndex(i => i.link === link.id)
       const slot = (linkTarget as RecipeNode).slots[slotIdx]
-      if (slot.amount >= 12) {
+      if (slot.amount > 12) {
         pattern = ctx.createPattern(PipelineCanvas.belt3, 'repeat')
-      } else if (slot.amount >= 6) {
+      } else if (slot.amount > 6) {
         pattern = ctx.createPattern(PipelineCanvas.belt2, 'repeat')
       }
     }
