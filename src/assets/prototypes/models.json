@@ -1,0 +1,1466 @@
+[
+  {
+    "Name": "1",
+    "ID": 1,
+    "SID": "",
+    "ObjectType": 2,
+    "RendererType": 0,
+    "PrefabPath": "Ore/Prefabs/metal-ore-1"
+  },
+  {
+    "Name": "2",
+    "ID": 2,
+    "SID": "",
+    "ObjectType": 2,
+    "RendererType": 0,
+    "PrefabPath": "Ore/Prefabs/stone-ore-1"
+  },
+  {
+    "Name": "3",
+    "ID": 3,
+    "SID": "",
+    "ObjectType": 2,
+    "RendererType": 0,
+    "PrefabPath": "Ore/Prefabs/bamboo-ore-1"
+  },
+  {
+    "Name": "4",
+    "ID": 4,
+    "SID": "",
+    "ObjectType": 2,
+    "RendererType": 0,
+    "PrefabPath": "Ore/Prefabs/fractal-ore-1"
+  },
+  {
+    "Name": "5",
+    "ID": 5,
+    "SID": "",
+    "ObjectType": 2,
+    "RendererType": 0,
+    "PrefabPath": "Ore/Prefabs/mag-ore-1"
+  },
+  {
+    "Name": "6",
+    "ID": 6,
+    "SID": "",
+    "ObjectType": 2,
+    "RendererType": 0,
+    "PrefabPath": "Ore/Prefabs/oilfield-1"
+  },
+  {
+    "Name": "7",
+    "ID": 7,
+    "SID": "",
+    "ObjectType": 2,
+    "RendererType": 0,
+    "PrefabPath": "Ore/Prefabs/crystal-ore-1"
+  },
+  {
+    "Name": "8",
+    "ID": 8,
+    "SID": "",
+    "ObjectType": 2,
+    "RendererType": 0,
+    "PrefabPath": ""
+  },
+  {
+    "Name": "9",
+    "ID": 9,
+    "SID": "",
+    "ObjectType": 2,
+    "RendererType": 0,
+    "PrefabPath": ""
+  },
+  {
+    "Name": "10",
+    "ID": 10,
+    "SID": "",
+    "ObjectType": 2,
+    "RendererType": 0,
+    "PrefabPath": ""
+  },
+  {
+    "Name": "11",
+    "ID": 11,
+    "SID": "",
+    "ObjectType": 2,
+    "RendererType": 0,
+    "PrefabPath": ""
+  },
+  {
+    "Name": "12",
+    "ID": 12,
+    "SID": "\u77f3\u57571",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/stone-1"
+  },
+  {
+    "Name": "13",
+    "ID": 13,
+    "SID": "\u77f3\u57572",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/stone-2"
+  },
+  {
+    "Name": "14",
+    "ID": 14,
+    "SID": "\u77f3\u57573",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/stone-3"
+  },
+  {
+    "Name": "15",
+    "ID": 15,
+    "SID": "\u77f3\u57574",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/stone-4"
+  },
+  {
+    "Name": "16",
+    "ID": 16,
+    "SID": "\u77f3\u57575",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/stone-5"
+  },
+  {
+    "Name": "17",
+    "ID": 17,
+    "SID": "\u77f3\u57576",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/stone-6"
+  },
+  {
+    "Name": "18",
+    "ID": 18,
+    "SID": "\u77f3\u57577",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/stone-7"
+  },
+  {
+    "Name": "19",
+    "ID": 19,
+    "SID": "\u77f3\u57578",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/stone-8"
+  },
+  {
+    "Name": "20",
+    "ID": 20,
+    "SID": "\u77f3\u57579",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/stone-9"
+  },
+  {
+    "Name": "21",
+    "ID": 21,
+    "SID": "\u77f3\u575710",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/stone-10"
+  },
+  {
+    "Name": "22",
+    "ID": 22,
+    "SID": "\u77f3\u575711",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/stone-11"
+  },
+  {
+    "Name": "23",
+    "ID": 23,
+    "SID": "\u77f3\u575712",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/stone-12"
+  },
+  {
+    "Name": "24",
+    "ID": 24,
+    "SID": "\u68111",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/tree-1"
+  },
+  {
+    "Name": "25",
+    "ID": 25,
+    "SID": "\u68112",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/tree-2"
+  },
+  {
+    "Name": "26",
+    "ID": 26,
+    "SID": "\u68113",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/tree-3"
+  },
+  {
+    "Name": "27",
+    "ID": 27,
+    "SID": "\u68114",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/tree-4"
+  },
+  {
+    "Name": "28",
+    "ID": 28,
+    "SID": "\u68115",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/tree-5"
+  },
+  {
+    "Name": "29",
+    "ID": 29,
+    "SID": "\u68116",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/tree-6"
+  },
+  {
+    "Name": "30",
+    "ID": 30,
+    "SID": "\u51b0\u5c711",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/iceburg-1"
+  },
+  {
+    "Name": "31",
+    "ID": 31,
+    "SID": "\u51b0\u5c712",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/iceburg-2"
+  },
+  {
+    "Name": "32",
+    "ID": 32,
+    "SID": "\u51b0\u5c713",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/iceburg-3"
+  },
+  {
+    "Name": "33",
+    "ID": 33,
+    "SID": "\u83490",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/grass-0"
+  },
+  {
+    "Name": "34",
+    "ID": 34,
+    "SID": "\u83491",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/grass-1"
+  },
+  {
+    "Name": "35",
+    "ID": 35,
+    "SID": "\u4f4e\u901f\u4f20\u9001\u5e26",
+    "ObjectType": 0,
+    "RendererType": 0,
+    "PrefabPath": "Entities/Prefabs/belt-1"
+  },
+  {
+    "Name": "36",
+    "ID": 36,
+    "SID": "\u9ad8\u901f\u4f20\u9001\u5e26",
+    "ObjectType": 0,
+    "RendererType": 0,
+    "PrefabPath": "Entities/Prefabs/belt-2"
+  },
+  {
+    "Name": "37",
+    "ID": 37,
+    "SID": "\u6781\u901f\u4f20\u9001\u5e26",
+    "ObjectType": 0,
+    "RendererType": 0,
+    "PrefabPath": "Entities/Prefabs/belt-3"
+  },
+  {
+    "Name": "38",
+    "ID": 38,
+    "SID": "\u56db\u5411\u5206\u6d41\u5668",
+    "ObjectType": 0,
+    "RendererType": 0,
+    "PrefabPath": "Entities/Prefabs/splitter-a"
+  },
+  {
+    "Name": "39",
+    "ID": 39,
+    "SID": "\u56db\u5411\u5206\u6d41\u5668",
+    "ObjectType": 0,
+    "RendererType": 0,
+    "PrefabPath": "Entities/Prefabs/splitter-b"
+  },
+  {
+    "Name": "40",
+    "ID": 40,
+    "SID": "\u56db\u5411\u5206\u6d41\u5668",
+    "ObjectType": 0,
+    "RendererType": 0,
+    "PrefabPath": "Entities/Prefabs/splitter-c"
+  },
+  {
+    "Name": "41",
+    "ID": 41,
+    "SID": "\u4f4e\u901f\u5206\u62e3\u5668",
+    "ObjectType": 0,
+    "RendererType": 2,
+    "PrefabPath": "Entities/Prefabs/inserter-1"
+  },
+  {
+    "Name": "42",
+    "ID": 42,
+    "SID": "\u9ad8\u901f\u5206\u62e3\u5668",
+    "ObjectType": 0,
+    "RendererType": 2,
+    "PrefabPath": "Entities/Prefabs/inserter-2"
+  },
+  {
+    "Name": "43",
+    "ID": 43,
+    "SID": "\u6781\u901f\u5206\u62e3\u5668",
+    "ObjectType": 0,
+    "RendererType": 2,
+    "PrefabPath": "Entities/Prefabs/inserter-3"
+  },
+  {
+    "Name": "44",
+    "ID": 44,
+    "SID": "\u7535\u529b\u611f\u5e94\u5854",
+    "ObjectType": 0,
+    "RendererType": 0,
+    "PrefabPath": "Entities/Prefabs/tesla-tower-1"
+  },
+  {
+    "Name": "45",
+    "ID": 45,
+    "SID": "\u80fd\u91cf\u67a2\u7ebd",
+    "ObjectType": 0,
+    "RendererType": 0,
+    "PrefabPath": "Entities/Prefabs/energy-exchanger"
+  },
+  {
+    "Name": "46",
+    "ID": 46,
+    "SID": "\u84c4\u7535\u5668",
+    "ObjectType": 0,
+    "RendererType": 0,
+    "PrefabPath": "Entities/Prefabs/accumulator"
+  },
+  {
+    "Name": "47",
+    "ID": 47,
+    "SID": "\u7269\u6d41\u8fd0\u8f93\u673a",
+    "ObjectType": 0,
+    "RendererType": 0,
+    "PrefabPath": "Entities/Prefabs/logistic-drone"
+  },
+  {
+    "Name": "48",
+    "ID": 48,
+    "SID": "\u661f\u9645\u7269\u6d41\u8fd0\u8f93\u8239",
+    "ObjectType": 0,
+    "RendererType": 0,
+    "PrefabPath": "Entities/Prefabs/logistic-vessel"
+  },
+  {
+    "Name": "49",
+    "ID": 49,
+    "SID": "\u7269\u6d41\u8fd0\u8f93\u7ad9",
+    "ObjectType": 0,
+    "RendererType": 0,
+    "PrefabPath": "Entities/Prefabs/logistic-station"
+  },
+  {
+    "Name": "50",
+    "ID": 50,
+    "SID": "\u661f\u9645\u7269\u6d41\u8fd0\u8f93\u7ad9",
+    "ObjectType": 0,
+    "RendererType": 0,
+    "PrefabPath": "Entities/Prefabs/interstellar-logistic-station"
+  },
+  {
+    "Name": "51",
+    "ID": 51,
+    "SID": "\u5c0f\u578b\u50a8\u7269\u4ed3",
+    "ObjectType": 0,
+    "RendererType": 0,
+    "PrefabPath": "Entities/Prefabs/storage-1"
+  },
+  {
+    "Name": "52",
+    "ID": 52,
+    "SID": "\u5927\u578b\u50a8\u7269\u4ed3",
+    "ObjectType": 0,
+    "RendererType": 0,
+    "PrefabPath": "Entities/Prefabs/storage-2"
+  },
+  {
+    "Name": "53",
+    "ID": 53,
+    "SID": "\u98ce\u529b\u6da1\u8f6e\u673a",
+    "ObjectType": 0,
+    "RendererType": 0,
+    "PrefabPath": "Entities/Prefabs/wind-turbine"
+  },
+  {
+    "Name": "54",
+    "ID": 54,
+    "SID": "\u706b\u529b\u53d1\u7535\u5382",
+    "ObjectType": 0,
+    "RendererType": 0,
+    "PrefabPath": "Entities/Prefabs/power-generator"
+  },
+  {
+    "Name": "55",
+    "ID": 55,
+    "SID": "\u592a\u9633\u80fd\u677f",
+    "ObjectType": 0,
+    "RendererType": 0,
+    "PrefabPath": "Entities/Prefabs/solar-panel"
+  },
+  {
+    "Name": "56",
+    "ID": 56,
+    "SID": "\u4eba\u9020\u6052\u661f",
+    "ObjectType": 0,
+    "RendererType": 0,
+    "PrefabPath": "Entities/Prefabs/fusion-reactor"
+  },
+  {
+    "Name": "57",
+    "ID": 57,
+    "SID": "\u91c7\u77ff\u673a",
+    "ObjectType": 0,
+    "RendererType": 0,
+    "PrefabPath": "Entities/Prefabs/mining-drill"
+  },
+  {
+    "Name": "58",
+    "ID": 58,
+    "SID": "\u91c7\u77ff\u5e95\u5ea7",
+    "ObjectType": 0,
+    "RendererType": 0,
+    "PrefabPath": "Entities/Prefabs/mining-drill-worker"
+  },
+  {
+    "Name": "59",
+    "ID": 59,
+    "SID": "\u91c7\u77ff\u73af",
+    "ObjectType": 0,
+    "RendererType": 0,
+    "PrefabPath": "Entities/Prefabs/mining-drill-circle"
+  },
+  {
+    "Name": "60",
+    "ID": 60,
+    "SID": "\u62bd\u6c34\u7ad9",
+    "ObjectType": 0,
+    "RendererType": 0,
+    "PrefabPath": "Entities/Prefabs/water-pump"
+  },
+  {
+    "Name": "61",
+    "ID": 61,
+    "SID": "\u539f\u6cb9\u8403\u53d6\u7ad9",
+    "ObjectType": 0,
+    "RendererType": 0,
+    "PrefabPath": "Entities/Prefabs/oil-extractor"
+  },
+  {
+    "Name": "62",
+    "ID": 62,
+    "SID": "\u7535\u5f27\u7194\u7089",
+    "ObjectType": 0,
+    "RendererType": 0,
+    "PrefabPath": "Entities/Prefabs/smelter"
+  },
+  {
+    "Name": "63",
+    "ID": 63,
+    "SID": "\u539f\u6cb9\u7cbe\u70bc\u5382",
+    "ObjectType": 0,
+    "RendererType": 0,
+    "PrefabPath": "Entities/Prefabs/oil-refinery"
+  },
+  {
+    "Name": "64",
+    "ID": 64,
+    "SID": "\u5316\u5de5\u5382",
+    "ObjectType": 0,
+    "RendererType": 0,
+    "PrefabPath": "Entities/Prefabs/chemical-plant"
+  },
+  {
+    "Name": "65",
+    "ID": 65,
+    "SID": "\u5236\u9020\u53f0 Mk.I",
+    "ObjectType": 0,
+    "RendererType": 0,
+    "PrefabPath": "Entities/Prefabs/assembler-mk-1"
+  },
+  {
+    "Name": "66",
+    "ID": 66,
+    "SID": "\u5236\u9020\u53f0 Mk.II",
+    "ObjectType": 0,
+    "RendererType": 0,
+    "PrefabPath": "Entities/Prefabs/assembler-mk-2"
+  },
+  {
+    "Name": "67",
+    "ID": 67,
+    "SID": "\u5236\u9020\u53f0 Mk.III",
+    "ObjectType": 0,
+    "RendererType": 0,
+    "PrefabPath": "Entities/Prefabs/assembler-mk-3"
+  },
+  {
+    "Name": "68",
+    "ID": 68,
+    "SID": "\u536b\u661f\u914d\u7535\u7ad9",
+    "ObjectType": 0,
+    "RendererType": 0,
+    "PrefabPath": "Entities/Prefabs/orbital-substation"
+  },
+  {
+    "Name": "69",
+    "ID": 69,
+    "SID": "\u5fae\u578b\u7c92\u5b50\u5bf9\u649e\u673a",
+    "ObjectType": 0,
+    "RendererType": 0,
+    "PrefabPath": "Entities/Prefabs/hadron-collider"
+  },
+  {
+    "Name": "70",
+    "ID": 70,
+    "SID": "\u77e9\u9635\u7814\u7a76\u7ad9",
+    "ObjectType": 0,
+    "RendererType": 3,
+    "PrefabPath": "Entities/Prefabs/lab"
+  },
+  {
+    "Name": "71",
+    "ID": 71,
+    "SID": "\u65e0\u7ebf\u8f93\u7535\u5854",
+    "ObjectType": 0,
+    "RendererType": 0,
+    "PrefabPath": "Entities/Prefabs/charging-pole"
+  },
+  {
+    "Name": "72",
+    "ID": 72,
+    "SID": "\u7535\u78c1\u8f68\u9053\u5f39\u5c04\u5668",
+    "ObjectType": 0,
+    "RendererType": 0,
+    "PrefabPath": "Entities/Prefabs/em-rail-ejector"
+  },
+  {
+    "Name": "73",
+    "ID": 73,
+    "SID": "\u5c04\u7ebf\u63a5\u6536\u7ad9",
+    "ObjectType": 0,
+    "RendererType": 0,
+    "PrefabPath": "Entities/Prefabs/ray-receiver"
+  },
+  {
+    "Name": "74",
+    "ID": 74,
+    "SID": "\u5782\u76f4\u53d1\u5c04\u4e95",
+    "ObjectType": 0,
+    "RendererType": 0,
+    "PrefabPath": "Entities/Prefabs/vertical-launching-silo"
+  },
+  {
+    "Name": "75",
+    "ID": 75,
+    "SID": "\u5c0f\u578b\u8fd0\u8f7d\u706b\u7bad",
+    "ObjectType": 0,
+    "RendererType": 0,
+    "PrefabPath": "Entities/Prefabs/rocket"
+  },
+  {
+    "Name": "76",
+    "ID": 76,
+    "SID": "\u83492",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/grass-2"
+  },
+  {
+    "Name": "77",
+    "ID": 77,
+    "SID": "\u68117",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/alien-tree-1"
+  },
+  {
+    "Name": "78",
+    "ID": 78,
+    "SID": "\u68118",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/alien-tree-2"
+  },
+  {
+    "Name": "79",
+    "ID": 79,
+    "SID": "\u68119",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/alien-tree-3"
+  },
+  {
+    "Name": "80",
+    "ID": 80,
+    "SID": "\u681110",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/alien-tree-4"
+  },
+  {
+    "Name": "81",
+    "ID": 81,
+    "SID": "\u681111",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/alien-tree-5"
+  },
+  {
+    "Name": "82",
+    "ID": 82,
+    "SID": "\u681112",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/alien-tree-6"
+  },
+  {
+    "Name": "83",
+    "ID": 83,
+    "SID": "\u681113",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/alien-tree-7"
+  },
+  {
+    "Name": "84",
+    "ID": 84,
+    "SID": "\u681114",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/alien-tree-8"
+  },
+  {
+    "Name": "85",
+    "ID": 85,
+    "SID": "\u681115",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/alien-tree-9"
+  },
+  {
+    "Name": "86",
+    "ID": 86,
+    "SID": "\u681116",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/alien-tree-10"
+  },
+  {
+    "Name": "87",
+    "ID": 87,
+    "SID": "\u681117",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/alien-tree-11"
+  },
+  {
+    "Name": "88",
+    "ID": 88,
+    "SID": "\u681118",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/alien-tree-12"
+  },
+  {
+    "Name": "89",
+    "ID": 89,
+    "SID": "\u681119",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/alien-tree-13"
+  },
+  {
+    "Name": "90",
+    "ID": 90,
+    "SID": "\u681120",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/alien-tree-14"
+  },
+  {
+    "Name": "91",
+    "ID": 91,
+    "SID": "\u681121",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/alien-tree-15"
+  },
+  {
+    "Name": "92",
+    "ID": 92,
+    "SID": "\u681122",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/alien-tree-16"
+  },
+  {
+    "Name": "93",
+    "ID": 93,
+    "SID": "\u681123",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/alien-tree-17"
+  },
+  {
+    "Name": "94",
+    "ID": 94,
+    "SID": "\u681124",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/alien-tree-18"
+  },
+  {
+    "Name": "95",
+    "ID": 95,
+    "SID": "\u681125",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/alien-tree-19"
+  },
+  {
+    "Name": "96",
+    "ID": 96,
+    "SID": "\u681126",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/alien-tree-20"
+  },
+  {
+    "Name": "97",
+    "ID": 97,
+    "SID": "\u681127",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/alien-tree-21"
+  },
+  {
+    "Name": "98",
+    "ID": 98,
+    "SID": "\u681128",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/alien-tree-22"
+  },
+  {
+    "Name": "99",
+    "ID": 99,
+    "SID": "\u681129",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/alien-tree-23"
+  },
+  {
+    "Name": "100",
+    "ID": 100,
+    "SID": "\u77f3\u575713",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/stylized-stone-1a"
+  },
+  {
+    "Name": "101",
+    "ID": 101,
+    "SID": "\u77f3\u575714",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/stylized-stone-1b"
+  },
+  {
+    "Name": "102",
+    "ID": 102,
+    "SID": "\u77f3\u575715",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/stylized-stone-1c"
+  },
+  {
+    "Name": "103",
+    "ID": 103,
+    "SID": "\u77f3\u575716",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/stylized-stone-2a"
+  },
+  {
+    "Name": "104",
+    "ID": 104,
+    "SID": "\u77f3\u575717",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/stylized-stone-2b"
+  },
+  {
+    "Name": "105",
+    "ID": 105,
+    "SID": "\u77f3\u575718",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/stylized-stone-2c"
+  },
+  {
+    "Name": "106",
+    "ID": 106,
+    "SID": "\u77f3\u575719",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/stylized-stone-3a"
+  },
+  {
+    "Name": "107",
+    "ID": 107,
+    "SID": "\u77f3\u575720",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/stylized-stone-3b"
+  },
+  {
+    "Name": "108",
+    "ID": 108,
+    "SID": "\u77f3\u575721",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/stylized-stone-3c"
+  },
+  {
+    "Name": "109",
+    "ID": 109,
+    "SID": "\u77f3\u575722",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/stylized-stone-4a"
+  },
+  {
+    "Name": "110",
+    "ID": 110,
+    "SID": "\u77f3\u575723",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/stylized-stone-4b"
+  },
+  {
+    "Name": "111",
+    "ID": 111,
+    "SID": "\u77f3\u575724",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/stylized-stone-4c"
+  },
+  {
+    "Name": "112",
+    "ID": 112,
+    "SID": "\u681130",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/alien-tree-24"
+  },
+  {
+    "Name": "113",
+    "ID": 113,
+    "SID": "\u681131",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/alien-tree-25"
+  },
+  {
+    "Name": "114",
+    "ID": 114,
+    "SID": "\u681132",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/alien-tree-26"
+  },
+  {
+    "Name": "115",
+    "ID": 115,
+    "SID": "\u681133",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/alien-tree-27"
+  },
+  {
+    "Name": "116",
+    "ID": 116,
+    "SID": "\u681134",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/alien-tree-28"
+  },
+  {
+    "Name": "117",
+    "ID": 117,
+    "SID": "\u8f68\u9053\u91c7\u96c6\u5668",
+    "ObjectType": 0,
+    "RendererType": 0,
+    "PrefabPath": "Entities/Prefabs/orbital-collector"
+  },
+  {
+    "Name": "118",
+    "ID": 118,
+    "SID": "\u5fae\u578b\u805a\u53d8\u53d1\u7535\u7ad9",
+    "ObjectType": 0,
+    "RendererType": 0,
+    "PrefabPath": "Entities/Prefabs/fusion-power-station"
+  },
+  {
+    "Name": "119",
+    "ID": 119,
+    "SID": "\u5206\u998f\u5854",
+    "ObjectType": 0,
+    "RendererType": 0,
+    "PrefabPath": "Entities/Prefabs/fractionator"
+  },
+  {
+    "Name": "120",
+    "ID": 120,
+    "SID": "\u55b7\u6d82\u673a",
+    "ObjectType": 0,
+    "RendererType": 0,
+    "PrefabPath": "Entities/Prefabs/spray-coater"
+  },
+  {
+    "Name": "121",
+    "ID": 121,
+    "SID": "\u50a8\u6db2\u7f50",
+    "ObjectType": 0,
+    "RendererType": 3,
+    "PrefabPath": "Entities/Prefabs/storage-tank"
+  },
+  {
+    "Name": "122",
+    "ID": 122,
+    "SID": "\u681135",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/alien-tree-29"
+  },
+  {
+    "Name": "123",
+    "ID": 123,
+    "SID": "\u5730\u4e2d\u6d77\u68111",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Ocean 1/Prefabs/oc1-tree-1"
+  },
+  {
+    "Name": "124",
+    "ID": 124,
+    "SID": "\u5730\u4e2d\u6d77\u68112",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Ocean 1/Prefabs/oc1-tree-2"
+  },
+  {
+    "Name": "125",
+    "ID": 125,
+    "SID": "\u5730\u4e2d\u6d77\u68113",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Ocean 1/Prefabs/oc1-tree-3"
+  },
+  {
+    "Name": "126",
+    "ID": 126,
+    "SID": "\u5730\u4e2d\u6d77\u68114",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Ocean 1/Prefabs/oc1-tree-4"
+  },
+  {
+    "Name": "127",
+    "ID": 127,
+    "SID": "\u5730\u4e2d\u6d77\u68115",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Ocean 1/Prefabs/oc1-tree-5"
+  },
+  {
+    "Name": "128",
+    "ID": 128,
+    "SID": "\u5730\u4e2d\u6d77\u68116",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Ocean 1/Prefabs/oc1-tree-6"
+  },
+  {
+    "Name": "129",
+    "ID": 129,
+    "SID": "\u5730\u4e2d\u6d77\u83497",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Ocean 1/Prefabs/oc1-grass-7"
+  },
+  {
+    "Name": "130",
+    "ID": 130,
+    "SID": "\u5730\u4e2d\u6d77\u83498",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Ocean 1/Prefabs/oc1-grass-8"
+  },
+  {
+    "Name": "131",
+    "ID": 131,
+    "SID": "\u5730\u4e2d\u6d77\u83499",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Ocean 1/Prefabs/oc1-grass-9"
+  },
+  {
+    "Name": "132",
+    "ID": 132,
+    "SID": "\u5730\u4e2d\u6d77\u834910",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Ocean 1/Prefabs/oc1-grass-10"
+  },
+  {
+    "Name": "133",
+    "ID": 133,
+    "SID": "\u5730\u4e2d\u6d77\u77f31",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Ocean 1/Prefabs/oc1-stone-1"
+  },
+  {
+    "Name": "134",
+    "ID": 134,
+    "SID": "\u5730\u4e2d\u6d77\u77f32",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Ocean 1/Prefabs/oc1-stone-2"
+  },
+  {
+    "Name": "135",
+    "ID": 135,
+    "SID": "\u5730\u4e2d\u6d77\u77f33",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Ocean 1/Prefabs/oc1-stone-3"
+  },
+  {
+    "Name": "136",
+    "ID": 136,
+    "SID": "\u5730\u4e2d\u6d77\u77f34",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Ocean 1/Prefabs/oc1-stone-4"
+  },
+  {
+    "Name": "137",
+    "ID": 137,
+    "SID": "\u5730\u4e2d\u6d77\u77f35",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Ocean 1/Prefabs/oc1-stone-5"
+  },
+  {
+    "Name": "138",
+    "ID": 138,
+    "SID": "\u5730\u4e2d\u6d77\u788e6",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Ocean 1/Prefabs/oc1-stone-6"
+  },
+  {
+    "Name": "139",
+    "ID": 139,
+    "SID": "\u5730\u4e2d\u6d77\u788e7",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Ocean 1/Prefabs/oc1-stone-7"
+  },
+  {
+    "Name": "140",
+    "ID": 140,
+    "SID": "\u5730\u4e2d\u6d77\u788e8",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Ocean 1/Prefabs/oc1-stone-8"
+  },
+  {
+    "Name": "141",
+    "ID": 141,
+    "SID": "\u5916\u661f\u77f31",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/alien-stone-1"
+  },
+  {
+    "Name": "142",
+    "ID": 142,
+    "SID": "\u5916\u661f\u77f32",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/alien-stone-2"
+  },
+  {
+    "Name": "143",
+    "ID": 143,
+    "SID": "\u5916\u661f\u77f33",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/alien-stone-3"
+  },
+  {
+    "Name": "144",
+    "ID": 144,
+    "SID": "\u5916\u661f\u77f34",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/alien-stone-4"
+  },
+  {
+    "Name": "145",
+    "ID": 145,
+    "SID": "\u5916\u661f\u77f35",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/alien-stone-5"
+  },
+  {
+    "Name": "146",
+    "ID": 146,
+    "SID": "\u5916\u661f\u77f36",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/alien-stone-6"
+  },
+  {
+    "Name": "147",
+    "ID": 147,
+    "SID": "\u5916\u661f\u77f37",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/alien-stone-7"
+  },
+  {
+    "Name": "148",
+    "ID": 148,
+    "SID": "\u5916\u661f\u77f38",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/alien-stone-8"
+  },
+  {
+    "Name": "149",
+    "ID": 149,
+    "SID": "\u5916\u661f\u77f39",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/alien-stone-9"
+  },
+  {
+    "Name": "150",
+    "ID": 150,
+    "SID": "\u5916\u661f\u77f310",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/alien-stone-10"
+  },
+  {
+    "Name": "151",
+    "ID": 151,
+    "SID": "\u5916\u661f\u77f311",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/alien-stone-11"
+  },
+  {
+    "Name": "152",
+    "ID": 152,
+    "SID": "\u5916\u661f\u77f312",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/alien-stone-12"
+  },
+  {
+    "Name": "153",
+    "ID": 153,
+    "SID": "\u5916\u661f\u77f313",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/alien-stone-13"
+  },
+  {
+    "Name": "154",
+    "ID": 154,
+    "SID": "\u5916\u661f\u77f314",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/alien-stone-14"
+  },
+  {
+    "Name": "155",
+    "ID": 155,
+    "SID": "\u5916\u661f\u77f315",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/alien-stone-15"
+  },
+  {
+    "Name": "156",
+    "ID": 156,
+    "SID": "\u5916\u661f\u77f316",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/alien-stone-16"
+  },
+  {
+    "Name": "157",
+    "ID": 157,
+    "SID": "\u5916\u661f\u77f317",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/alien-stone-17"
+  },
+  {
+    "Name": "158",
+    "ID": 158,
+    "SID": "\u5916\u661f\u77f318",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/alien-stone-18"
+  },
+  {
+    "Name": "159",
+    "ID": 159,
+    "SID": "\u5916\u661f\u77f319",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/alien-stone-19"
+  },
+  {
+    "Name": "160",
+    "ID": 160,
+    "SID": "\u5916\u661f\u77f320",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/alien-stone-20"
+  },
+  {
+    "Name": "161",
+    "ID": 161,
+    "SID": "\u5916\u661f\u77f321",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/alien-stone-21"
+  },
+  {
+    "Name": "162",
+    "ID": 162,
+    "SID": "\u5916\u661f\u77f322",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/alien-stone-22"
+  },
+  {
+    "Name": "163",
+    "ID": 163,
+    "SID": "\u5916\u661f\u77f323",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/alien-stone-23"
+  },
+  {
+    "Name": "164",
+    "ID": 164,
+    "SID": "\u5916\u661f\u77f324",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/alien-stone-24"
+  },
+  {
+    "Name": "165",
+    "ID": 165,
+    "SID": "\u5916\u661f\u77f325",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Prefabs/alien-stone-25"
+  },
+  {
+    "Name": "166",
+    "ID": 166,
+    "SID": "\u7ea2\u77f3\u68111",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Ocean 3/Prefabs/oc3-tree-1"
+  },
+  {
+    "Name": "167",
+    "ID": 167,
+    "SID": "\u7ea2\u77f3\u68112",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Ocean 3/Prefabs/oc3-tree-2"
+  },
+  {
+    "Name": "168",
+    "ID": 168,
+    "SID": "\u7ea2\u77f3\u83493",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Ocean 3/Prefabs/oc3-tree-3"
+  },
+  {
+    "Name": "169",
+    "ID": 169,
+    "SID": "\u7ea2\u77f3\u68114",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Ocean 3/Prefabs/oc3-tree-4"
+  },
+  {
+    "Name": "170",
+    "ID": 170,
+    "SID": "\u7ea2\u77f3\u68115",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Ocean 3/Prefabs/oc3-tree-5"
+  },
+  {
+    "Name": "171",
+    "ID": 171,
+    "SID": "\u7ea2\u77f3\u68116",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Ocean 3/Prefabs/oc3-tree-6"
+  },
+  {
+    "Name": "172",
+    "ID": 172,
+    "SID": "\u7ea2\u77f3\u68117",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Ocean 3/Prefabs/oc3-tree-7"
+  },
+  {
+    "Name": "173",
+    "ID": 173,
+    "SID": "\u7ea2\u77f3\u83498",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Ocean 3/Prefabs/oc3-grass-8"
+  },
+  {
+    "Name": "174",
+    "ID": 174,
+    "SID": "\u7ea2\u77f3\u83499",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Ocean 3/Prefabs/oc3-grass-9"
+  },
+  {
+    "Name": "175",
+    "ID": 175,
+    "SID": "\u98de\u884c\u8231",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Ocean 1/Prefabs/space-capsule-dummy"
+  },
+  {
+    "Name": "176",
+    "ID": 176,
+    "SID": "\u96e8\u6797\u68111",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Ocean 2/Prefabs/oc2-tree-1"
+  },
+  {
+    "Name": "177",
+    "ID": 177,
+    "SID": "\u96e8\u6797\u68112",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Ocean 2/Prefabs/oc2-tree-2"
+  },
+  {
+    "Name": "179",
+    "ID": 179,
+    "SID": "\u96e8\u6797\u68114",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Ocean 2/Prefabs/oc2-tree-4"
+  },
+  {
+    "Name": "180",
+    "ID": 180,
+    "SID": "\u96e8\u6797\u68115",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Ocean 2/Prefabs/oc2-tree-5"
+  },
+  {
+    "Name": "181",
+    "ID": 181,
+    "SID": "\u96e8\u6797\u68116",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Ocean 2/Prefabs/oc2-tree-6"
+  },
+  {
+    "Name": "182",
+    "ID": 182,
+    "SID": "\u96e8\u6797\u83497",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Ocean 2/Prefabs/oc2-grass-7"
+  },
+  {
+    "Name": "183",
+    "ID": 183,
+    "SID": "\u96e8\u6797\u83498",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Ocean 2/Prefabs/oc2-grass-8"
+  },
+  {
+    "Name": "184",
+    "ID": 184,
+    "SID": "\u96e8\u6797\u83499",
+    "ObjectType": 1,
+    "RendererType": 1,
+    "PrefabPath": "Vegetation/Ocean 2/Prefabs/oc2-grass-9"
+  }
+]
