@@ -140,13 +140,13 @@ class RecipeNode extends LGraphNode {
           } else if (slot.align === 1) {
             ctx.drawImage(slot.img, this.size[0] - 54, LiteGraph.NODE_SLOT_HEIGHT * slot.index + 6, 32, 32)
           } else {
-            ctx.drawImage(slot.img, this.size[0] / 2 - 16, LiteGraph.NODE_SLOT_HEIGHT * slot.index + 6, 32, 32)
+            ctx.drawImage(slot.img, this.size[0] / 3 - 16, LiteGraph.NODE_SLOT_HEIGHT * slot.index + 6, 32, 32)
           }
         }
       })
       const text = this.getEnergyText()
       if (text) {
-        const pos = [this.size[0] / 2 + 16, LiteGraph.NODE_SLOT_HEIGHT * (this.slots.length - 0.5) + 6]
+        const pos = [this.size[0] / 2 + 8, LiteGraph.NODE_SLOT_HEIGHT * (this.slots.length - 0.5) + 6]
         ctx.fillStyle = LiteGraph.NODE_TEXT_COLOR
         ctx.fillText(text, pos[0] + 4, pos[1] + 4)
       }
@@ -155,7 +155,7 @@ class RecipeNode extends LGraphNode {
 
   getEnergyText (): string {
     if (this.buildingItems) {
-      const building = this.buildingItems.find(b => b.Name === this.building.value)
+      const building = this.buildingItems.find(b => tr(b.Name) === this.building.value)
       if (building !== undefined) {
         const entity = DataLoader.getInstance().EntityMap[building.ID]
         if (entity !== undefined) {
