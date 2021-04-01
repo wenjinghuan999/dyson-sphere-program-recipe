@@ -2,10 +2,18 @@ import itemsJson from '@/assets/prototypes/items.json'
 import veinsJson from '@/assets/prototypes/veins.json'
 import recipesJson from '@/assets/prototypes/recipes.json'
 import stringsJson from '@/assets/prototypes/strings.json'
+import entitiesJson from '@/assets/prototypes/entities.json'
+import modelsJson from '@/assets/prototypes/models.json'
 import uiStringsJson from '@/assets/ui-strings.json'
 import recipeTypesJson from '@/assets/recipetypes.json'
-import { Item, Vein, Recipe, MiningRecipe } from '@/common/product'
+import { Item, Vein, Entity, Recipe, MiningRecipe } from '@/common/product'
 
+class Model {
+  readonly SID: string = ''
+  readonly ObjectType: number = 0
+  readonly RendererType: number = 0
+  readonly PrefabPath: string = ''
+}
 class DataLoader {
   private static instance: DataLoader;
 
@@ -13,10 +21,13 @@ class DataLoader {
     this.AllItems = itemsJson
     this.AllVeins = veinsJson
     this.AllRecipes = recipesJson
+    this.AllEntities = entitiesJson
+    this.AllModels = modelsJson
     this.ItemMap = DataLoader.buildItemMap(this.AllItems)
     this.ItemNameMap = DataLoader.buildItemNameMap(this.AllItems)
     this.VeinMap = DataLoader.buildVeinMap(this.AllVeins)
     this.VeinItemMap = DataLoader.buildVeinItemMap(this.AllVeins)
+    this.EntityMap = DataLoader.buildEntityMap(this.ItemNameMap, this.AllModels, this.AllEntities)
     this.RecipeMap = DataLoader.buildRecipeMap(this.AllRecipes)
     this.RecipeItemMap = DataLoader.buildRecipeItemMap(this.AllRecipes)
     this.StringMaps = DataLoader.buildStringMap()
@@ -184,13 +195,34 @@ class DataLoader {
     return miningMap
   }
 
+  private static buildEntityMap (itemNameMap: Record<string, Item>, models: Model[], entities: Record<string, Entity>): Record<number, Entity> {
+    const entitiesMap: Record<number, Entity> = {}
+    models.forEach((model) => {
+      if (model.SID && model.PrefabPath) {
+        const prefabPaths = model.PrefabPath.split('/')
+        if (prefabPaths[0] === 'Entities') {
+          const entityName = prefabPaths[2]
+          const entity = entities[entityName]
+          const item = itemNameMap[model.SID]
+          if (entity !== undefined) {
+            entitiesMap[item.ID] = entity
+          }
+        }
+      }
+    })
+    return entitiesMap
+  }
+
   readonly AllItems: Item[];
   readonly AllVeins: Vein[];
   readonly AllRecipes: Recipe[];
+  readonly AllEntities: Record<string, Entity>;
+  readonly AllModels: Model[];
   readonly ItemMap: Record<number, Item>;
   readonly ItemNameMap: Record<string, Item>;
   readonly VeinMap: Record<number, Vein>;
   readonly VeinItemMap: Record<number, Vein>;
+  readonly EntityMap: Record<number, Entity>;
   readonly RecipeMap: Record<number, Recipe>;
   readonly RecipeItemMap: Record<number, Recipe[]>;
   readonly StringMaps: Record<string, Record<string, string>>;

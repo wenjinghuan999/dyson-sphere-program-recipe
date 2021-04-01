@@ -22,6 +22,54 @@ class Vein {
   static readonly Empty = new Vein()
 }
 
+class Entity {
+  readonly node: number = 0
+  readonly connectDistance: number = 0
+  readonly coverRadius: number = 0
+  readonly generator: number = 0
+  readonly photovoltaic: number = 0
+  readonly wind: number = 0
+  readonly gamma: number = 0
+  readonly genEnergyPerTick: number = 0
+  readonly useFuelPerTick: number = 0
+  readonly fuelMask: number = 0
+  readonly catalystId: number = 0
+  readonly productId: number = 0
+  readonly productHeat: number = 0
+  readonly accumulator: number = 0
+  readonly inputEnergyPerTick: number = 0
+  readonly outputEnergyPerTick: number = 0
+  readonly maxAcuEnergy: number = 0
+  readonly exchanger: number = 0
+  readonly exchangeEnergyPerTick: number = 0
+  readonly emptyId: number = 0
+  readonly fullId: number = 0
+  readonly consumer: number = 0
+  readonly charger: number = 0
+  readonly workEnergyPerTick: number = 0
+  readonly idleEnergyPerTick: number = 0
+
+  static getEnergy (entity: Entity, amount: number): number {
+    const workingEnergy = amount * entity.workEnergyPerTick * 60
+    const idleEnergy = (amount - Math.floor(amount)) * entity.idleEnergyPerTick * 60
+    return workingEnergy + idleEnergy
+  }
+
+  static getEnergyText (energy: number): string {
+    const suffixes = [' W', ' kW', ' MW', ' GW']
+    for (let i = 0; i < suffixes.length - 1; ++i) {
+      if (energy < 1000) {
+        return (Math.round(energy * 10) / 10) + suffixes[i]
+      } else {
+        energy /= 1000
+      }
+    }
+    return (Math.round(energy * 10) / 10) + suffixes[suffixes.length - 1]
+  }
+
+  static readonly Empty = new Entity()
+}
+
 class Recipe {
   readonly Name: string = 'None';
   readonly ID: number = 0;
@@ -236,5 +284,5 @@ class UserInputProduct {
 }
 
 export {
-  Item, Vein, Recipe, MiningRecipe, Product, MiningProduct, UserInputProduct
+  Item, Vein, Entity, Recipe, MiningRecipe, Product, MiningProduct, UserInputProduct
 }
