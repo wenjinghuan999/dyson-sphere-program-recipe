@@ -96,7 +96,7 @@ class RecipeNode extends LGraphNode {
     this.addProperty('amount', 0, 'number')
     this.addWidget('number', 'x', this.amount, (value: number) => {
       this.setAmount(value)
-    }, { min: 0, max: 100, precision: 1, property: 'amount' })
+    }, { min: 0, max: 100, precision: 1, step: 10, property: 'amount' })
 
     this.title = tr(recipe.Name)
   }
