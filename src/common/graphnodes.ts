@@ -1,5 +1,5 @@
 import { LiteGraph, LGraphNode, IWidget, widgetTypes, LGraphCanvas, Vector2, LLink } from 'litegraph.js'
-import { Item, Recipe } from '@/common/product'
+import { Item, Entity, Recipe } from '@/common/product'
 import { DataLoader, tr } from '@/common/dataloader'
 
 class NodeSlot {
@@ -53,6 +53,7 @@ class RecipeNode extends LGraphNode {
   recipe: Recipe;
   amount = 0;
   speedFactor = 1;
+  buildingItems: Item[];
   building: BuildingWidget;
 
   constructor (recipe: Recipe) {
@@ -79,20 +80,20 @@ class RecipeNode extends LGraphNode {
     })
     {
       const slotId = this.slots.length
-      const items = DataLoader.getInstance().RecipeTypesMap[this.recipe.Type]
-      const values = items.map(v => tr(v.Name))
-      const defaultItem = this.recipe.Type === 4 ? items[1] : items[0]
+      this.buildingItems = DataLoader.getInstance().RecipeTypesMap[this.recipe.Type]
+      const values = this.buildingItems.map(v => tr(v.Name))
+      const defaultItem = this.recipe.Type === 4 ? this.buildingItems[1] : this.buildingItems[0]
       this.slots.push(new NodeSlot(defaultItem.ID, 0, (Math.max(recipe.Items.length, recipe.Results.length) + 1)))
-      this.building = new BuildingWidget(tr(defaultItem.Name), { values: values }, items, (item: Item) => {
-        if (item.ID === 2303) {
+      this.building = new BuildingWidget(tr(defaultItem.Name), { values: values }, this.buildingItems, (building: Item) => {
+        if (building.ID === 2303) {
           this.speedFactor = 0.75
-        } else if (item.ID === 2305) {
+        } else if (building.ID === 2305) {
           this.speedFactor = 1.5
         } else {
           this.speedFactor = 1
         }
         this.updateProperties()
-        import(`@/assets/${item.IconPath}.png`).then((module) => {
+        import(`@/assets/${building.IconPath}.png`).then((module) => {
           this.loadImages(slotId, module.default)
         })
       })
@@ -102,8 +103,8 @@ class RecipeNode extends LGraphNode {
       })
     }
     this.addProperty('buildings', 0, 'number')
-    this.addWidget('number', 'x', this.buildings, (value: number) => {
-      this.buildings = value
+    this.addWidget('number', 'x', this.numBuildings, (value: number) => {
+      this.numBuildings = value
     }, { min: 0, max: 100, precision: 1, step: 10, property: 'buildings' })
 
     this.title = tr(recipe.Name)
@@ -116,14 +117,14 @@ class RecipeNode extends LGraphNode {
 
   updateProperties () {
     // @ts-expect-error
-    this.setProperty('buildings', this.buildings)
+    this.setProperty('buildings', this.numBuildings)
   }
 
-  get buildings () {
+  get numBuildings () {
     return this.amount / this.speedFactor
   }
 
-  set buildings (value: number) {
+  set numBuildings (value: number) {
     if (value < 0) {
       return
     }
@@ -143,7 +144,27 @@ class RecipeNode extends LGraphNode {
           }
         }
       })
+      const text = this.getEnergyText()
+      if (text) {
+        const pos = [this.size[0] / 2 + 16, LiteGraph.NODE_SLOT_HEIGHT * (this.slots.length - 0.5) + 6]
+        ctx.fillStyle = LiteGraph.NODE_TEXT_COLOR
+        ctx.fillText(text, pos[0] + 4, pos[1] + 4)
+      }
     }
+  }
+
+  getEnergyText (): string {
+    if (this.buildingItems) {
+      const building = this.buildingItems.find(b => b.Name === this.building.value)
+      if (building !== undefined) {
+        const entity = DataLoader.getInstance().EntityMap[building.ID]
+        if (entity !== undefined) {
+          const energy = entity.workEnergyPerTick * this.numBuildings
+          return Entity.getEnergyText(Entity.getEnergy(entity, this.numBuildings))
+        }
+      }
+    }
+    return ''
   }
 
   loadImages (slotId: number, url: string) {
