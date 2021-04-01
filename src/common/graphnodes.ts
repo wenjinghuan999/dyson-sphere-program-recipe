@@ -51,13 +51,13 @@ class RecipeNode extends LGraphNode {
   slots: NodeSlot[] = [];
   numInputs = 0;
   recipe: Recipe;
-  amount: number;
+  amount = 0;
+  speedFactor = 1;
   building: BuildingWidget;
 
-  constructor (recipe: Recipe, amount = 0) {
+  constructor (recipe: Recipe) {
     super()
     this.recipe = recipe
-    this.amount = amount
     recipe.Items.forEach((itemId, index) => {
       const item = DataLoader.getInstance().ItemMap[itemId]
       this.addInput('', item.Name)
@@ -84,6 +84,14 @@ class RecipeNode extends LGraphNode {
       const defaultItem = this.recipe.Type === 4 ? items[1] : items[0]
       this.slots.push(new NodeSlot(defaultItem.ID, 0, (Math.max(recipe.Items.length, recipe.Results.length) + 1)))
       this.building = new BuildingWidget(tr(defaultItem.Name), { values: values }, items, (item: Item) => {
+        if (item.ID === 2303) {
+          this.speedFactor = 0.75
+        } else if (item.ID === 2305) {
+          this.speedFactor = 1.5
+        } else {
+          this.speedFactor = 1
+        }
+        this.updateProperties()
         import(`@/assets/${item.IconPath}.png`).then((module) => {
           this.loadImages(slotId, module.default)
         })
@@ -93,20 +101,33 @@ class RecipeNode extends LGraphNode {
         this.loadImages(slotId, module.default)
       })
     }
-    this.addProperty('amount', 0, 'number')
-    this.addWidget('number', 'x', this.amount, (value: number) => {
-      this.setAmount(value)
-    }, { min: 0, max: 100, precision: 1, step: 10, property: 'amount' })
+    this.addProperty('buildings', 0, 'number')
+    this.addWidget('number', 'x', this.buildings, (value: number) => {
+      this.buildings = value
+    }, { min: 0, max: 100, precision: 1, step: 10, property: 'buildings' })
 
     this.title = tr(recipe.Name)
   }
 
-  setAmount (amount: number) {
-    if (amount < 0) {
-      amount = 0
-    }
+  updateAmount (amount: number) {
+    this.amount = amount
+    this.updateProperties()
+  }
+
+  updateProperties () {
     // @ts-expect-error
-    this.setProperty('amount', amount)
+    this.setProperty('buildings', this.buildings)
+  }
+
+  get buildings () {
+    return this.amount / this.speedFactor
+  }
+
+  set buildings (value: number) {
+    if (value < 0) {
+      return
+    }
+    this.updateAmount(value * this.speedFactor)
   }
 
   onDrawForeground (ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement) {
