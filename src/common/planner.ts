@@ -1,4 +1,4 @@
-import { Item, Product, MiningProduct, Recipe } from '@/common/product'
+import { Item, Product, MiningProduct, Recipe, Entity } from '@/common/product'
 import { DataLoader } from '@/common/dataloader'
 
 class PlannerEdge {
@@ -79,6 +79,28 @@ class PlannerNode {
   removeUnusedInputs () {
     this.inputs = this.inputs.filter(input => input.from)
     this.provides = PlannerNode.GetProvides(this)
+  }
+
+  get building (): Item {
+    if (this.recipe) {
+      const items = DataLoader.getInstance().RecipeTypesMap[this.recipe.Type]
+      if (this.recipe.Type === 4) {
+        return items[1]
+      } else {
+        return items[0]
+      }
+    }
+    return Item.Empty
+  }
+
+  get energy (): number {
+    if (this.building) {
+      const entity = DataLoader.getInstance().EntityMap[this.building.ID]
+      if (entity !== undefined) {
+        return Entity.getEnergy(entity, this.amount)
+      }
+    }
+    return 0
   }
 
   static GetAmount (node: PlannerNode): number {
